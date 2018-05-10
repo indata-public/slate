@@ -129,7 +129,7 @@
   customerName| String | 客户名称 |
   finishStatus| String | 任务实例已经完成的状态, 0:已接听，1：拒接，2:无应答，3:主叫号码不可用, 4:空号, 5:关机, 6:占线, 7:停机, 8:未接, 9:主叫欠费 |
   breakEndTime| String | 暂时停止结束时间 |
-  status| Integer | 任务状态, 0:未开始,1:进行中,2:已完成,4:用户暂停,5:系统暂停,6:已终止 |
+  status| Integer | 任务状态, 0:未开始,1:进行中,2:已完成,3:可运行,4:用户暂停,5:系统暂停,6:已终止 |
   duration| Integer  | 通话时长 |
   chatRound| Integer | 通话轮次 |
   startTime| String | 开始拨打时间 |
