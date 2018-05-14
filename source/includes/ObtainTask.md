@@ -128,46 +128,46 @@ GET
 {
     "code": 200,
     "data": {
-        "callJobId": 19, // 任务id
-        "jobName": "testJob", // 任务名称
-        "jobType": 2, // 任务类型，1-定时，2-手动
-        "startDate": "2017-10-19", // 任务开始时间
-        "workingStartTime": "08:00:00", // 可拨打开始时间
-        "workingEndTime": "22:00:00", // 可拨打结束时间
-        "status": 2, // 任务状态, 0:未开始,1:进行中,2:已完成,4:用户暂停,5:系统暂停,6:已终止
-        "sceneDefId": 1, // 场景id
-        "remark": "testJobx", // 任务注释
-        "totalCount": 2, // 任务拨打的号码总数
-        "doneCount": 2, // 任务已完成拨打的号码总数
-        "calledCount": 0, // 任务已完成呼通的号码总数
-        "rejectedCount": 0, // 任务呼叫被拒接的号码总数
-        "unavailableCount": 0, // 任务呼叫无法接通的号码总数
-        "fromUnavailableCount": 2, // 任务主叫号码不可用的号码总数
-        "robotDefName": "产品电销", // 机器人名称
-        "sceneDefName": "金融催缴", // 场景名称
-        "sceneRecordName": "房产电销优化版(张飞)", // 录音名称
+        "callJobId": 19, 
+        "jobName": "testJob", 
+        "jobType": 2, 
+        "startDate": "2017-10-19", 
+        "workingStartTime": "08:00:00", 
+        "workingEndTime": "22:00:00", 
+        "status": 2, 
+        "sceneDefId": 1, 
+        "remark": "testJobx", 
+        "totalCount": 2, 
+        "doneCount": 2, 
+        "calledCount": 0, 
+        "rejectedCount": 0, 
+        "unavailableCount": 0, 
+        "fromUnavailableCount": 2, 
+        "robotDefName": "产品电销", 
+        "sceneDefName": "金融催缴", 
+        "sceneRecordName": "房产电销优化版(张飞)", 
         "durationStat": [
             {
-                "name": "<10s", // 通话时长的统计信息
+                "name": "<10s", 
                 "value": 22
             }
         ],
         "chatRoundStat": [
             {
-                "name": "0-9次", // 通话轮次的统计信息
+                "name": "0-9次", 
                 "value": 22
             }
         ],
         "resultDefs": [
             {
-                "name": "催缴结果", // 结果分析的枚举
+                "name": "催缴结果", 
                 "values": [
                     "成功",
                     "不成功"
                 ]
             }
         ],
-        "callPhones": [ // 主叫电话号码列表，格式和getPhones返回结果相同
+        "callPhones": [ 
             {
                 "jobPhoneId": 26,
                 "userPhoneId": 1,
@@ -188,7 +188,7 @@ GET
             }
         ],
         "extraStat": {
-           "客户意向等级": [ // 任务分析结果统计信息
+           "客户意向等级": [ 
                {
                    "name": "较强",
                    "value": 1
@@ -291,16 +291,16 @@ GET
  ```
  
 {
-	"callJobId" : 62, // 任务id
-	"durationLeft" : 0, // 通话时长左值
-	"durationRight" : 100, // 通话时长右值
-	"chatRoundLeft":0, // 通话轮次左值
-	"chatRoundRight":10, // // 通话时长右值
-	"finishStatus" : 1, // 0:已接听，1：拒接，2:无应答，3:主叫号码不可用, 4:空号, 5:关机, 6:占线, 7:停机, 8:未接, 9:主叫欠费
-	"index": -1,    // 已经获取过任务结果的最大的index(第一次的时候传入-1，默认不传也是-1)，index是指任务中电话结束顺序
-	"pageNum": 1,    // 第几页(默认为1)
-	"pageSize": 10,    // 显示数量/页（默认为10）
-	"resultQueryList" : [ // 支持按分析结果作为条件
+	"callJobId" : 62, 
+	"durationLeft" : 0, 
+	"durationRight" : 100, 
+	"chatRoundLeft":0, 
+	"chatRoundRight":10, 
+	"finishStatus" : 1, 
+	"index": -1,    
+	"pageNum": 1,    
+	"pageSize": 10,    
+	"resultQueryList" : [ 
 		{
 			"name" : "客户意向等级",
 			"value" : "A级(较强)"
@@ -326,26 +326,26 @@ GET
          "pages": 1,
          "list": [
              {
-                 "callInstanceId": 493, // 任务实例id（每个被叫电话为一个实例）
-                 "sceneDefId": 1, // 场景id
-                 "callJobId": 62, // 任务id
-                 "customerTelephone": "1008", // 被叫客户电话号码
-                 "customerName": "测试02",  // 被叫客户名称
-                 "status": 2, // 任务实例状态, 0: 未开始，1: 进行中，2: 已完成，3: 二次拨打调度中
-                 "finishStatus": 0, // 任务实例已经完成的状态, 0:已接听，1：拒接，2:无应答，3:主叫号码不可用, 4:空号, 5:关机, 6:占线, 7:停机, 8:未接, 9:主叫欠费
-                 "duration": "27秒", // 通话时长
-                 "chatRound": 0, // 通话轮次
-                 "startTime": "2017-10-25 11:32:54", // 开始拨打时间
-                 "endTime": "2017-10-25 11:33:22", // 结束拨打时间
-                 "callerPhone": "15868457106", // 主叫电话
-                 "callIndex": 10,              // 电话结束顺序index
-                 "luyinOssUrl": "https://jingrobot-dev.oss-cn-hangzhou.aliyuncs.com/RobotPhoneCommunicate/493.mp3", // 通话录音
-                 "secondaryCallTime": "1970-01-01 11:18:13", // 二次重试拨打时间
-                 "secondaryCallTimes": 0, // 重试拨打次数
+                 "callInstanceId": 493, 
+                 "sceneDefId": 1, 
+                 "callJobId": 62, 
+                 "customerTelephone": "1008", 
+                 "customerName": "测试02",  
+                 "status": 2, 
+                 "finishStatus": 0,
+                 "duration": "27秒", 
+                 "chatRound": 0, 
+                 "startTime": "2017-10-25 11:32:54", 
+                 "endTime": "2017-10-25 11:33:22", 
+                 "callerPhone": "15868457106", 
+                 "callIndex": 10,  
+                 "luyinOssUrl": "https://jingrobot-dev.oss-cn-hangzhou.aliyuncs.com/RobotPhoneCommunicate/493.mp3", 
+                 "secondaryCallTime": "1970-01-01 11:18:13", 
+                 "secondaryCallTimes": 0, 
                  "gmtCreate": "2017-10-25 09:45:32",
                  "gmtModified": "2017-10-25 11:33:22",
-                 "jobName": "电话任务", // 任务名称
-                 "resultList": [ // 通话分析结果信息
+                 "jobName": "电话任务", 
+                 "resultList": [ 
                      {
                          "name": "催缴结果",
                          "value": "成功"
@@ -458,12 +458,12 @@ GET
     "code": 200,
      "data": {
         "phoneLog": {
-            "phoneLogs": [ // 对话内容
+            "phoneLogs": [ 
                 {
                     "sceneInstanceLogId": 1321,
-                    "sceneInstanceId": 540, // 任务实例id
-                    "speaker": "AI", // 角色
-                    "content": "哎，您好，等待2s 哎，您好，拱墅区 中大银泰城边上有个首付50万左右的精装公寓你考虑吗？", // 内容
+                    "sceneInstanceId": 540, 
+                    "speaker": "AI", 
+                    "content": "哎，您好，等待2s 哎，您好，拱墅区 中大银泰城边上有个首付50万左右的精装公寓你考虑吗？", 
                     "userMean": null,
                     "userMeanDetail": null,
                     "aiUnknown": false,
@@ -498,22 +498,22 @@ GET
                     "gmtCreate": "2018-01-24 20:51:57",
                     "gmtModified": "2018-01-24 20:51:57"
                 }
-          "luyinOssUrl": "https://byrobot-test.oss-cn-hangzhou.aliyuncs.com/RobotPhoneCommunicate/540/JYSYDCCHVFYYTMGJKKHJAMHARNNBWEJQ.wav" // 通话录音
+          "luyinOssUrl": "https://byrobot-test.oss-cn-hangzhou.aliyuncs.com/RobotPhoneCommunicate/540/JYSYDCCHVFYYTMGJKKHJAMHARNNBWEJQ.wav" 
          },
          "sceneInstance": {
-             "callInstanceId": 540, // 任务实例id
-             "companyId": 1, // 公司id
-             "callJobId": 31, // 任务id
-             "customerId": 55, // 客户id
-             "customerTelephone": "17751279857", // 客户手机
-             "customerName": "不弃", // 客户名称
-             "status": 2,  // 任务实例状态, 0: 未开始，1: 进行中，2: 已完成，3: 二次拨打调度中
-             "finishStatus": 0, // 任务实例已经完成的状态, 0:已接听，1：拒接，2:无应答，3:主叫号码不可用, 4:空号, 5:关机, 6:占线, 7:停机, 8:未接, 9:主叫欠费
-             "duration": 87, // 通话时长
-             "chatRound": 18, // 通话轮次
-             "startTime": "2018-01-24 20:51:53", // 开始拨打时间
-             "endTime": "2018-01-24 20:53:28", // 结束拨打时间
-             "callerPhone": "18072749353", // 主叫电话
+             "callInstanceId": 540, 
+             "companyId": 1, 
+             "callJobId": 31, 
+             "customerId": 55, 
+             "customerTelephone": "17751279857", 
+             "customerName": "不弃", 
+             "status": 2, 
+             "finishStatus": 0,
+             "duration": 87, 
+             "chatRound": 18, 
+             "startTime": "2018-01-24 20:51:53", 
+             "endTime": "2018-01-24 20:53:28", 
+             "callerPhone": "18072749353", 
              "luyinOssUrl": "https://byrobot-test.oss-cn-hangzhou.aliyuncs.com/RobotPhoneCommunicate/540/JYSYDCCHVFYYTMGJKKHJAMHARNNBWEJQ.wav",
              "userLuyinOssUrl": "https://byrobot-test.oss-cn-hangzhou.aliyuncs.com/RobotPhoneCommunicate/540_user.wav",
              "properties": "{}",
@@ -531,7 +531,7 @@ GET
              "gmtCreate": "2018-01-24 20:51:31",
              "gmtModified": "2018-02-03 18:27:19"
          },
-         "taskResult": [ // 任务结果分析
+         "taskResult": [ 
              {
                  "sceneInstanceResultId": 188,
                  "companyId": 1,

@@ -215,12 +215,12 @@ POST
   ```
   
  {
-   "companyId" : 1, // 公司id
-   "taskId" : 67, // 任务id
+   "companyId" : 1, 
+   "taskId" : 67, 
    "customerInfoList" : [
      	{
-     		"name" : "张三", // 客户名称
-     		"phone" : "13333333333" // 客户手机
+     		"name" : "张三", 
+     		"phone" : "13333333333" 
      	},
      	{
      		"name" : "李四",
