@@ -82,7 +82,7 @@ GET
  companyId| Integer| 是 | 公司Id| 1 |
  taskName| String| 否 |任务名称| 测试API任务 |
  createDate| String| 否 | | "2017-10-19" |
- status| Integer| 否 | 任务状态,选填 - 0:未开始,1:进行中,2:已完成,4:手动暂停,5:自动暂停,6:已终止,7:排队中,8:AI到期,9:账户欠费| 1 |
+ status| Integer| 否 | 任务状态,选填 - 0:未开始,1:进行中,2:已完成,3:调度中,4:手动暂停,5:自动暂停,6:已终止,7:排队中,8:AI到期,9:账户欠费| 1 |
  pageNum| Integer| 否 | 第几页,默认1| 1 |
  pageSize| Integer| 否 | 页面大小,选填,默认10| 10 |
 
