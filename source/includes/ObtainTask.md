@@ -100,7 +100,7 @@ GET
  callJobId| Integer | 任务id |
  jobName| String | 任务名称 |
  jobType| Integer | 任务类型，1-定时，2-手动 |
- startDate| object | 任务开始时间 |
+ startDate| String | 任务开始时间 |
  workingStartTime| String | 可拨打开始时间 |
  workingEndTime| String | 可拨打结束时间 |
  breakStartTime| String | 暂时停止开始时间 |
@@ -257,7 +257,7 @@ GET
  callJobId| Integer | 任务id |
  jobName| String | 任务名称 |
  jobType| Integer | 任务类型，1-定时，2-手动 |
- startDate| object | 任务开始时间 |
+ startDate| String | 任务开始时间 |
  workingStartTime| String | 可拨打开始时间 |
  workingEndTime| String | 可拨打结束时间 |
  breakStartTime| String | 暂时停止开始时间 |
