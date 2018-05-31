@@ -164,7 +164,7 @@ GET
 
 ###请求：
 
-URL：http://api.byrobot.cn/openapi/v1/company/getPhones
+URL：http://api.byrobot.cn/openapi/v1/company/getRobots
 
 ###请求方法：
 
