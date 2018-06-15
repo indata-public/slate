@@ -71,7 +71,7 @@ POST
  sceneDefId| Integer| 是 | 场景id| 1 |
  robotDefId| Integer| 是 | 机器人id| 1 |
  sceneRecordId| Integer| 是 | 机器人话术录音id| 1 |
- callType| Integer| 否 | 外呼类型，0-sim卡（默认）, 1-固话, 2-无主叫| 1 |
+ callType| Integer| 否 | 外呼类型，0-sim卡,1-固话（默认）, 2-无主叫| 1 |
  concurrencyQuota| Integer| 否 | 并发数，默认1| 1 |
  smsType| Integer| 否 | 是否发送短信：1-是，0-否（默认）| 1 |
  remark| String| 否 | 备注| 测试|
