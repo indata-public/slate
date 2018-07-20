@@ -225,15 +225,15 @@ POST
 		{
 			"name":"测试0",
 			"phone":"18311110000",
-			"properties":{    //客户额外信息，如果话术中包含变量，则需要在properties中加上对应字段，map的key和话术中的变量保持一致。如果话术没有变量，则不要properties
+			"properties":{  //客户额外信息，如果话术中包含变量，则需要在properties中加上对应字段，map的key和话术中的变量保持一致。如果话术没有变量，则不要properties
 				"real_name":"real"
 			}
 		},
 		{
 			"name":"测试1",
 			"phone":"18311112222",
-			"properties":{
-				"real_name":"real" //客户额外信息，如果话术中包含变量，则需要在properties中加上对应字段，map的key和话术中的变量保持一致properties
+			"properties":{  //客户额外信息，如果话术中包含变量，则需要在properties中加上对应字段，map的key和话术中的变量保持一致。如果话术没有变量，则不要properties
+				"real_name":"real"
 			}
 		}
 	]
@@ -270,6 +270,7 @@ POST
   taskId| Integer| 是 | 任务Id| 1 |
   name| String| 是 | 客户名称| 张三 |
   phone| String| 是 | 客户电话| 13998987676 |
+  properties| Map<String,String>| 否 | 客户额外信息| 请看json入参 | 如果话术中包含变量，则需要在properties中加上对应字段，map的key和话术中的变量保持一致。如果话术没有变量，则不要properties
 
  
  
