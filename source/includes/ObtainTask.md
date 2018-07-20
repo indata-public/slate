@@ -404,13 +404,13 @@ GET
    durationRight| Integer| 否 |通话时长右值| 100 |
   chatRoundLeft| Integer| 否 |通话轮次左值| 21 |
   chatRoundRight| Integer| 否 |通话时长右值| 21 |
-  finishStatus| Integer| 否 |0:已接听，1：拒接，2:无应答，3:主叫号码不可用, 4:空号, 5:关机, 6:占线, 7:停机, 8:未接, 9:主叫欠费| 1 |
+  finishStatus| Integer| 否 |0:已接, 1:拒接, 2:无法接通, 3:主叫号码不可用, 4:空号, 5:关机, 6:占线, 7:停机, 8:未接, 9:主叫欠费| 1 |
   index| Integer| 否 |已经获取过任务结果的最大的index(第一次的时候传入-1，默认不传也是-1)，index是指任务中电话结束顺序| 21 |
   pageNum| Integer| 否 |第几页(默认为1)| 1 |
   pageSize| Integer| 否 |显示数量/页（默认为10）| 10 |
   resultQueryList| List| 否 |支持按分析结果作为条件| 10 |
   
- 
+  
 ###响应：
  
  参数名 | 类型 | 描述 
@@ -426,7 +426,7 @@ GET
   customerTelephone| String | 被叫客户电话号码 |
   customerName| String | 被叫客户名称 |
   status| String | 任务实例状态, 0: 未开始，1: 进行中，2: 已完成，3: 二次拨打调度中 |
-  finishStatus| String | 任务实例已经完成的状态, 0:已接听，1：拒接，2:无应答，3:主叫号码不可用, 4:空号, 5:关机, 6:占线, 7:停机, 8:未接, 9:主叫欠费 |
+  finishStatus| String | 任务实例已经完成的状态, 0:已接, 1:拒接, 2:无法接通, 3:主叫号码不可用, 4:空号, 5:关机, 6:占线, 7:停机, 8:未接, 9:主叫欠费 |
   duration| Integer  | 通话时长 |
   chatRound| Integer | 通话轮次 |
   startTime| String | 开始拨打时间 |
@@ -589,7 +589,7 @@ GET
   customerId| Integer | 客户id |
   customerTelephone| String | 客户手机 |
   customerName| String | 客户名称 |
-  finishStatus| String | 任务实例已经完成的状态, 0:已接听，1：拒接，2:无应答，3:主叫号码不可用, 4:空号, 5:关机, 6:占线, 7:停机, 8:未接, 9:主叫欠费 |
+  finishStatus| String | 任务实例已经完成的状态, 0:已接, 1:拒接, 2:无法接通, 3:主叫号码不可用, 4:空号, 5:关机, 6:占线, 7:停机, 8:未接, 9:主叫欠费 |
   status| Integer | 任务状态, 0:未开始,1:进行中,2:已完成,3:调度中,4:手动暂停,5:自动暂停,6:已终止,7:排队中,8:AI到期,9:账户欠费 |
   duration| Integer  | 通话时长 |
   chatRound| Integer | 通话轮次 |
@@ -597,7 +597,7 @@ GET
   endTime| String | 结束拨打时间 |
   callerPhone| String | 主叫电话 |
   luyinOssUrl| Integer | 通话录音 |
-  callType| Integer | 拨打类型 0: 免费试用 1: 任务 2: 用户单独拨打 3: 收费试用 4:Ope后台拨打 100: 人工拨打  |
+  callType| Integer | 拨打类型 0: 免费试用 1: 任务 2: 用户单独拨打 |
   readStatus| Integer | 是否已读 0: 未读 1: 已读 |
   robotDefId| String | 关联的机器人id |
   sceneDefId| String | 场景ID | 

@@ -130,7 +130,7 @@
   sceneInstanceId| Integer | 任务实例id |
   speaker| String |角色|
   content| String | 内容 |
-  aiUnknown| Integer | 是否是ai无法应答的问题，1-是，0-否 |
+  aiUnknown| Integer | 是否是ai无法应答的问题, 1-是, 0-否 |
   luyinOssUrl| String |通话录音|
   callInstanceId| Integer | 任务实例id（每个被叫电话为一个实例） |
   companyId| Integer | 公司id |
@@ -138,7 +138,7 @@
   customerId| Integer | 客户id |
   customerTelephone| String | 客户手机 |
   customerName| String | 客户名称 |
-  finishStatus| String | 任务实例已经完成的状态, 0:已接听，1：拒接，2:无应答，3:主叫号码不可用, 4:空号, 5:关机, 6:占线, 7:停机, 8:未接, 9:主叫欠费 |
+  finishStatus| String | 任务实例已经完成的状态, 0:已接听, 1:拒接, 2:无法接通, 3:主叫号码不可用, 4:空号, 5:关机, 6:占线, 7:停机, 8:未接, 9:主叫欠费 |
   breakEndTime| String | 暂时停止结束时间 |
   status| Integer | 任务状态, 0:未开始,1:进行中,2:已完成,3:调度中,4:手动暂停,5:自动暂停,6:已终止,7:排队中,8:AI到期,9:账户欠费 |
   duration| Integer  | 通话时长 |
