@@ -67,7 +67,7 @@ GET
     "data": [
         {
             "userPhoneId": 0, 
-            "phone": "17706423289", 
+            "phone": "17706421111", 
             "phoneName": "可用卡1", 
             "phoneType": 0, 
             "available": false, 
@@ -76,7 +76,7 @@ GET
         },
         {
             "userPhoneId": 13,
-            "phone": "18072749353",
+            "phone": "18072741111",
             "phoneName": "可用卡2",
             "phoneType": 0,
             "available": true,

@@ -41,7 +41,7 @@
  　　　　　　　　"callJobId":281,
  　　　　　　　　"customerId":1673,
  　　　　　　　　"customerTelephone":"17751279857",
- 　　　　　　　　"customerName":"曹文浩",
+ 　　　　　　　　"customerName":"一二",
  　　　　　　　　"status":2,
  　　　　　　　　"finishStatus":0,
  　　　　　　　　"duration":5,
@@ -55,7 +55,7 @@
  　　　　　　　　"handlePerson":"房产电销精品录音(右琪)@20171226@20180105_20_31_18",
  　　　　　　　　"callType":1,
  　　　　　　　　"readStatus":0,
- 　　　　　　　　"jobName":"不弃的测试",
+ 　　　　　　　　"jobName":"测试",
  　　　　　　　　"robotDefId":24,
  　　　　　　　　"sceneDefId":77,
  　　　　　　　　"sceneRecordId":72,
@@ -71,8 +71,8 @@
  　　　　　　　　"gmtCreate":"2018-04-04 15:01:40",
  　　　　　　　　"gmtModified":"2018-04-04 15:32:23",
  　　　　　　　　"propertiesMap":{
- 　　　　　　　　　　"客户名称":"曹文浩",
- 　　　　　　　　　　"联系方式":"17751279857"
+ 　　　　　　　　　　"客户名称":"一二",
+ 　　　　　　　　　　"联系方式":"17751211111"
  　　　　　　　　}
  　　　　　　},
  　　　　　　"taskResult":[
