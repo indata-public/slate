@@ -214,25 +214,31 @@ POST
  
  通过此接口可以向指定的任务导入客户信息，用于拨打电话
  
- >入参JOSN实例:
+ >入参JSON实例:
  
   ```
-  
- {
-   "companyId" : 1, 
-   "taskId" : 67, 
-   "customerInfoList" : [
-     	{
-     		"name" : "张三", 
-     		"phone" : "13333333333" 
-     	},
-     	{
-     		"name" : "李四",
-     		"phone" : "15555555555"
-     	}
-   ]
- }
  
+{
+	"taskId":10000,
+	"companyId":2000,
+	"customerInfoList":[
+		{
+			"name":"测试0",
+			"phone":"18311110000",
+			"properties":{    //客户额外信息，如果话术中包含变量，则需要在properties中加上对应字段，map的key和话术中的变量保持一致。如果话术没有变量，则不要properties
+				"real_name":"real"
+			}
+		},
+		{
+			"name":"测试1",
+			"phone":"18311112222",
+			"properties":{
+				"real_name":"real" //客户额外信息，如果话术中包含变量，则需要在properties中加上对应字段，map的key和话术中的变量保持一致properties
+			}
+		}
+	]
+} 
+  
   ```
   
  >JSON响应实例：
