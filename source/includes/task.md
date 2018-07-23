@@ -39,7 +39,7 @@
 ```
 {
     "code": 200,
-    "data": 67,
+    "data": 67, //返回刚刚创建的任务ID
     "resultMsg": "操作成功",
     "errorStackTrace": null
 }
@@ -83,6 +83,7 @@ POST
 参数名 | 类型 | 描述 
 --------- | ------- |------
  code|integer | 响应码 |
+ data|integer | 刚刚创建的任务ID |
  resultMsg| String | 响应说明 |
 
 ##启动任务接口
