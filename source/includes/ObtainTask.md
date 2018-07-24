@@ -607,3 +607,52 @@ GET
   hangUp| List | 挂机人, 0: AI 1: 用户 |
   taskResult| String | 任务结果分析 |
   resultMsg| String | 响应说明 |
+
+
+##修改任务AI坐席数接口
+
+###功能说明：
+
+通过接口可以更改AI坐席数量，功能同crm端编辑话术时修改外呼号码的AI坐席数
+
+>JSON响应实例：
+
+```
+{
+    "code": 200,
+    "data": null,
+    "resultMsg": "修改成功",
+    "errorStackTrace": null
+}
+
+```
+
+###请求：
+
+URL：http://api.byrobot.cn/openapi/v1/task/update
+
+###请求方法：
+
+POST
+
+
+###请求参数:
+
+参数名 | 类型 | 是否必须 | 描述 | 实例 
+--------- | ------- |------- | ------ |------
+ companyId| Integer| 是 | 公司Id| 1 |
+ taskId| Integer| 是 | 任务Id| 1 |
+ taskName| String| 是 | 任务名称| 1 |
+ taskType| Integer| 是 | 任务类型| 1 |
+ userPhoneIds| String| 是 | 外呼号码| 1 |
+ callType| Integer| 是 | 外呼类型| 1 |
+ concurrencyQuota| Integer| 是 | 公司Id| 1 |
+
+
+###响应：
+
+参数名 | 类型 | 描述 
+--------- | ------- |------
+ code|integer | 响应码 |
+ resultMsg| String | 响应说明 |
+
