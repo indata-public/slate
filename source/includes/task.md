@@ -288,6 +288,28 @@ POST
 
 通过接口可以更改AI坐席数量，功能同crm端编辑话术时修改外呼号码的AI坐席数
 
+>入参JSON实例
+
+```
+{
+  //公司Id
+  "companyId": 123,
+  //任务Id
+  "taskId":1669,
+  //任务名称
+  "taskName":"test",
+  //任务类型 详见枚举
+  "taskType":1,
+  //外呼号码列表，当有多个外呼号码时可以用[,]分隔
+  "userPhoneIds":"255,244",
+  //外呼类型 详见枚举
+  "callType":1,
+  //并发数
+  "concurrencyQuota":2
+}
+
+```
+
 >JSON响应实例：
 
 ```
@@ -329,49 +351,64 @@ POST
  code|integer | 响应码 |
  resultMsg| String | 响应说明 |
  
- ##单次电话外呼
+##单次电话外呼
   
- ###功能说明：
+###功能说明：
   
-  通过调用此接口可以进行单次电话外呼
-  
-  >JSON响应实例：
-  
-  ```
-  {
-      "code": 200,
-      "data": null,
-      "resultMsg": "外呼成功",
-      "errorStackTrace": null
+通过调用此接口可以进行单次电话外呼
+>入参JSON实例
+
+```
+{
+  "customerId": 1
+  "mobile": 13886871111
+  "companyId": 1
+  "variable": {
+    "userName":"张三",
+    "age":15
   }
+  "sceneId": 255
+  "sceneRecordId": 256
+  "robotDefId": 230
+}
+```
+>JSON响应实例：
+
+```
+{
+    "code": 200,
+    "data": null,
+    "resultMsg": "外呼成功",
+    "errorStackTrace": null
+}
+
+```
   
-  ```
-  
- ###请求：
-  
-  URL：http://api.byrobot.cn/openapi/v1/task/call
-  
- ###请求方法：
-  
-  POST
-  
-  
- ###请求参数:
-  
-  参数名 | 类型 | 是否必须 | 描述 | 实例 
-  --------- | ------- |------- | ------ |----------
-   customerId| Integer| 否 | 客户Id| 1 |  
-   mobile| Integer| 是 | 客户手机号| 1 |  
-   companyId| Integer| 是 | 公司Id| 1 |  
-   variables| Map<String,String>| 是 | 变量（如果话术内设置变量则需要传入）| 1 |      
-   sceneId| Integer| 是 | 机器人话术场景Id| 1 |  
-   sceneRecordId| Integer| 是 |机器人话术录音Id | 1 |  
-   robotDefId| Integer| 是 | 机器人话术Id | 1 |  
-  
- ###响应：
-  
-  参数名 | 类型 | 描述 
-  --------- | ------- |------
-   code|Integer | 响应码 |
-   resultMsg| String | 响应说明 |
+###请求：
+ 
+ URL：http://api.byrobot.cn/openapi/v1/task/call
+ 
+###请求方法：
+ 
+ POST
+ 
+ 
+###请求参数:
+ 
+ 参数名 | 类型 | 是否必须 | 描述 | 实例 
+ --------- | ------- |------- | ------ |----------
+  customerId| Integer| 否 | 客户Id| 1 |  
+  mobile| Integer| 是 | 客户手机号| 1 |  
+  companyId| Integer| 是 | 公司Id| 1 |  
+  variables| Map<String,String>| 是 | 变量（如果话术内设置变量则需要传入）| 1 |      
+  sceneId| Integer| 是 | 机器人话术场景Id| 1 |  
+  sceneRecordId| Integer| 是 |机器人话术录音Id | 1 |  
+  robotDefId| Integer| 是 | 机器人话术Id | 1 |  
+ 
+###响应：
+ 
+ 参数名 | 类型 | 描述 
+ --------- | ------- |------
+  code|Integer | 响应码 |
+  resultMsg| String | 响应说明 |
 
