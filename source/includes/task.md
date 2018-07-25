@@ -397,7 +397,7 @@ POST
  
  参数名 | 类型 | 是否必须 | 描述 | 实例 
  --------- | ------- |------- | ------ |----------
-  customerId| Integer| 否 | 客户Id| 1 |  
+  customerId| Integer| 是 | 客户Id| 1 |  
   mobile| Integer| 是 | 客户手机号| 1 |  
   companyId| Integer| 是 | 公司Id| 1 |  
   variables| Map<String,String>| 否 | 变量（如果话术内设置变量则需要传入）| 1 |      
