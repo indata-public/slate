@@ -422,13 +422,14 @@ POST
 ```
 {
   "mobile": 13886871111
-  "companyId": 1
+  "companyId": 1,
   "variable": {
     "userName":"张三",
     "age":15
-  }
-  "sceneId": 255
-  "sceneRecordId": 256
+  },
+  userName:,"客户姓名",
+  "sceneId": 255,
+  "sceneRecordId": 256,
   "robotDefId": 230
 }
 ```
