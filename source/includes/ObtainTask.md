@@ -601,10 +601,10 @@ GET
   readStatus| Integer | 是否已读 0: 未读 1: 已读 |
   robotDefId| String | 关联的机器人id |
   sceneDefId| String | 场景ID | 
-  sceneRecordId| List | 关联的录音id | 
+  sceneRecordId| Integer | 关联的录音id | 
   trackResult| List | bug追踪结果 | 
-  jobName| List | 任务名称 | 
-  hangUp| List | 挂机人, 0: AI 1: 用户 |
+  jobName| String | 任务名称 | 
+  hangUp| Integer | 挂机人, 0: AI 1: 用户 |
   taskResult| String | 任务结果分析 |
   resultMsg| String | 响应说明 |
 
