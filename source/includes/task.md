@@ -468,7 +468,8 @@ POST
  
 ###响应：
  
- 参数名 | 类型 | 描述 
+ 参数名 | 类型 | 描述 |
  --------- | ------- |------
   code|Integer | 响应码 |
+  data|Integer | 通话记录Id|
   resultMsg| String | 响应说明 |
