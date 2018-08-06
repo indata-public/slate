@@ -208,12 +208,57 @@ POST
  --------- | ------- |------
   code|integer | 响应码 |
   resultMsg| String | 响应说明 |
+  
+##删除任务
+  
+###功能说明：
+  
+通过调用此接口可以删除任务信息
+>入参JSON实例
+
+```
+{
+  "taskId": "1"
+}
+```
+>JSON响应实例：
+
+```
+{
+    "code": 200,
+    "data": null,
+    "resultMsg": "删除成功",
+    "errorStackTrace": null
+}
+
+```
+  
+###请求：
+ 
+ URL：http://api.byrobot.cn/openapi/v1/task/delete
+ 
+###请求方法：
+ 
+ POST
+ 
+ 
+###请求参数:
+ 
+ 参数名 | 类型 | 是否必须 | 描述 | 实例 
+ --------- | ------- |------- | ------ |----------
+  taskId| String| 是 | 删除任务| 1 |  
+###响应：
+ 
+ 参数名 | 类型 | 描述 |
+ --------- | ------- |------
+  code|Integer | 响应码 |
+  resultMsg| String | 响应说明 |
 
 ##向任务中导入客户接口
  
 ###功能说明：
  
- 通过此接口可以向指定的任务导入客户信息，用于拨打电话
+ 通过此接口可以删除任务信息
  
  >入参JSON实例:
  
@@ -473,3 +518,6 @@ POST
   code|Integer | 响应码 |
   data|Integer | 通话记录Id|
   resultMsg| String | 响应说明 |
+  
+  
+  
