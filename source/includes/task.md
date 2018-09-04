@@ -412,7 +412,7 @@ POST
     "userName":"张三",
     "age":15
   }
-  "sceneId": 255
+  "sceneDefId": 255
   "sceneRecordId": 256
   "robotDefId": 230
 }
@@ -446,7 +446,7 @@ POST
   mobile| Integer| 是 | 客户手机号| 1 |  
   companyId| Integer| 是 | 公司Id| 1 |  
   variables| Map<String,String>| 否 | 变量（如果话术内设置变量则需要传入）| 1 |      
-  sceneId| Integer| 是 | 机器人话术场景Id| 1 |  
+  sceneDefId| Integer| 是 | 机器人话术场景Id| 1 |  
   sceneRecordId| Integer| 是 |机器人话术录音Id | 1 |  
   robotDefId| Integer| 是 | 机器人话术Id | 1 |  
  
