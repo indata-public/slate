@@ -106,7 +106,8 @@
  　　　　　　　　　　}
  　　　　　　　　],
  　　　　　　　　"luyinOssUrl":"https://byrobot-test.oss-cn-hangzhou.aliyuncs.com/RobotPhoneCommunicate/5357/HNZVBAMHQUGTEWVMJRBNTVMFQWSVFDEL.wav"
- 　　　　　　}
+ 　　　　　　}，
+          "jobFinished":true
  　　　　}
  　　},
  　　"resultMsg":"成功",
@@ -156,6 +157,7 @@
   jobName| List | 任务名称 | 
   hangUp| List | 挂机人, 0: AI 1: 用户 |
   taskResult| String | 任务结果分析 |
+  jobFinished | Boolean|任务是否完成 true:已完成，false：未完成
   
 
  

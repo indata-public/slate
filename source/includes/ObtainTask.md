@@ -590,7 +590,7 @@ GET
   customerTelephone| String | 客户手机 |
   customerName| String | 客户名称 |
   finishStatus| String | 任务实例已经完成的状态, 0:已接, 1:拒接, 2:无法接通, 3:主叫号码不可用, 4:空号, 5:关机, 6:占线, 7:停机, 8:未接, 9:主叫欠费 |
-  status| Integer | 任务状态, 0:未开始,1:进行中,2:已完成,3:调度中,4:手动暂停,5:自动暂停,6:已终止,7:排队中,8:AI到期,9:账户欠费 |
+  status| Integer | |
   duration| Integer  | 通话时长 |
   chatRound| Integer | 通话轮次 |
   startTime| String | 开始拨打时间 |
@@ -601,9 +601,13 @@ GET
   readStatus| Integer | 是否已读 0: 未读 1: 已读 |
   robotDefId| String | 关联的机器人id |
   sceneDefId| String | 场景ID | 
-  sceneRecordId| List | 关联的录音id | 
+  sceneRecordId| Integer | 关联的录音id | 
   trackResult| List | bug追踪结果 | 
-  jobName| List | 任务名称 | 
-  hangUp| List | 挂机人, 0: AI 1: 用户 |
+  jobName| String | 任务名称 | 
+  hangUp| Integer | 挂机人, 0: AI 1: 用户 |
   taskResult| String | 任务结果分析 |
   resultMsg| String | 响应说明 |
+
+
+
+
