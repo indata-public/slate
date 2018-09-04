@@ -274,3 +274,60 @@
  --------- | ------- |------
   code|integer | 响应码 |
   resultMsg| String | 响应说明 |
+
+
+
+##手动修改客户意向等级回调接口
+
+ 
+###功能说明：
+ 
+ 当在crm端手动修改客户意向等级后，百应机器人会自动调用回调程序向用户配置的回调地址，发送本次通话详情。
+   
+ <aside class="notice">
+ 请您在对接接口前，务必配置好回调地址,否则回调将无法成功。 
+ </aside>
+ 
+ >返回JSON实例:
+ 
+  ```
+ {
+ 　　"code":200,
+ 　　"data":{
+ 　　　　"dataType":"CALL_INSTANCE_RESULT",
+        "data":{
+           "sceneInstanceId":95862151,
+           "resultName":"客户意向等级",
+           "resultValue":"A级(较强)"
+ 　　　　　　}
+ 　　},
+ 　　"resultMsg":"成功",
+ 　　"errorStackTrace":null
+ }
+ 
+  ```
+
+
+###请求方法：
+ 
+ POST
+ 
+ 
+###请求参数:
+ 
+ 参数名 | 类型  | 描述  
+ --------- | ------- | ------ 
+  sceneInstanceId| Integer | 任务实例id |
+  taskResult| String | 任务结果分析 |
+  resultName|String|客户意向等级名
+  resultValue|String|客户意向等级值
+  
+
+ 
+ 
+###响应：
+ 
+ 参数名 | 类型 | 描述 
+ --------- | ------- |------
+  code|integer | 响应码 |
+  resultMsg| String | 响应说明 |
