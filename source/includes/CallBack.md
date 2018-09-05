@@ -293,19 +293,22 @@
  >返回JSON实例:
  
   ```
- {
- 　　"code":200,
- 　　"data":{
- 　　　　"dataType":"CALL_INSTANCE_RESULT",
-        "data":{
-           "sceneInstanceId":95862151,
-           "resultName":"客户意向等级",
-           "resultValue":"A级(较强)"
- 　　　　　　}
- 　　},
- 　　"resultMsg":"成功",
- 　　"errorStackTrace":null
- }
+{
+	"code": 200,
+	"data": {
+		"dataType": "CALL_INSTANCE_RESULT",
+		"data": {
+			"taskResult": [{
+				"companyId": 241,
+				"sceneInstanceId": 2016,
+				"resultName": "客户意向等级",
+				"resultValue": "B"
+			}]
+		}
+	},
+	"resultMsg": "成功",
+	"errorStackTrace": null
+}
  
   ```
 
