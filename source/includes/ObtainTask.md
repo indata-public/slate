@@ -599,9 +599,9 @@ GET
   luyinOssUrl| Integer | 通话录音 |
   callType| Integer | 拨打类型 0: 免费试用 1: 任务 2: 用户单独拨打 |
   readStatus| Integer | 是否已读 0: 未读 1: 已读 |
-  robotDefId| String | 关联的机器人id |
+  robotDefId| String | 机器人id |
   sceneDefId| String | 场景ID | 
-  sceneRecordId| Integer | 关联的录音id | 
+  sceneRecordId| Integer | 场景录音id | 
   trackResult| List | bug追踪结果 | 
   jobName| String | 任务名称 | 
   hangUp| Integer | 挂机人, 0: AI 1: 用户 |

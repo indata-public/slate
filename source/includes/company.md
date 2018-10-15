@@ -184,10 +184,10 @@ GET
 参数名 | 类型 | 描述 
 --------- | ------- |------
  code|integer | 响应码 |
- robotDefId|Integer | 机器人话术id |
- robotName| String | 机器人话术名称 |
- sceneDefId| Integer | 机器人话术场景id |
- sceneRecordId| Integer | 机器人话术录音id |
- sceneRecordName| String | 机器人录音名称 |
+ robotDefId|Integer | 机器人Id |
+ robotName| String | 机器人名称 |
+ sceneDefId| Integer | 场景Id |
+ sceneRecordId| Integer | 场景录音id |
+ sceneRecordName| String | 场景录音名称 |
  resultMsg| String | 响应说明 |
 
