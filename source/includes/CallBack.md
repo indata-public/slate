@@ -84,6 +84,16 @@
  　　　　　　　　　　"resultValue":"C级(很少)",
  　　　　　　　　　　"resultDesc":"该客户只听取了很少的产品介绍就结束了通话。",
  　　　　　　　　　　"analyzeType":"BY_ANALYZE_USER_LEVEL",
+                  "resultValueAlias"："C",
+                  "resultLabels":[
+                    {
+                      key:23432_1,
+                      value:"意向标签"
+                    },{
+                      key:23432_2,
+                      value:"意向标签2"
+                    }
+                  ]
  　　　　　　　　　　"gmtCreate":"2018-04-04 15:03:39",
  　　　　　　　　　　"gmtModified":"2018-04-04 15:03:39"
  　　　　　　　　}
@@ -158,6 +168,7 @@
   hangUp| List | 挂机人, 0: AI 1: 用户 |
   taskResult| String | 任务结果分析 |
   jobFinished | Boolean|任务是否完成 true:已完成，false：未完成
+  resultLabels|List|客户意向标签 
   
 
  

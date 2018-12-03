@@ -439,6 +439,102 @@ GET
   jobName| List | 任务名称 | 
   resultList| List | 通话分析结果信息 |
   resultMsg| String | 响应说明 |
+  
+  
+##获取任务未开始的电话列表
+ 
+###功能说明：
+ 
+ 通过此接口可以获取任务中还未开始外呼的外呼数据
+ 查询限制：此查询接口每页不能超过50条
+ 
+ >入参JSON实例
+ 
+ ```
+ 
+{
+	"pageNum" : 1, 
+	"pageSize" : 20,
+	"taskId" : 21767
+}
+ 
+ ```
+ 
+ >JSON响应实例：
+ 
+ ```
+ {
+     "code": 200,
+     "data": {
+         "pageNum": 1,
+         "pageSize": 50,
+         "list": [
+             {
+                 "callInstanceId": 493, 
+                 "customerName": 测试公司客户1, 
+                 "customerTelephone": 1590000xxxx, 
+                 "status": 0, 
+                 "startTime": 2018-01-01 15:34:20,  
+                 "callerPhone": 测试主叫, 
+                 "corpName": 测试公司,
+                 "calledTimes": 1
+                
+             },
+             {
+                 "callInstanceId": 494, 
+                 "customerName": 测试公司客户2, 
+                 "customerTelephone": 15900000xxxx, 
+                 "status": 1, 
+                 "startTime": 2018-01-01 15:34:20,  
+                 "callerPhone": 测试主叫, 
+                 "corpName": 测试公司,
+                 "calledTimes":2 
+             }
+         ]
+     },
+     "resultMsg": "操作成功",
+     "errorStackTrace": null
+ }
+ 
+ ```
+ 
+###请求：
+ 
+ URL：http://api.byrobot.cn/openapi/v1/task/notDialedCustomerList
+ 
+###请求方法：
+ 
+ POST
+ 
+ 
+###请求参数:
+ 
+ 参数名 | 类型 | 是否必须 | 描述 | 实例 
+ --------- | ------- |------- | ------ |----------
+  pageNum| Integer| 否 |第几页(默认为1)| 1 |
+  pageSize| Integer| 否 |显示数量/页（默认为10）最大支持50| 10 |
+  taskId| Integer| 是 | 任务Id| 10 |
+  
+  
+###响应：
+ 
+ 参数名 | 类型 | 描述 
+ --------- | ------- |------
+  code|integer | 响应码 |
+  pageNum| Integer | 第几页 |
+  pageSize| Integer | 每页页面条数 |
+  total| Integer | 数据总条数 |
+  pages| Integer | 页面总数 |
+  callInstanceId| Integer | 任务实例id（每个被叫电话为一个实例） |
+  customerName| Integer | 客户名称 |
+  customerTelephone| Integer |被叫客户电话|
+  status| String | 通话状态 0：未开始 1：进行中 2：已完成 |
+  startTime| String | 开始时间 |
+  callerPhone| String | 主叫号码 |
+  corpName| String | 公司名 |
+  calledTiimes| Integer  | 已拨打次数 |
+  resultMsg| String | 响应说明 |
+  errorStackTrace| String | 错误信息 |
 
 ##获取一个通话的详情接口
  
