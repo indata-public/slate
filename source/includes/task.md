@@ -327,7 +327,7 @@ POST
   code|integer | 响应码 |
   resultMsg| String | 响应说明 |
 
-##修改任务并发数（AI坐席数量）
+##修改任务
 
 ###功能说明：
 
@@ -349,8 +349,20 @@ POST
   "userPhoneIds":"255,244",
   //外呼类型 详见枚举
   "callType":1,
-  //并发数
-  "concurrencyQuota":2
+  //并发数(ai坐席数)
+  "concurrencyQuota":2,
+  //多并发数(专业版及以上,最大100)
+  "concurrencyPhone":4,
+  //外呼开始日期
+  "startDate":"2018-12-12",
+  //任务开始时间
+  "workingStartTime":"09:00",
+  //任务结束实际
+  "workingEndTime":"20:00",
+  //午休开始时间
+  "breakStartTime":"12:00",
+  //午休结束时间
+  "breakEndTime":"14:00"
 }
 
 ```
@@ -386,7 +398,13 @@ POST
  taskType| Integer| 是 | 任务类型| 1 |
  userPhoneIds| String| 是 | 外呼号码| 1 |
  callType| Integer| 是 | 外呼类型| 1 |
- concurrencyQuota| Integer| 是 | 公司Id| 1 |
+ concurrencyQuota| Integer| 是 | 坐席数| 1 |
+ concurrencyPhone| Integer| 否 | 并发量 | 1|
+ startDate| String|否|开始日期|"2018-12-13"|
+ workingStartTime|String|否|任务开始时间|"09:00"|
+ workingEndTime|String|否|任务结束时间|"20:00"|
+ breakStartTime|String|否|任务中断午休开始时间|"12:00"|
+ breakEndTime|String|否|任务中断午休结束时间|"14:00"|
 
 
 ###响应：

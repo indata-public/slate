@@ -16,7 +16,7 @@ search: true
 
 如果有问题，欢迎联系我们客服，技术支持
 
-公司官网地址 ：[www.byrobot.cn/](https://www.byrobot.cn/)
+公司官网地址 ：[www.byai.com/](https://www.byai.com/)
  
 
 # 开发引导
@@ -56,10 +56,11 @@ search: true
   APP_SECRET = "aXSFnnZbHXXXXXXXXXXXXXXXMguz1Q";    
 ```
 
-API认证采用HMACSha1加密算法进行机密，使用时间戳、APP_KEY、APP_SECRET共同生成一个密钥。
+API认证采用HMACSha1加密算法进行机密，使用GMT时间戳、APP_KEY、APP_SECRET共同生成一个密钥。
 
-目前已有完成JAVA版的样例，具体实现请下载SDK查阅。
-
+目前已有完成JAVA版的样例，具体实现请下载DEMO查阅。
+Python版demo目前包含签名算法和获取公司列表接口demo可供查阅。
+Php版demo目前包含签名算法和get,post请求样例可供查阅。
 
 > 请在API样例`byrobot-openapi-demo`中替换为自己的APP_Key和APP_SECRET.
 
@@ -103,9 +104,9 @@ HTTP头信息:
 
 >
 
-##JAVA SDK DEMO 下载
+## DEMO 下载
 
-本页面提供Java的SDK下载。
+本页面提供Java,Python,Php的Demo下载。
 
 SDK包内有部分使用说明，各接口的详细使用说明请浏览各API详情页。
 
@@ -114,7 +115,8 @@ SDK包内有部分使用说明，各接口的详细使用说明请浏览各API�
 语言 | GitHub地址 
 --------- | ------- 
 JAVA | [GitHub地址](https://github.com/indata-public/byrobot-openapi-demo) 
-
+Python|[GitHub地址](https://github.com/indata-public/byrobot-openapi-python-demo)
+PHP  | [GitHub地址](https://github.com/indata-public/byrobot-openapi-php-demo)
 
 ##最佳实践流程图:
 
@@ -288,10 +290,12 @@ code   | desc
 7月28日
 - 新增接口如下：
 1. 开放通过客户手机号直接进行电话外呼的接口
-##2018年12月
-12月
+##2018年11月
+11月
 - 新增信息获取接口：
 1.获取获取任务未开始的电话列表
 - 接口改动
 1.回调接口增加客户标签数据
+##2018年12月13日
+- 增加任务修改接口的修改返回
 

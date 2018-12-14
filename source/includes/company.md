@@ -57,6 +57,9 @@ GET
 ###功能说明：
 
 通过接口可以获取指定公司的所有主叫电话的列表
+注意：
+1.主叫号码列表的PhoneType字段标识外呼线路类型--需要对应新建任务接口的callType字段
+2.文档中给出的是常用枚举类型，若特殊用户自用时出现其他枚举类型，只需要遵循注意点1即可
 
 
 >JSON响应实例：
@@ -115,7 +118,7 @@ GET
  userPhoneId|Integer | 电话id |
  phone| String | 电话号码 |
  phoneName| String | 电话号码名称 |
- phoneType| Integer | 手机(0, "手机"),阿里云固话(1, "阿里云固话"),无主叫固话(2, "无主叫固话"), |
+ phoneType| Integer | 手机(0, "手机"),阿里云固话(1, "阿里云固话"),无主叫固话(2, "无主叫固话"),sip线路(6,"sip线路") |
  available| Boolean | 是否可用 |
  totalConcurrencyQuota| Integer | 总并发数 |
  usedConcurrencyQuota| Integer | 已经使用并发数 |
@@ -126,6 +129,12 @@ GET
 ###功能说明：
 
 通过接口可以获取指定公司的所有配置完成的机器人话术 
+注意：
+1.本接口主要获取三个重要字段 (用于新建任务) 
+    1）robotDefId:机器人Id
+    2）sceneDefId:话术场景Id
+    3）sceneRecordId:话术录音Id
+2.三个参数一一对应，如果对应错误或误传可能导致外呼失败或者外呼话术不正确问题，请注意！
 
 >JSON响应实例：
 
