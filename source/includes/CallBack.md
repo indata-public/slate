@@ -2,7 +2,7 @@
 
 ## 回调地址说明
 
-通话记录回调与任务完成详情回调使用同一回调地址，请根据回调的数据中的"dataType"字段区分不同的回调。
+通话记录回调与任务完成回调使用不同回调地址，请提前配置。
 
 ```
  通话记录回调dataType:CALL_INSTANCE_RESULT
@@ -20,108 +20,142 @@
  
  如果本次发送由于网络等原因发送失败，机器人会自动发起二次发送。
  
- 最多回调10次，每次回调时长按1分钟，2分钟，4分钟，8分钟间隔依次递增，总回调时长可达24小时。回调成功后，处理方应当返回字符串success在返回的body体中
+ 最多回调10次，每次回调时长按1分钟，2分钟，4分钟，8分钟间隔依次递增，总回调时长可达24小时。回调成功后，处理方应当返回字符串"success"在返回的body体中
   
  <aside class="notice">
  请您在对接接口前，务必配置好回调地址,否则回调将无法成功。 
  </aside>
  
- >入参JSON实例:
+ >返回对象示例:
  
   ```
  {
- 　　"code":200,
- 　　"data":{
- 　　　　"dataType":"CALL_INSTANCE_RESULT",
- 　　　　"data":{
- 　　　　　　"sceneInstance":{
- 　　　　　　　　"callInstanceId":5357,
- 　　　　　　　　"companyId":241,
- 　　　　　　　　"callUserId":233,
- 　　　　　　　　"callJobId":281,
- 　　　　　　　　"customerId":1673,
- 　　　　　　　　"customerTelephone":"17751279857",
- 　　　　　　　　"customerName":"一二",
- 　　　　　　　　"status":2,
- 　　　　　　　　"finishStatus":0,
- 　　　　　　　　"duration":5,
- 　　　　　　　　"chatRound":1,
- 　　　　　　　　"startTime":"2018-04-04 15:03:31",
- 　　　　　　　　"endTime":"2018-04-04 15:03:39",
- 　　　　　　　　"callerPhone":"057126881685",
- 　　　　　　　　"luyinOssUrl":"https://byrobot-test.oss-cn-hangzhou.aliyuncs.com/RobotPhoneCommunicate/5357/HNZVBAMHQUGTEWVMJRBNTVMFQWSVFDEL.wav",
- 　　　　　　　　"userLuyinOssUrl":"https://byrobot-test.oss-cn-hangzhou.aliyuncs.com/RobotPhoneCommunicate/5357_user.wav",
- 　　　　　　　　"properties":"{}",
- 　　　　　　　　"handlePerson":"房产电销精品录音(右琪)@20171226@20180105_20_31_18",
- 　　　　　　　　"callType":1,
- 　　　　　　　　"readStatus":0,
- 　　　　　　　　"jobName":"测试",
- 　　　　　　　　"robotDefId":24,
- 　　　　　　　　"sceneDefId":77,
- 　　　　　　　　"sceneRecordId":72,
- 　　　　　　　　"corpName":"",
- 　　　　　　　　"industry":"",
- 　　　　　　　　"trackResult":null,
- 　　　　　　　　"bugType":null,
- 　　　　　　　　"hangUp":1,
- 　　　　　　　　"secondaryCallTime":"1970-01-01 09:00:00",
- 　　　　　　　　"secondaryCallTimes":2,
- 　　　　　　　　"cost":0,
- 　　　　　　　　"callbacked":0,
- 　　　　　　　　"gmtCreate":"2018-04-04 15:01:40",
- 　　　　　　　　"gmtModified":"2018-04-04 15:32:23",
- 　　　　　　　　"propertiesMap":{
- 　　　　　　　　　　"客户名称":"一二",
- 　　　　　　　　　　"联系方式":"17751211111"
- 　　　　　　　　}
- 　　　　　　},
- 　　　　　　"taskResult":[
- 　　　　　　　　{
- 　　　　　　　　　　"sceneInstanceResultId":955,
- 　　　　　　　　　　"companyId":241,
- 　　　　　　　　　　"sceneInstanceId":5357,
- 　　　　　　　　　　"resultName":"客户意向等级",
- 　　　　　　　　　　"resultValue":"C级(很少)",
- 　　　　　　　　　　"resultDesc":"该客户只听取了很少的产品介绍就结束了通话。",
- 　　　　　　　　　　"analyzeType":"BY_ANALYZE_USER_LEVEL",
-                  "resultValueAlias"："C",
-                  "resultLabels":[
-                    {
-                      key:23432_1,
-                      value:"意向标签"
-                    },{
-                      key:23432_2,
-                      value:"意向标签2"
-                    }
-                  ]
- 　　　　　　　　　　"gmtCreate":"2018-04-04 15:03:39",
- 　　　　　　　　　　"gmtModified":"2018-04-04 15:03:39"
- 　　　　　　　　}
- 　　　　　　],
- 　　　　　　"phoneLog":{
- 　　　　　　　　"phoneLogs":[
- 　　　　　　　　　　{
- 　　　　　　　　　　　　"sceneInstanceLogId":4762,
- 　　　　　　　　　　　　"sceneInstanceId":5357,
- 　　　　　　　　　　　　"decisionId":455828,
- 　　　　　　　　　　　　"speaker":"AI",
- 　　　　　　　　　　　　"content":"哎，您好，拱墅区 中大银泰城边上有个首付50万左右的精装公寓你考虑吗？",
- 　　　　　　　　　　　　"userMean":null,
- 　　　　　　　　　　　　"userMeanDetail":null,
- 　　　　　　　　　　　　"aiUnknown":false,
- 　　　　　　　　　　　　"startTime":0,
- 　　　　　　　　　　　　"endTime":0,
- 　　　　　　　　　　　　"gmtCreate":"2018-04-04 15:03:31",
- 　　　　　　　　　　　　"gmtModified":"2018-04-04 15:03:31"
- 　　　　　　　　　　}
- 　　　　　　　　],
- 　　　　　　　　"luyinOssUrl":"https://byrobot-test.oss-cn-hangzhou.aliyuncs.com/RobotPhoneCommunicate/5357/HNZVBAMHQUGTEWVMJRBNTVMFQWSVFDEL.wav"
- 　　　　　　}，
-          "jobFinished":true
- 　　　　}
- 　　},
- 　　"resultMsg":"成功",
- 　　"errorStackTrace":null
+ 	"code": 200,
+ 	"data": {
+ 		"sceneInstance": {
+ 			"callInstanceId": 1,
+ 			"companyId": 1,
+ 			"callUserId": 1,
+ 			"callJobId": 1,
+ 			"customerId": 1,
+ 			"customerTelephone": "157xxxxxxx",
+ 			"customerName": "测试",
+ 			"status": 2,
+ 			"finishStatus": 0,
+ 			"duration": 56,
+ 			"chatRound": 7,
+ 			"startTime": "2018-12-14 18:01:57",
+ 			"endTime": "2018-12-14 18:03:00",
+ 			"callerPhone": "自营成都线路(ZL)",
+ 			"luyinOssUrl": "https://xxxxxx.wav",
+ 			"userLuyinOssUrl": "https://byrobot-prod.oss-cn-hangzhou.aliyuncs.com/RobotPhoneCommunicate/xxxxxx_user.wav",
+ 			"properties": "{\"trade_type\":\"test\",\"appellation\":\"test\"}",
+ 			"handlePerson": "OpenApi测试话术",
+ 			"callType": 1,
+ 			"callIndex": 0,
+ 			"readStatus": 1,
+ 			"jobName": "OpenApi测试话术任务",
+ 			"robotDefId": 1,
+ 			"sceneDefId": 1,
+ 			"sceneRecordId": 1,
+ 			"industry": "1223552173_4880_1",
+ 			"trackResult": "A级(较强)",
+ 			"bugType": null,
+ 			"hangUp": 1,
+ 			"secondaryCallTime": "1970-01-01 17:55:02",
+ 			"secondaryCallTimes": 0,
+ 			"cost": 9,
+ 			"callbacked": 1,
+ 			"csStaffId": null,
+ 			"gmtCreate": "2018-12-10 14:00:04",
+ 			"gmtModified": "2018-12-19 13:20:18",
+ 			"propertiesMap": {
+ 				"properties1": "test"
+ 			}
+ 		},
+ 		"taskResult": [{
+ 			"sceneInstanceResultId": 1,
+ 			"companyId": 1,
+ 			"sceneInstanceId": 1,
+ 			"resultName": "客户意向等级",
+ 			"resultValue": "A级(较强)",
+ 			"artificialResultValue": "A级(较强)",
+ 			"artificialChanged": null,
+ 			"resultDesc": "命中意向节点(跳转话术)",
+ 			"extra": "{}",
+ 			"analyzeType": "DYNAMIC_ANALYZE_USER_LEVEL",
+ 			"resultValueAlias": "A",
+ 			"resultLabels": null,
+ 			"resultValueNew": "A级(有明确意向)",
+ 			"gmtCreate": "2018-12-14 18:03:00",
+ 			"gmtModified": "2018-12-14 18:03:00"
+ 		}, {
+ 			"sceneInstanceResultId": 922147427,
+ 			"companyId": 4880,
+ 			"sceneInstanceId": 1223552173,
+ 			"resultName": "客户标签",
+ 			"resultValue": "[1]",
+ 			"artificialResultValue": null,
+ 			"artificialChanged": null,
+ 			"resultDesc": null,
+ 			"extra": null,
+ 			"analyzeType": "DYNAMIC_ANALYZE_USER_LEVEL",
+ 			"resultValueAlias": "",
+ 			"resultLabels": [{
+ 				"key": 200,
+ 				"value": "有效用户"
+ 			}],
+ 			"resultValueNew": "",
+ 			"gmtCreate": "2018-12-14 18:03:00",
+ 			"gmtModified": "2018-12-14 18:03:00"
+ 		}],
+ 		"phoneLog": {
+ 			"phoneLogs": [{
+ 				"sceneInstanceLogId": 949917820,
+ 				"sceneInstanceId": 1223552173,
+ 				"companyId": 4880,
+ 				"robotDefId": 24382,
+ 				"decisionId": 2210177,
+ 				"speaker": "AI",
+ 				"content": "您好，我是百应智能AI机器人。",
+ 				"userMean": "",
+ 				"userMeanDetail": null,
+ 				"aiUnknown": false,
+ 				"answerStatus": 0,
+ 				"studyStatus": 0,
+ 				"startTime": 0,
+ 				"endTime": 0,
+ 				"gmtCreate": "2018-12-14 18:01:57",
+ 				"gmtModified": "2018-12-14 18:01:57",
+ 				"knowledgeBaseId": null,
+ 				"correctionContent": null
+ 			}, {
+ 				"sceneInstanceLogId": 949923843,
+ 				"sceneInstanceId": 1223552173,
+ 				"companyId": 4880,
+ 				"robotDefId": 24382,
+ 				"decisionId": 2210204,
+ 				"speaker": "ME",
+ 				"content": "谢谢嗯",
+ 				"userMean": "AI_UNKNOWN",
+ 				"userMeanDetail": "[{\"score\":0.38230664,\"answer\":\"OK\",\"ask\":\"请说\"}]",
+ 				"aiUnknown": true,
+ 				"answerStatus": 2,
+ 				"studyStatus": 0,
+ 				"startTime": 53970,
+ 				"endTime": 55140,
+ 				"gmtCreate": "2018-12-14 18:02:54",
+ 				"gmtModified": "2018-12-14 18:02:54",
+ 				"knowledgeBaseId": null,
+ 				"correctionContent": null
+ 			}],
+ 			"luyinOssUrl": "https://byrobot-prod.oss-cn-hangzhou.aliyuncs.com/RobotPhoneCommunicate/1223552173/20181214-180300_13908032528.wav"
+ 		},
+ 		"jobFinished": false,
+ 		"sign": null
+ 	},
+ 	"resultMsg": "获取成功",
+ 	"errorStackTrace": null
  }
  
   ```
@@ -136,42 +170,86 @@
  
  参数名 | 类型  | 描述  
  --------- | ------- | ------ 
-  dataType| String | 回调类型 |
-  phoneLogs| List | 对话内容 |
-  sceneInstanceId| Integer | 任务实例id |
-  speaker| String |角色|
-  content| String | 内容 |
-  aiUnknown| Integer | 是否是ai无法应答的问题, 1-是, 0-否 |
-  luyinOssUrl| String |通话录音|
-  callInstanceId| Integer | 任务实例id（每个被叫电话为一个实例） |
-  companyId| Integer | 公司id |
-  callJobId| Integer |任务id|
-  customerId| Integer | 客户id |
-  customerTelephone| String | 客户手机 |
-  customerName| String | 客户名称 |
-  finishStatus| String | 任务实例已经完成的状态, 0:已接听, 1:拒接, 2:无法接通, 3:主叫号码不可用, 4:空号, 5:关机, 6:占线, 7:停机, 8:未接, 9:主叫欠费 |
-  breakEndTime| String | 暂时停止结束时间 |
-  status| Integer | 任务状态, 0:未开始,1:进行中,2:已完成,3:调度中,4:手动暂停,5:自动暂停,6:已终止,7:排队中,8:AI到期,9:账户欠费 |
-  duration| Integer  | 通话时长 |
-  chatRound| Integer | 通话轮次 |
-  startTime| String | 开始拨打时间 |
-  endTime| String | 结束拨打时间 |
-  callerPhone| String | 主叫电话 |
-  luyinOssUrl| Integer | 通话录音 |
-  callType| Integer | 拨打类型 0: 免费试用 1: 任务 2: 用户单独拨打 3: 收费试用 4:Ope后台拨打 100: 人工拨打 |
-  readStatus| Integer | 是否已读 0: 未读 1: 已读 |
-  robotDefId| String | 关联的机器人id |
-  sceneDefId| String | 场景ID | 
-  sceneRecordId| List | 关联的录音id | 
-  trackResult| List | bug追踪结果 | 
-  jobName| List | 任务名称 | 
-  hangUp| List | 挂机人, 0: AI 1: 用户 |
-  taskResult| String | 任务结果分析 |
-  jobFinished | Boolean|任务是否完成 true:已完成，false：未完成
-  resultLabels|List|客户意向标签 
+  code| String | 回调类型 |
+  |||
+  callInstanceId| int | 通话记录Id |
+  companyId| int |公司ID|
+  callUserId| int | 主叫用户ID |
+  callJobId| int | 任务Id |
+  customerId| int |客户Id|
+  customerTelephone|String|客户手机号|
+  customerName|String|客户名称|
+  status| int | 电话实例状态 0：未开始 1：进行中 2：已完成 3：二次拨打调度中 |
+  finishStatus| int | 通话状态 0：未开始，1：拒绝 2：无法接通 3：主叫号码不可用 4：空号 5：关机 6：占线 7：停机 8：未接 9：主叫欠费 10：呼损 11：黑名单|
+  duration| int |通话时长|
+  chatRound| int | 客户id |
+  startTime| Date | 通话开始时间
+  endTime| Date | 通话结束时间 |
+  callerPhone| String | 主叫号码 |
+  luyunOssUrl| String |通话录音（包含Ai和客户）|
+  userLuyinOssUrl| String | 通话录音（只包含客户） |
+  properties| String |通话记录携带的参数(json字符串)|
+  handlePerson| String  | 话术名 |
+  callType| int | 主叫号码类型 |
+  callIndex| int | 通话实例索引 |
+  readStatus| int | 是否已读 0：未读 1：已读 |
+  jobName| String | 电话任务名称 |
+  robotDef| int |话术机器人Id|
+  sceneDefId| int |话术场景Id|
+  sceneRecordId| int | 话术场景录音Id |
+  industry| String | 所属行业 | 
+  trackResult| String | bug追踪结果 | 
+  bugType| String | 缺陷类型 | 
+  hangUp| int | 挂机人 0：AI 1：用户 | 
+  secondaryCallTime| Date |二次拨打时间| 
+  secondaryCallTimes| int | 二次拨打次数 为0后不进行外呼 |
+  cost| int|通话费用，单位（分）|
+  callbacked|int|是否回调完成 0：未回调 1：已回调|
+  csStaffId|int|人工坐席Id|
+  gmtCreate|Date|创建时间|
+  gmtModified|Date|修改时间|
+   |||
+  sceneInstanceResultId|int|通话记录结果Id|
+  companyId|int|公司Id|
+  sceneInstanceId|int|通话记录Id(对应callInstanceId)|
+  resultName|String|通话记录结果类型名|
+  resultValue|String|通话记录结果值|
+  artificialResultValue|String|通话结果人工标注值（一般指人工标注意向等级）|
+  artificialChanged|int|是否进行过人工标注修改 0:没有 1:有|
+  resultDesc|String|结果描述|
+  extra|String|额外信息|
+  analyzeType|String|场景对应的结构化数据分析类型|
+  resultValueAlias|String|分析结果别名(resultName为【客户意向等级】时标注值为意向级别 A,B,C,D,E,F)|
+  resultLabels|List<IntegerStringBO>|IntegerStringBO对象中存储一个int类型参数，一个String类型参数，resultName为【客户标签】时存储客户标签|
+  resultValueNew|String|客户意向等级的表述（文案与crm对应）|
+  gmtCreate|Date|创建时间|
+  gmtModified|Date|修改时间|
+  |||
+  sceneInstanceLogId|Long|通话记录日志Id|
+  sceneInstanceId|Long|通话记录Id（对应callInstanceId）|
+  companyId|int|公司Id|
+  robotDefId|int|话术机器人Id|
+  decisionId|int|对应决策Id|
+  speaker|String|说话人 ME：用户  AI:机器人|
+  content|String|说话内容|
+  userMean|String|用户说话语义|
+  userMeanDetail|String|用户说话语义详情|
+  aiUnknown|int|是否是ai无法应答的问题，1-是，0-否|
+  answerStatus|int|回答问题状态：0-分支，1-问题|
+  studyStatus|int|学习状态：0-未学习，1-已学习|
+  startTime|int|说话的开始时间|
+  endTime|int|说话的结束时间|
+  gmtCreate|Date|创建时间|
+  gmtModified|Date|修改时间|
+  knowledgeBaseId|int|知识点ID|
+  correctionContent|String|通话记录纠错内容|
+  |||
+  luyinOssUrl|String|通话记录录音|
+  |||
+  jobFinished|boolean|任务是否已完成|
+  sign|String|回调签名（需联系开通）|
+  dateTime|String|GMT格式日期（签名计算-需联系开通）|
   
-
- 
  
 ###响应：
  
@@ -180,12 +258,13 @@
   code|integer | 响应码 |
   resultMsg| String | 响应说明 |
 
-##任务完成详情回调接口
+##任务状态回调
 
  
 ###功能说明：
  
- 当一次任务完成后，百应机器人会自动调用回调程序向用户配置的回调地址，发送本次任务详情。
+ 任务运行中动态状态变更回调，包含如下状态：手动暂停，自动暂停 ，线路欠费 ，短信欠费 ，任务完成
+ 需另外开通和配置
  
  如果本次发送由于网络等原因发送失败，机器人会自动发起二次发送。
  
@@ -195,7 +274,7 @@
  请您在对接接口前，务必配置好回调地址。否则回调将无法成功。
  </aside>
  
- >入参JSON实例:
+ >返回对象示例:
  
   ```
  {
@@ -249,31 +328,31 @@
  
  参数名 | 类型  | 描述  
  --------- | ------- | ------ 
-  dataType| String | 回调类型 |
-  callJobId| List | 任务id |
-  companyId| Integer | 公司id |
+  dataType| String | 回调数据类型 |
+  callJobId| List | 外呼任务Id |
+  companyId| int | 公司id |
   jobName| String |任务名称|
-  jobType| Integer | 任务类型：1-定时，2-手动 |
+  jobType| int | 任务类型：1-定时，2-手动 |
   startDate| String | 任务开始时间 |
   endDate| String |任务结束时间|
   workingStartTime| String | 可拨打起始时间 |
   workingEndTime| String | 可拨打结束时间 |
-  breakStartTime| Integer |午休起始时间|
-  breakEndTime| Integer | 午休结束时间 |
+  breakStartTime| int |午休起始时间|
+  breakEndTime| int | 午休结束时间 |
   status| String | 状态, 0:未开始,1:进行中,2:已完成,3:调度中,4:手动暂停,5:自动暂停,6:已终止,7:排队中,8:AI到期,9:账户欠费 |
-  callType| Integer | 外呼方式:0-手机号,1-固话,2-无主叫 |
-  robotDefId| Integer |关联的机器人id|
-  sceneDefId| Integer | 场景id |
-  sceneRecordId| Integer |关联的录音id|
+  callType| int | 主叫号码类型:0-手机号,1-固话,2-无主叫 |
+  robotDefId| int |关联的机器人id|
+  sceneDefId| int | 场景id |
+  sceneRecordId| int |关联的录音id|
   remark| String  | 备注 |
-  smsType| Integer | 是否发送挂机短信：0-否，1-是 |
+  smsType| int | 是否发送挂机短信：0-否，1-是 |
   smsCondition| String | 发送挂机短信条件，json格式 |
   smsTemplateId| String | 发送挂机短信的模板 |
-  userId| Integer | 创建人id |
+  userId| int | 创建人id |
   userName| String | 创建人名称 |
-  ip| Integer |任务执行IP|
-  hostName| Integer |任务执行主机|
-  version| Integer | 锁版本号 |
+  ip| int |任务执行IP|
+  hostName| int |任务执行主机|
+  version| int | 锁版本号 |
   secondaryStartTime| String | 二次启动job的时间 | 
   jobIsDelete| Boolean | job是否已经删除 false：没有删除 true：已经删除 | 
 
@@ -285,7 +364,7 @@
  
  参数名 | 类型 | 描述 
  --------- | ------- |------
-  code|integer | 响应码 |
+  code|int | 响应码 |
   resultMsg| String | 响应说明 |
 
 
@@ -301,7 +380,7 @@
  请您在对接接口前，务必配置好回调地址,否则回调将无法成功。 
  </aside>
  
- >返回JSON实例:
+ >返回对象示例:
  
   ```
 {
@@ -333,7 +412,7 @@
  
  参数名 | 类型  | 描述  
  --------- | ------- | ------ 
-  sceneInstanceId| Integer | 任务实例id |
+  sceneInstanceId| int | 任务实例id |
   taskResult| String | 任务结果分析 |
   resultName|String|客户意向等级名
   resultValue|String|客户意向等级值
@@ -345,5 +424,5 @@
  
  参数名 | 类型 | 描述 
  --------- | ------- |------
-  code|integer | 响应码 |
+  code|int | 响应码 |
   resultMsg| String | 响应说明 |
