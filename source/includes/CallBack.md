@@ -183,7 +183,7 @@
   customerTelephone|String|客户手机号|
   customerName|String|客户名称|
   status| int | 电话实例状态 0：未开始 1：进行中 2：已完成 3：二次拨打调度中 |
-  finishStatus| int | 通话状态 0：未开始，1：拒绝 2：无法接通 3：主叫号码不可用 4：空号 5：关机 6：占线 7：停机 8：未接 9：主叫欠费 10：呼损 11：黑名单|
+  finishStatus| int | 通话状态 0：已接通，1：拒绝 2：无法接通 3：主叫号码不可用 4：空号 5：关机 6：占线 7：停机 8：未接 9：主叫欠费 10：呼损 11：黑名单|
   duration| int |通话时长|
   chatRound| int | 通话轮次 |
   startTime| Date | 通话开始时间
