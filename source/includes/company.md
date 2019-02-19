@@ -222,3 +222,52 @@ GET
  gmtModify|Date|修改时间|
  resultMsg| String | 响应说明 |
 
+
+##公司添加单个黑名单到默认分组
+
+###功能说明：
+
+通过接口可以导入单个黑名单信息到默认分组中
+
+>返回对象示例：
+
+```
+{
+	"code": 200,
+	"data": 3221,//黑名单id
+	"resultMsg": "获取成功",
+	"errorStackTrace": null
+}
+
+```
+
+###请求：
+
+URL：http://api.byrobot.cn/openapi/v1/company/addBlackList
+
+###请求方式：
+
+POST
+
+
+###请求参数:
+
+参数名 | 类型 | 是否必须 | 描述 | 示例 
+--------- | ------- |------- | ------ |------
+ name| string | 否 | 客户姓名 | 测试用户 |
+ mobile| string | 是 | 手机号 | 159xxxxxxxx |
+ remark| string | 否 | 备注 | 备注信息 |
+ companyId| int | 是 | 公司Id | 1 |
+
+
+
+
+
+###响应：
+
+参数名 | 类型 | 描述 
+--------- | ------- |------
+ code|int | 响应码 |
+ data|int | 黑名单id |
+ resultMsg| String | 响应说明 |
+
