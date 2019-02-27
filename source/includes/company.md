@@ -270,4 +270,60 @@ POST
  code|int | 响应码 |
  data|int | 黑名单id |
  resultMsg| String | 响应说明 |
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ ##查询公司AI坐席概况
+ 
+ ###功能说明：
+ 
+ 通过接口可以获取公司所有的坐席以及已经使用的坐席数量。
+ 
+ >返回对象示例：
+ 
+ ```
+ {
+  "code":200,
+  "data":
+   {
+     "companyAllCallSeat":2,
+     "companyUsingCallSeat":0
+   },
+  "resultMsg":"查询成功",
+  "errorStackTrace":null,
+  "requestId":null
+ }
+ 
+ ```
+ 
+ ###请求：
+ 
+ URL：http://api.byrobot.cn/openapi/v1/company/seat/statistics
+ 
+ ###请求方式：
+ 
+ GET
+ 
+ 
+ ###请求参数:
+ 
+ 参数名 | 类型 | 是否必须 | 描述 | 示例 
+ --------- | ------- |------- | ------ |------
+  companyId| int | 是 | 公司id | 1 |
+ 
+ 
+ 
+ 
+ 
+ ###响应：
+ 
+ 参数名 | 类型 | 描述 
+ --------- | ------- |------
+  code|int | 响应码 |
+  data|Object | companyAllCallSeat表示公司所有坐席数量, companyUsingCallSeat全公司已使用坐席 |
+  resultMsg| String | 响应说明 |
 
