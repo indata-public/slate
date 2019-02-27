@@ -223,7 +223,7 @@ GET
  resultMsg| String | 响应说明 |
 
 
-##公司添加单个黑名单到默认分组
+##添加单个黑名单到公司默认黑名单组接口
 
 ###功能说明：
 
@@ -277,7 +277,7 @@ POST
  
  
  
-##查询公司AI坐席概况
+##查询公司AI坐席概况接口
 
 ###功能说明：
 
@@ -324,6 +324,6 @@ GET
 参数名 | 类型 | 描述 
 --------- | ------- |------
  code|int | 响应码 |
- data|Object | companyAllCallSeat表示公司所有坐席数量<br>companyUsingCallSeat全公司已使用坐席 |
+ data|Object | companyAllCallSeat表示公司所有坐席数量<br>companyUsingCallSeat全公司已使用坐席数量 |
  resultMsg| String | 响应说明 |
 
