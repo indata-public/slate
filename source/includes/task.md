@@ -5,8 +5,10 @@
 ###功能说明：
 
 通过此接口可以创建新的任务
+
 ###注意点
 ####电话任务外呼时间范围 9：00-20：00
+####1.自动重拨功能会默认开启,如果不需要自动重拨,需要在新建任务时为repeatCall字段传入false
 创建任务,支持使用多个无主叫固话,只需设置总坐席数,由系统自动分配每个线路的坐席数量。
 注意：
 1.ai坐席数的总数可在crm界面企业账户中看到
@@ -45,9 +47,6 @@
 	"smsType": 1,
 	"remark": "创建任务",
 	"repeatCall": true,
-	"repeatCallPhoneStatus": 1,
-	"repeatCallTimes": 1,
-	"repeatCallInterval": 2,
 	"repeatCallRule": [{
 			"phoneStatus": 9,
 			"times": 1,
@@ -101,10 +100,7 @@ POST
  callType| int| 是 | 主叫号码类型，0-sim卡,1-固话（默认）, 2-无主叫| 1 |
  concurrencyQuota| int| 否 | ai坐席数，默认1| 1 |
  remark| String| 否 | 备注| 测试|
- repeatCall|boolean|否|是否开启重拨|
- repeatCallPhoneStatus|String|否| 需要开启重拨的通话状态{"1","2"} |
- repeatCallTimes|int|否| 重拨次数 |
- repeatCallInterval|int|否| 重拨间隔时长（分钟） |
+ repeatCall|boolean|否|是否开启重拨 默认true(开启) 重拨规则: 自动重拨次数:1次 重拨时间间隔: 5分钟 重拨对象:呼损,无法接通,呼叫失败的客户 |
  repeatCallRule|list|否|重拨详细规则|
  phoneStatus|int|否|通话状态|
  times|int|否|重拨次数|
@@ -115,7 +111,7 @@ POST
 
 ###响应：
 
-参数名 | 类型 | 描述 
+参数名 | 类型 | 描述
 --------- | ------- |------
  code|int | 响应码 |
  data|int | 刚刚创建的任务ID |
