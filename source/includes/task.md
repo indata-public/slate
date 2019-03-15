@@ -364,6 +364,11 @@ POST
  --------- | ------- |------
   code|int | 响应码 |
   resultMsg| String | 响应说明 |
+  data | object | 响应数据 |
+  successNum | int |成功条数 |
+  failNum | int | 失败条数 |
+
+  
 
 ##修改任务
 
