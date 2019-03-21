@@ -290,7 +290,6 @@ POST
  
  通过此接口可以向指定的任务导入客户信息，用于拨打电话
  
- PS：v1版的接口已过期，不推荐使用，请使用v2版接口。
  
  >入参JSON示例:
  
@@ -348,8 +347,10 @@ POST
  
 ###请求：
  
- URL：http://api.byrobot.cn/openapi/v1/task/importTaskCustomer
- URL：http://api.byrobot.cn/openapi/v2/task/importTaskCustomer
+ v1版URL：http://api.byrobot.cn/openapi/v1/task/importTaskCustomer
+ v2版URL：http://api.byrobot.cn/openapi/v2/task/importTaskCustomer
+
+ PS：v1版接口已过期，不推荐使用，请使用v2版接口。
 
 
 ###请求方法：
