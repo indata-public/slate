@@ -588,7 +588,7 @@ GET
                     "endTime": 3565,
                     "gmtCreate": "2018-01-24 20:51:57",
                     "gmtModified": "2018-01-24 20:51:57"
-                }
+                }],
           "luyinOssUrl": "https://byrobot-test.oss-cn-hangzhou.aliyuncs.com/RobotPhoneCommunicate/540/JYSYDCCHVFYYTMGJKKHJAMHARNNBWEJQ.wav" 
          },
          "sceneInstance": {

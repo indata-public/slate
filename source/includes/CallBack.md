@@ -432,7 +432,7 @@
   
   
   
-##呼入回调文档
+##呼入回调接口
 
 ###功能说明：
 当一次通话完成后，百应机器人会自动调用回调程序向用户配置的回调地址，发送本次通话详情。如果本次发送由于网络等原因发送失败，机器人会自动发起二次发送。最多回调10次，每次回调时长按1分钟，2分钟，4分钟，8分钟间隔依次递增，总回调时长可达24小时。回调成功后，处理方应当返回字符串"success"在返回的body体中。
@@ -508,8 +508,9 @@ sign|String|回调签名（需联系开通）
 dateTime|String|GMT格式日期（签名计算-需联系开通）
 
 
-###具体回调数据示例:
-
+ >返回对象示例:
+ 
+  ```
 {
     "code": 200,
     "data": {
@@ -666,3 +667,96 @@ dateTime|String|GMT格式日期（签名计算-需联系开通）
     "resultMsg": "成功",
     "errorStackTrace": null
 }
+  ```
+
+
+##查询回调失败记录
+
+###功能说明：
+通过接口可以查询时间段内调用用户回调接口失败的记录
+
+###请求：
+
+URL：http://api.byrobot.cn/openapi/v1/callBack/queryUnCallBack
+
+###请求方法：
+
+GET
+
+###请求参数:
+
+参数名 | 类型 | 是否必须 | 描述 | 示例 
+--------- | ------- |------- | ------ |----------
+ companyId| int| 是 | 公司Id| 1 |
+ callJobId| int| 否 | 任务ID，如果不传该字段查询该公司下所有回调失败的记录 | 1 |
+ dataType| int| 是 | 回调类型， 0：呼出结果回调，1：呼入结果回调 | 0 |
+ startDate| Date| 是 | 查询开始时间 | "2017-10-19" |
+ endDate| Date| 是 | 查询结束时间 | "2017-10-19" |
+ pageNum| int| 否 | 第几页,默认1| 1 |
+ pageSize| int| 否 | 页面大小,选填,默认100，取值范围1-500| 10 |
+
+###响应：
+
+参数名 | 类型 | 描述 
+--------- | ------- |------
+ code|int | 响应码 |
+ pageNum| int | 当前分页数 |
+ pageSize| int | 当前分页数据条数 |
+ total| int | 数据总条数 |
+ pages| int | 分页总数 |
+ list | list | 查询结果集 |
+ callJobId| int | 任务id |
+ customerTelephone | String | 客户手机号 |
+ callInstanceId| long | 通话记录ID |
+ callerTime| time | 拨打时间 |
+
+
+ >返回对象示例:
+ 
+  ```
+{
+    "code":200,
+    "data":{
+        "pageNum":1,
+        "pageSize":1000,
+        "total":5,
+        "pages":1,
+        "list":[
+            {
+                "customerTelephone":"13777482716",
+                "callInstanceId":13,
+                "callJobId":9,
+                "callerTime":"2019-03-20 11:22:33"
+            },
+            {
+                "customerTelephone":"13777482716",
+                "callInstanceId":12,
+                "callJobId":9,
+                "callerTime":"2019-03-20 11:22:33"
+            },
+            {
+                "customerTelephone":"13777482716",
+                "callInstanceId":11,
+                "callJobId":9,
+                "callerTime":"2019-03-20 11:22:33"
+            },
+            {
+                "customerTelephone":"18767114326",
+                "callInstanceId":101705174,
+                "callJobId":29463,
+                "callerTime":"2019-03-20 17:20:58"
+            },
+            {
+                "customerTelephone":"18767114326",
+                "callInstanceId":101705181,
+                "callJobId":29465,
+                "callerTime":"2019-03-20 17:28:57"
+            }
+        ]
+    },
+    "resultMsg":"查询成功",
+    "errorStackTrace":null,
+    "requestId":null
+}
+ 
+  ```

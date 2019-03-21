@@ -290,6 +290,8 @@ POST
  
  通过此接口可以向指定的任务导入客户信息，用于拨打电话
  
+ PS：v1版和v2版功能完全相同，区别在于返回参数结构不同
+ 
  >入参JSON示例:
  
   ```
@@ -320,6 +322,7 @@ POST
  >返回对象示例：
  
  ```
+ v1b版：
  {
      "code": 200,
      "data": null,
@@ -327,11 +330,27 @@ POST
      "errorStackTrace": null
  }
  
+ v2版：
+ {
+     "code":200,
+     "data":{
+         "msg":"本次导入：3个客户，预计导入成功：3个客户，成功导入：3个客户，重复：0个客户，话术变量错误：0个客户",
+         "successNum":3,
+         "repeatNum":0,
+         "placeFailNum":0
+     },
+     "resultMsg":"操作成功",
+     "errorStackTrace":null,
+     "requestId":null
+ }
+ 
  ```
  
 ###请求：
  
  URL：http://api.byrobot.cn/openapi/v1/task/importTaskCustomer
+ URL：http://api.byrobot.cn/openapi/v2/task/importTaskCustomer
+
 
 ###请求方法：
  
@@ -358,14 +377,25 @@ POST
  
  
 ###响应：
+ v1版：
+ 
+  参数名 | 类型 | 描述 
+  --------- | ------- |------
+   code|int | 响应码 |
+   resultMsg| String | 响应说明 |
+   data | String | 响应数据 |
+ 
+ v2版：
  
  参数名 | 类型 | 描述 
  --------- | ------- |------
-  code|int | 响应码 |
+  code|int | 响应码 |String
   resultMsg| String | 响应说明 |
   data | object | 响应数据 |
+  msg | String | 结果文字消息 |
   successNum | int |成功条数 |
-  failNum | int | 失败条数 |
+  repeatNum | int | 重复条数 |
+  placeFailNum | int | 话术变量错误条数 |
 
   
 
