@@ -175,7 +175,7 @@
  --------- | ------- | ------ 
   code| String | 回调类型 |
   |||
-  callInstanceId| int | 通话记录Id |
+  callInstanceId| long | 通话记录Id |
   companyId| int |公司ID|
   callUserId| int | 主叫用户ID |
   callJobId| int | 任务Id |

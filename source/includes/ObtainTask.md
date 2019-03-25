@@ -420,7 +420,7 @@ GET
   pageSize| int | 每页页面条数 |
   total| int | 数据总条数 |
   pages| int | 页面总数 |
-  callInstanceId| int | 通话记录Id |
+  callInstanceId| long | 通话记录Id |
   sceneDefId| int | 场景id |
   callJobId| int |任务id|
   customerTelephone| String | 被叫客户电话号码 |
@@ -525,7 +525,7 @@ GET
   pageSize| int | 每页页面条数 |
   total| int | 数据总条数 |
   pages| int | 页面总数 |
-  callInstanceId| int | 任务实例id（每个被叫电话为一个实例） |
+  callInstanceId| long | 任务实例id（每个被叫电话为一个实例） |
   customerName| int | 客户名称 |
   customerTelephone| int |被叫客户电话|
   status| String | 通话状态 0：未开始 1：进行中 2：已完成 |
@@ -666,7 +666,7 @@ GET
  
  参数名 | 类型 | 是否必须 | 描述 | 示例 
  --------- | ------- |------- | ------ |----------
-  callInstanceId| int| 是 | 任务实例id| 1 |  
+  callInstanceId| long| 是 | 任务实例id| 1 |  
  
 ###响应：
  
@@ -679,7 +679,7 @@ GET
   content| String | 内容 |
   aiUnknown| int | 是否是ai无法应答的问题，1-是，0-否 |
   luyinOssUrl| String |通话录音|
-  callInstanceId| int | 任务实例id（每个被叫电话为一个实例） |
+  callInstanceId| long | 任务实例id（每个被叫电话为一个实例） |
   companyId| int | 公司id |
   callJobId| int |任务id|
   customerId| int | 客户id |
