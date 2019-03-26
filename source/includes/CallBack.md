@@ -214,7 +214,7 @@
    |||
   sceneInstanceResultId|int|通话记录结果Id|
   companyId|int|公司Id|
-  sceneInstanceId|int|通话记录Id(对应callInstanceId)|
+  sceneInstanceId|long|通话记录Id(对应callInstanceId)|
   resultName|String|通话记录结果类型名|
   resultValue|String|通话记录结果值|
   artificialResultValue|String|通话结果人工标注值（一般指人工标注意向等级）|

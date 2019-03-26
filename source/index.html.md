@@ -102,11 +102,12 @@ HTTP头信息:
 请求方式(Method)：统一用POST方式
 编码：UTF-8
 
-## 获得AppKey
+## AppKey和回调地址
 
-![](images/appkey.png)
+![](images/app.jpg)
 
-说明：使用CRM超级管理员账号登录，在系统管理->系统设置->API配置中可获得AppKey。CRM账号获取方法请联系相关客服。
+说明：使用CRM超级管理员账号登录，在系统管理->系统设置->API配置中可获得AppKey，AppSecret，修改回调地址
+CRM账号获取方法请联系相关客服。
 
 >
 
