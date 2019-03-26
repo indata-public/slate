@@ -415,7 +415,7 @@
  
  参数名 | 类型  | 描述  
  --------- | ------- | ------ 
-  sceneInstanceId| int | 任务实例id |
+  sceneInstanceId| long | 任务实例id |
   taskResult| String | 任务结果分析 |
   resultName|String|客户意向等级名
   resultValue|String|客户意向等级值

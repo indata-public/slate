@@ -106,7 +106,8 @@ HTTP头信息:
 
 ![](images/app.jpg)
 
-说明：使用CRM超级管理员账号登录，在系统管理->系统设置->API配置中可获得AppKey，AppSecret，修改回调地址
+说明：使用CRM超级管理员账号登录，在系统管理->系统设置->API配置中可获得AppKey，AppSecret。
+创建AppKey的账号才具有修改回调地址的权限。
 CRM账号获取方法请联系相关客服。
 
 >

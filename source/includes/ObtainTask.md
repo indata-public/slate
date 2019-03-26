@@ -674,7 +674,7 @@ GET
  --------- | ------- |------
   code|int | 响应码 |
   phoneLogs| List | 对话内容 |
-  sceneInstanceId| int | 任务实例id |
+  sceneInstanceId| long | 任务实例id |
   speaker| String |角色|
   content| String | 内容 |
   aiUnknown| int | 是否是ai无法应答的问题，1-是，0-否 |
