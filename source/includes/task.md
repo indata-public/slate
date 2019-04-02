@@ -615,4 +615,49 @@ POST
   resultMsg| String | 响应说明 |
   
   
+
+##查询话术变量
   
+###功能说明：
+  
+通过调用此接口可以查询到话术内使用的变量
+
+>返回对象示例：
+
+```
+{
+    "code":200,
+    "data":[
+        "变量名1",
+        "变量名2",
+        "变量名3"
+    ],
+    "resultMsg":"获取成功",
+    "errorStackTrace":null
+}
+
+```
+  
+###请求：
+ 
+ URL： http://api.byrobot.cn/openapi/v1/task/getSceneVariables
+ 
+###请求方法：
+ 
+ GET
+ 
+ 
+###请求参数:
+ 
+ 参数名 | 类型 | 是否必须 | 描述 | 示例 
+ --------- | ------- |------- | ------ |----------
+  companyId| int| 是 | 公司Id| 1 |  
+  sceneDefId| int | 是 | 机器人话术场景Id|1|
+ 
+###响应：
+ 
+ 参数名 | 类型 | 描述 |
+ --------- | ------- |------
+  code|int | 响应码 |
+  data|list(String) | 话术变量集合|
+  resultMsg| String | 响应说明 |
