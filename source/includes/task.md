@@ -435,7 +435,19 @@ POST
   //午休开始时间
   "breakStartTime":"12:00",
   //午休结束时间
-  "breakEndTime":"14:00"
+  "breakEndTime":"14:00",
+  "repeatCall": true,
+  	"repeatCallRule": [{
+  			"phoneStatus": 9,
+  			"times": 1,
+  			"interval": 5
+  		},
+  		{
+  			"phoneStatus": 10,
+  			"times": 1,
+  			"interval": 5
+  		}
+  	]
 }
 
 ```
@@ -478,6 +490,8 @@ POST
  workingEndTime|String|否|任务结束时间|"20:00"|
  breakStartTime|String|否|任务中断午休开始时间|"12:00"|
  breakEndTime|String|否|任务中断午休结束时间|"14:00"|
+ repeatCall|boolean|否|是否开启重拨 默认false 关闭 |
+ repeatCallRule|list|否|重拨详细规则|
 
 
 ###响应：
