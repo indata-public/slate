@@ -347,10 +347,10 @@ POST
  
 ###请求：
  
- v1版URL：http://api.byrobot.cn/openapi/v1/task/importTaskCustomer
- v2版URL：http://api.byrobot.cn/openapi/v2/task/importTaskCustomer
+ - ~~v1版URL：http://api.byrobot.cn/openapi/v1/task/importTaskCustomer~~
+ - v2版URL：http://api.byrobot.cn/openapi/v2/task/importTaskCustomer
 
- PS：v1版接口已过期，不推荐使用，请使用v2版接口。
+ **PS：v1版接口已过期，不推荐使用，请使用v2版接口。**
 
 
 ###请求方法：
@@ -481,7 +481,7 @@ POST
  taskId| int| 是 | 任务Id| 1 |
  taskName| String| 是 | 任务名称| 1 |
  taskType| int| 是 | 任务类型| 1 |
- userPhoneIds| String| 是 | 外呼号码| 1 |
+ userPhoneIds| String| 是 | 外呼号码| "1,2,3" |
  callType| int| 是 | 外呼类型| 1 |
  concurrencyQuota| int| 是 | 坐席数| 1 |
  concurrencyPhone| int| 否 | 并发量 | 1|

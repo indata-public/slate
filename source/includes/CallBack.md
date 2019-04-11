@@ -26,7 +26,7 @@
  请您在对接接口前，务必配置好回调地址,否则回调将无法成功。 
  </aside>
  
- >返回对象示例:
+ >请求对象示例:
  
   ```
 {
@@ -166,7 +166,8 @@
 
 ###请求方法：
  
- POST
+HttpMethod : post
+Content-Type : application/json;charset=utf-8
  
  
 ###请求参数:
@@ -256,10 +257,7 @@
  
 ###响应：
  
- 参数名 | 类型 | 描述 
- --------- | ------- |------
-  code|integer | 响应码 |
-  resultMsg| String | 响应说明 |
+ `success`
 
 ##任务状态回调
 
@@ -277,7 +275,7 @@
  请您在对接接口前，务必配置好回调地址。否则回调将无法成功。
  </aside>
  
- >返回对象示例:
+ >请求对象示例:
  
   ```
  {
@@ -324,7 +322,8 @@
 
 ###请求方法：
  
- POST
+HttpMethod : post
+Content-Type : application/json;charset=utf-8
  
  
 ###请求参数:
@@ -365,11 +364,7 @@
  
 ###响应：
  
- 参数名 | 类型 | 描述 
- --------- | ------- |------
-  code|int | 响应码 |
-  resultMsg| String | 响应说明 |
-
+ `success`
 
 
 ##手动修改客户意向等级回调接口
@@ -383,7 +378,7 @@
  请您在对接接口前，务必配置好回调地址,否则回调将无法成功。 
  </aside>
  
- >返回对象示例:
+ >请求对象示例:
  
   ```
 {
@@ -408,7 +403,8 @@
 
 ###请求方法：
  
- POST
+HttpMethod : post
+Content-Type : application/json;charset=utf-8
  
  
 ###请求参数:
@@ -425,10 +421,7 @@
  
 ###响应：
  
- 参数名 | 类型 | 描述 
- --------- | ------- |------
-  code|int | 响应码 |
-  resultMsg| String | 响应说明 |
+`success`
   
   
   
@@ -442,7 +435,8 @@
 
 ###请求方法：
   
-  POST
+HttpMethod : post
+Content-Type : application/json;charset=utf-8
   
 ### 请求参数:
 1.dataType: "INBOUND_CALL_INSTANCE_RESULT" (固定，标识是呼入回调),
@@ -508,7 +502,7 @@ sign|String|回调签名（需联系开通）
 dateTime|String|GMT格式日期（签名计算-需联系开通）
 
 
- >返回对象示例:
+ >请求对象示例:
  
   ```
 {
