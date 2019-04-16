@@ -486,6 +486,7 @@ POST
  startDate| String|否|开始日期|"2018-12-13"|
  workingStartTime|String|否|任务开始时间|"09:00"|
  workingEndTime|String|否|任务结束时间|"20:00"|
+ breakStartClose|boolean|否|是否关闭午休不拨打时间 true:关闭，false:维持原状态，默认false |
  breakStartTime|String|否|任务中断午休开始时间|"12:00"|
  breakEndTime|String|否|任务中断午休结束时间|"14:00"|
  repeatCall|boolean|否|是否开启重拨 默认false 关闭 |

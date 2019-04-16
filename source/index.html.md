@@ -122,9 +122,9 @@ SDK包内有部分使用说明，各接口的详细使用说明请浏览各API�
 
 语言 | GitHub地址 
 --------- | ------- 
-JAVA | [GitHub地址](https://github.com/indata-public/byrobot-openapi-demo) 
-Python|[GitHub地址](https://github.com/indata-public/byrobot-openapi-python-demo)
-PHP  | [GitHub地址](https://github.com/indata-public/byrobot-openapi-php-demo)
+JAVA | [<a href="https://github.com/indata-public/byrobot-openapi-demo" target="_blank">GitHub地址</a>]
+Python|[<a href="https://github.com/indata-public/byrobot-openapi-python-demo" target="_blank">GitHub地址</a>]
+PHP  | [<a href="https://github.com/indata-public/byrobot-openapi-php-demo" target="_blank">GitHub地址</a>]
 
 ##最佳实践流程图:
 
