@@ -44,6 +44,7 @@
 	"smsType": 1,
 	"remark": "创建任务",
 	"repeatCall": true,
+	"defaultIntentionRule": true,
 	"repeatCallRule": [{
 			"phoneStatus": 9,
 			"times": 1,
@@ -102,6 +103,7 @@ POST
  phoneStatus|int|否|通话状态|
  times|int|否|重拨次数|
  interval|int|否|间隔时间|
+ defaultIntentionRule|boolean|否|是否使用默认客户分配规则，默认false|
  
 
 
