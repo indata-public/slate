@@ -167,7 +167,7 @@
 
 ###请求方法：
  
-HttpMethod : post
+HttpMethod : post  
 Content-Type : application/json;charset=utf-8
  
  
@@ -323,7 +323,7 @@ Content-Type : application/json;charset=utf-8
 
 ###请求方法：
  
-HttpMethod : post
+HttpMethod : post  
 Content-Type : application/json;charset=utf-8
  
  
@@ -404,7 +404,7 @@ Content-Type : application/json;charset=utf-8
 
 ###请求方法：
  
-HttpMethod : post
+HttpMethod : post  
 Content-Type : application/json;charset=utf-8
  
  
