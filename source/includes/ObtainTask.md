@@ -687,13 +687,14 @@ GET
   customerTelephone| String | 客户手机 |
   customerName| String | 客户名称 |
   finishStatus| String | 任务实例已经完成的状态, 0:已接, 1:拒接, 2:无法接通, 3:主叫号码不可用, 4:空号, 5:关机, 6:占线, 7:停机, 8:未接, 9:主叫欠费 |
-  status| int | |
+  status| int | 通话状态，2：已完成 |
   duration| int  | 通话时长 |
   chatRound| int | 通话轮次 |
   startTime| String | 开始拨打时间 |
   endTime| String | 结束拨打时间 |
   callerPhone| String | 主叫电话 |
-  luyinOssUrl| int | 通话录音 |
+  luyinOssUrl| int | 通话录音（包含Ai和客户） |
+  userLuyinOssUrl| String | 通话录音（只包含客户） |
   callType| int | 拨打类型 0: 免费试用 1: 任务 2: 用户单独拨打 |
   readStatus| int | 是否已读 0: 未读 1: 已读 |
   robotDefId| String | 机器人id |

@@ -184,14 +184,14 @@ Content-Type : application/json;charset=utf-8
   customerId| int |客户Id|
   customerTelephone|String|客户手机号|
   customerName|String|客户名称|
-  status| int | 电话实例状态 0：未开始 1：进行中 2：已完成 3：二次拨打调度中 |
+  status| int | 电话实例状态 2：已完成 |
   finishStatus| int | 通话状态 0：已接通，1：拒绝 2：无法接通 3：主叫号码不可用 4：空号 5：关机 6：占线 7：停机 8：未接 9：主叫欠费 10：呼损 11：黑名单|
   duration| int |通话时长|
   chatRound| int | 通话轮次 |
   startTime| Date | 通话开始时间
   endTime| Date | 通话结束时间 |
   callerPhone| String | 主叫号码 |
-  luyunOssUrl| String |通话录音（包含Ai和客户）|
+  luyinOssUrl| String |通话录音（包含Ai和客户）|
   userLuyinOssUrl| String | 通话录音（只包含客户） |
   properties| String |通话记录携带的参数(json字符串)|
   handlePerson| String  | 话术名 |
@@ -240,7 +240,7 @@ Content-Type : application/json;charset=utf-8
   userMean|String|用户说话语义|
   userMeanDetail|String|用户说话语义详情|
   aiUnknown|int|是否是ai无法应答的问题，1-是，0-否|
-  answerStatus|int|回答问题状态：0-分支，1-问题|
+  answerStatus|int|回答问题状态：0-分支，1-问题，2-忽略|
   studyStatus|int|学习状态：0-未学习，1-已学习|
   startTime|int|说话的开始时间|
   endTime|int|说话的结束时间|
