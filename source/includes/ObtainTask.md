@@ -693,7 +693,7 @@ GET
   startTime| String | 开始拨打时间 |
   endTime| String | 结束拨打时间 |
   callerPhone| String | 主叫电话 |
-  luyinOssUrl| int | 通话录音（包含Ai和客户） |
+  luyinOssUrl| String | 通话录音（包含Ai和客户） |
   userLuyinOssUrl| String | 通话录音（只包含客户） |
   callType| int | 拨打类型 0: 免费试用 1: 任务 2: 用户单独拨打 |
   readStatus| int | 是否已读 0: 未读 1: 已读 |
