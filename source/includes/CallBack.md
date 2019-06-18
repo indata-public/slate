@@ -214,7 +214,7 @@ Content-Type : application/json;charset=utf-8
   gmtCreate|Date|创建时间|
   gmtModified|Date|修改时间|
    |||
-  sceneInstanceResultId|int|通话记录结果Id|
+  sceneInstanceResultId|long|通话记录结果Id|
   companyId|int|公司Id|
   sceneInstanceId|long|通话记录Id(对应callInstanceId)|
   resultName|String|通话记录结果类型名|
