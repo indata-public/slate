@@ -242,8 +242,8 @@ Content-Type : application/json;charset=utf-8
   aiUnknown|int|是否是ai无法应答的问题，1-是，0-否|
   answerStatus|int|回答问题状态：0-分支，1-问题，2-忽略|
   studyStatus|int|学习状态：0-未学习，1-已学习|
-  startTime|int|说话的开始时间|
-  endTime|int|说话的结束时间|
+  startTime|Date|说话的开始时间|
+  endTime|Date|说话的结束时间|
   gmtCreate|Date|创建时间|
   gmtModified|Date|修改时间|
   knowledgeBaseId|int|知识点ID|
