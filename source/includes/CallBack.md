@@ -78,7 +78,6 @@
 				"robotDefId": 180,
 				"sceneDefId": 192,
 				"sceneRecordId": 192,
-				"corpName": "{\"calledTimes\":1,\"callerId\":887,\"host\":\"byrobot-prod27\",\"ip\":\"172.16.67.198\",\"useAsr\":\"pay\"}",
 				"industry": "1540384412_151_1",
 				"trackResult": "C级(很少)",
 				"bugType": null,
@@ -87,9 +86,7 @@
 				"secondaryCallTimes": 0,
 				"cost": 0,
 				"callbacked": 0,
-				"csStaffId": null,
-				"gmtCreate": "2019-01-12 10:48:42",
-				"gmtModified": "2019-01-12 10:48:42"
+				"csStaffId": null
 			},
 			"taskResult": [{
 				"sceneInstanceResultId": 1117274388,
@@ -101,10 +98,7 @@
 				"artificialResultValue": "C级(很少)",
 				"artificialChanged": null,
 				"resultDesc": "命中业务问题 <= 0次 并且 肯定次数 <= 0次",
-				"extra": "{\"hitUserLevelConfigExtraId\":327809,\"hitUserLevelConfigId\":6}",
 				"analyzeType": "DYNAMIC_ANALYZE_USER_LEVEL",
-				"gmtCreate": null,
-				"gmtModified": null,
 				"resultValueAlias": "C",
 				"resultLabels": null,
 				"resultValueNew": "C级(明确拒绝)"
@@ -117,16 +111,13 @@
 				"artificialResultValue": null,
 				"artificialChanged": null,
 				"resultDesc": null,
-				"extra": null,
 				"analyzeType": "DYNAMIC_ANALYZE_USER_LEVEL",
 				"resultValueAlias": "",
 				"resultLabels": [{
 					"key": 200,
 					"value": "无效用户"
 				}],
-				"resultValueNew": "",
-				"gmtCreate": "2018-12-14 18:03:00",
-				"gmtModified": "2018-12-14 18:03:00"
+				"resultValueNew": ""
 			}],
 			"phoneLog": {
 				"phoneLogs": [{
@@ -144,8 +135,6 @@
 					"studyStatus": null,
 					"startTime": 0,
 					"endTime": 0,
-					"gmtCreate": "2019-01-12 16:09:32",
-					"gmtModified": "2019-01-12 16:09:32",
 					"knowledgeBaseId": null,
 					"correctionContent": null
 				}, {
@@ -163,8 +152,6 @@
 					"studyStatus": null,
 					"startTime": 8350,
 					"endTime": 10570,
-					"gmtCreate": "2019-01-12 16:09:44",
-					"gmtModified": "2019-01-12 16:09:44",
 					"knowledgeBaseId": null,
 					"correctionContent": null
 				}],
@@ -210,11 +197,11 @@ Content-Type : application/json;charset=utf-8
   callerPhone| String | 主叫号码 |
   luyinOssUrl| String |通话录音（包含Ai和客户）|
   userLuyinOssUrl| String | 通话录音（只包含客户） |
-  properties| String |通话记录携带的参数(json字符串)|
+  properties| String |通话记录携带的参数(json字符串)，包含话术变量和自定义参数，用户可以传入自己的变量，我们回调会传回给用户|
   handlePerson| String  | 话术名 |
   callType| int | 主叫号码类型 |
   callIndex| int | 通话实例索引 |
-  readStatus| int | 是否已读 0：未读 1：已读 |
+  readStatus| int | 是否已读，产品中的通话记录已读未读状态 0：未读 1：已读 |
   jobName| String | 电话任务名称 |
   robotDef| int |话术机器人Id|
   sceneDefId| int |话术场景Id|
@@ -239,7 +226,6 @@ Content-Type : application/json;charset=utf-8
   artificialResultValue|String|通话结果人工标注值（一般指人工标注意向等级）|
   artificialChanged|int|是否进行过人工标注修改 0:没有 1:有|
   resultDesc|String|结果描述|
-  extra|String|额外信息|
   analyzeType|String|场景对应的结构化数据分析类型|
   resultValueAlias|String|分析结果别名(resultName为【客户意向等级】时标注值为意向级别 A,B,C,D,E,F)|
   resultLabels|List<IntegerStringBO>|IntegerStringBO对象中存储一个int类型参数，一个String类型参数，resultName为【客户标签】时存储客户标签|
@@ -251,7 +237,7 @@ Content-Type : application/json;charset=utf-8
   sceneInstanceId|Long|通话记录Id（对应callInstanceId）|
   companyId|int|公司Id|
   robotDefId|int|话术机器人Id|
-  decisionId|int|对应决策Id|
+  decisionId|int|对应决策Id,话术的节点Id|
   speaker|String|说话人 ME：用户  AI:机器人|
   content|String|说话内容|
   userMean|String|用户说话语义|
@@ -315,13 +301,6 @@ Content-Type : application/json;charset=utf-8
  			"smsTemplateId": null,
  			"userId": 241,
  			"userName": "步婉",
- 			"ip": "172.16.67.104",
- 			"hostName": "byrobot-daily",
- 			"version": 1,
- 			"secondaryStartTime": "09:00:00",
- 			"jobIsDelete": false,
- 			"gmtCreate": "2018-04-25 11:11:45",
- 			"gmtModified": "2018-04-25 11:17:19"
  		}
  	},
  	"resultMsg": "执行成功",
@@ -350,8 +329,8 @@ Content-Type : application/json;charset=utf-8
   endDate| String |任务结束时间|
   workingStartTime| String | 可拨打起始时间 |
   workingEndTime| String | 可拨打结束时间 |
-  breakStartTime| int |午休起始时间|
-  breakEndTime| int | 午休结束时间 |
+  breakStartTime| int |对应百应页面创建任务时的不拨打时段的开始时间，到达这个时间点后 任务将会自动暂停|
+  breakEndTime| int | 对应百应页面创建任务时的不拨打时段的结束时间，到达这个时间点后 任务将会再次启动 |
   status| String | 状态, 0:未开始,1:进行中,2:已完成,3:调度中,4:手动暂停,5:自动暂停,6:已终止,7:排队中,8:AI到期,9:账户欠费 |
   callType| int | 主叫号码类型:0-手机号,1-固话,2-无主叫 |
   robotDefId| int |关联的机器人id|
@@ -363,11 +342,6 @@ Content-Type : application/json;charset=utf-8
   smsTemplateId| String | 发送挂机短信的模板 |
   userId| int | 创建人id |
   userName| String | 创建人名称 |
-  ip| int |任务执行IP|
-  hostName| int |任务执行主机|
-  version| int | 锁版本号 |
-  secondaryStartTime| String | 二次启动job的时间 | 
-  jobIsDelete| Boolean | job是否已经删除 false：没有删除 true：已经删除 | 
 
   
 
@@ -469,6 +443,9 @@ userLuyinOssUrl|String|通话录音（只包含客户）
 robotDefId|int|话术机器人Id
 sceneDefId|int|话术场景Id
 sceneRecordId|int|话术场景录音Id
+transferStatus|int|转人工状态:0-无转接,1-成功,2-失败
+transferInfo|String|转人工详情
+callbacked|int|是否回调
 hangUp|int|挂机人 0：AI 1：用户
 
 
@@ -495,15 +472,14 @@ sceneInstanceLogId|long|通话记录日志Id
 decisionId|int|对应决策Id
 speaker|String|说话人 ME：用户 AI:机器人
 content|String|说话内容
-userMean|String|用户说话语义
-userMeanDetail|String|用户说话语义详情
+userMean|String|用户说话语义,客户说话内容命中的话术节点分支或知识库问题
+userMeanDetail|String|用户说话语义详情,客户说话内容命中详情（包括命中的用户说话内容和话术节点分支或知识库分支问题）
 aiUnknown|int|是否是ai无法应答的问题，1-是，0-否
-answerStatus|int|回答问题状态：0-分支，1-问题
-studyStatus|int|学习状态：0-未学习，1-已学习
-startTime|Date|说话的开始时间
-endTime|Date|说话的结束时间
-knowledgeBaseId|int|知识点ID
-correctionContent|String|通话记录纠错内容
+answerStatus|int|回答问题状态：0-分支，1-问题，2-忽略，表示命中流程分支或者知识库问题
+studyStatus|int|学习状态：0-未学习，1-已学习，在问题学习板块里面的问题学习状态（默认为空）
+startTime|Date|说话的开始时间,本句话在录音中的开始时间
+endTime|Date|说话的结束时间,本句话在录音中的结束时间
+correctionContent|String|通话记录纠错内容，通话记录中的人工纠错功能的纠错内容
 luyinOssUrl|String|通话记录录音
 sign|String|回调签名（需联系开通）
 dateTime|String|GMT格式日期（签名计算-需联系开通）
@@ -519,7 +495,6 @@ dateTime|String|GMT格式日期（签名计算-需联系开通）
         "data": {
             "sceneInstance": {
                 "inboundInstanceId": 1091,
-                "inboundInstanceCode": "1091_1_101",
                 "companyId": 1,
                 "callJobId": 98,
                 "customerId": 22142595,
@@ -532,29 +507,18 @@ dateTime|String|GMT格式日期（签名计算-需联系开通）
                 "startTime": "2019-01-24 15:27:39",
                 "endTime": "2019-01-24 15:28:09",
                 "calleePhone": "057126881788",
-                "calleeSip": "666003",
-                "csStaffId": null,
-                "csStaffName": null,
-                "csStaffTelephone": null,
                 "luyinOssUrl": "https://byrobot-test.oss-cn-hangzhou.aliyuncs.com/InboundRobotCommunicate/1091/20190124-152809_1010.wav",
                 "userLuyinOssUrl": "https://byrobot-test.oss-cn-hangzhou.aliyuncs.com/InboundRobotCommunicate/1091_user.wav",
                 "properties": "{}",
-                "callType": 101,
                 "readStatus": null,
                 "robotDefId": 1155,
                 "sceneDefId": 1165,
                 "sceneRecordId": 1149,
-                "ip": "172.16.67.186",
-                "hostName": "byrobot-daily-2",
                 "transferStatus": null,
                 "transferInfo": null,
                 "userLevel": null,
-                "trackResult": null,
-                "bugType": null,
                 "hangUp": 1,
                 "callbacked": null,
-                "gmtCreate": null,
-                "gmtModified": null,
                 "propertiesMap": {
                     "客户名称": "未知呼入客户",
                     "联系方式": "1010"
@@ -571,10 +535,7 @@ dateTime|String|GMT格式日期（签名计算-需联系开通）
                     "artificialResultValue": "B级(一般)",
                     "artificialChanged": false,
                     "resultDesc": "拒绝次数 <= 1 次 并且 命中业务问题 >= 1",
-                    "extra": "{\"hitUserLevelConfigExtraId\":1213,\"hitUserLevelConfigId\":873}",
                     "analyzeType": "DYNAMIC_ANALYZE_USER_LEVEL",
-                    "gmtCreate": null,
-                    "gmtModified": null,
                     "resultValueAlias": "B",
                     "resultLabels": null,
                     "resultValueNew": "B级(可能有意向)"
@@ -589,10 +550,7 @@ dateTime|String|GMT格式日期（签名计算-需联系开通）
                     "artificialResultValue": "位置",
                     "artificialChanged": false,
                     "resultDesc": null,
-                    "extra": null,
                     "analyzeType": "DYNAMIC_ANALYZE_USER_LEVEL",
-                    "gmtCreate": null,
-                    "gmtModified": null,
                     "resultValueAlias": null,
                     "resultLabels": null,
                     "resultValueNew": null
@@ -607,10 +565,7 @@ dateTime|String|GMT格式日期（签名计算-需联系开通）
                     "artificialResultValue": null,
                     "artificialChanged": false,
                     "resultDesc": null,
-                    "extra": null,
                     "analyzeType": "DYNAMIC_ANALYZE_USER_LEVEL",
-                    "gmtCreate": null,
-                    "gmtModified": null,
                     "resultValueAlias": null,
                     "resultLabels": [],
                     "resultValueNew": null
@@ -633,8 +588,6 @@ dateTime|String|GMT格式日期（签名计算-需联系开通）
                         "studyStatus": null,
                         "startTime": 0,
                         "endTime": 0,
-                        "gmtCreate": "2019-01-24 15:27:39",
-                        "gmtModified": "2019-01-24 15:27:39",
                         "knowledgeBaseId": null,
                         "correctionContent": null
                     },
@@ -653,8 +606,6 @@ dateTime|String|GMT格式日期（签名计算-需联系开通）
                         "studyStatus": null,
                         "startTime": 6830,
                         "endTime": 7950,
-                        "gmtCreate": "2019-01-24 15:27:48",
-                        "gmtModified": "2019-01-24 15:27:48",
                         "knowledgeBaseId": null,
                         "correctionContent": null
                     }

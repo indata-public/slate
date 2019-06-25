@@ -89,21 +89,21 @@ POST
  startDate| String| 是 | 任务开始日期| "2017-10-19"  |
  workingStartTime| String| 否 | 可拨打开始时间| 08:00 |
  workingEndTime| String| 否 | 可拨打结束时间| 22:00 |
- breakStartTime| String| 否 | 暂时停止开始时间| 12:00 |
- breakEndTime| String| 否 | 暂时停止结束时间| 13:00 |
- userPhoneIds| int| 是 | 主叫电话号码id列表，详见获取公司的主叫电话列表(getPhones)接口| [1,2] |
+ breakStartTime| String| 否 | 暂时停止开始时间,对应百应页面创建任务时的不拨打时段的开始时间,到达这个时间点后,任务将会自动暂停| 12:00 |
+ breakEndTime| String| 否 | 暂时停止结束时间,对应百应页面创建任务时的不拨打时段的结束时间,到达这个时间点后,任务将会再次启动| 13:00 |
+ userPhoneIds| int| 是 | 主叫电话号码id列表,详见获取公司的主叫电话列表(getPhones)接口| [1,2] |
  sceneDefId| int| 是 | 场景id| 1 |
  robotDefId| int| 是 | 机器人id| 1 |
  sceneRecordId| int| 是 | 机器人话术录音id| 1 |
- callType| int| 是 | 主叫号码类型，0-sim卡,1-固话（默认）, 2-无主叫| 1 |
- concurrencyQuota| int| 否 | ai坐席数，默认1| 1 |
+ callType| int| 是 | 主叫号码类型，0-sim卡,1-固话(默认),2-无主叫| 1 |
+ concurrencyQuota| int| 否 | ai坐席数,默认1,一个坐席对应一个机器人| 1 |
  remark| String| 否 | 备注| 测试|
  repeatCall|boolean|否|是否开启重拨 默认false 关闭 |
  repeatCallRule|list|否|重拨详细规则|
  phoneStatus|int|否|通话状态|
  times|int|否|重拨次数|
  interval|int|否|间隔时间|
- defaultIntentionRule|boolean|否|是否使用默认客户分配规则，默认false|
+ defaultIntentionRule|boolean|否|是否使用默认客户分配规则,默认false,见页面创建任务入口:设置客户自动处理规则右侧的"存为默认规则"|
  
 
 
