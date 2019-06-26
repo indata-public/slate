@@ -516,7 +516,9 @@ POST
     "userName":"张三",
     "age":15
   }
-  "robotDefId": 230
+  "robotDefId": 230,
+  "sceneDefId": 10,
+  "sceneRecordId": 20
 }
 ```
 >返回对象示例：
@@ -549,6 +551,8 @@ POST
   companyId| int| 是 | 公司Id| 1 |  
   variables| Map<String,String>| 否 | 1.变量（如果话术内设置变量则需要传入）2.不传值情况下需要保留字段名| 1 |      
   robotDefId| int| 是 | 机器人话术Id | 1 |  
+  sceneDefId| int| 是 | 机器人话术场景Id | 1 |  
+  sceneRecordId| int| 是 | 机器人话术录音Id | 1 |  
  
 ###响应：
  
@@ -575,7 +579,9 @@ POST
     "age":15
   },
   userName:,"客户姓名",
-  "robotDefId": 230
+  "robotDefId": 230,
+  "sceneDefId": 10,
+  "sceneRecordId": 20
 }
 ```
 >返回对象示例：
@@ -606,7 +612,9 @@ POST
   mobile| String| 是 | 客户手机号| 1 |  
   companyId| int| 是 | 公司Id| 1 |  
   variables| Map<String,String>| 否 |  1.变量（如果话术内设置变量则需要传入）2.不传值情况下需要保留字段名| 1 |      
-  robotDefId| int| 是 | 机器人话术Id | 1 |  
+  robotDefId| int| 是 | 机器人话术Id | 1 |
+  sceneDefId| int| 是 | 机器人话术场景Id | 1 |  
+  sceneRecordId| int| 是 | 机器人话术录音Id | 1 |    
   userName|String|否|客户姓名|1|
  
 ###响应：
