@@ -39,8 +39,6 @@
 	"callType": 0,
 	"concurrencyQuota": 1,
 	"robotDefId": 1,
-	"sceneDefId": 1,
-	"sceneRecordId": 7,
 	"smsType": 1,
 	"remark": "创建任务",
 	"repeatCall": true,
@@ -95,7 +93,7 @@ POST
  sceneDefId| int| 是 | 场景id| 1 |
  robotDefId| int| 是 | 机器人id| 1 |
  sceneRecordId| int| 是 | 机器人话术录音id| 1 |
- callType| int| 是 | 主叫号码类型，0-sim卡,1-固话(默认),2-无主叫| 1 |
+ callType| int| 是 | 外呼方式，0-手机号,1-固话(默认),2-无主叫,6-SIP| 1 |
  concurrencyQuota| int| 否 | ai坐席数,默认1,一个坐席对应一个机器人| 1 |
  remark| String| 否 | 备注| 测试|
  repeatCall|boolean|否|是否开启重拨 默认false 关闭 |
@@ -482,7 +480,7 @@ POST
  taskName| String| 是 | 任务名称| 1 |
  taskType| int| 是 | 任务类型| 1 |
  userPhoneIds| String| 是 | 外呼号码| "1,2,3" |
- callType| int| 是 | 外呼类型| 1 |
+ callType| int| 是 | 外呼方式，0-手机号,1-固话(默认),2-无主叫,6-SIP| 1 |
  concurrencyQuota| int| 是 | 坐席数| 1 |
  concurrencyPhone| int| 否 | 并发量 | 1|
  startDate| String|否|开始日期|"2018-12-13"|
