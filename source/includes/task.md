@@ -96,9 +96,10 @@ POST
  remark| String| 否 | 备注| 测试|
  repeatCall|boolean|否|是否开启重拨 默认false 关闭 |
  repeatCallRule|list|否|重拨详细规则|
- phoneStatus|int|否|通话状态|
+ phoneStatus|int|否|通话状态枚举|
  times|int|否|重拨次数|
- interval|int|否|间隔时间|
+ smsType| int | 是否发送挂机短信：0-否，1-是 |
+ interval|int|否|间隔时间(0-120min)|
  defaultIntentionRule|boolean|否|是否使用默认客户分配规则,默认false,见页面创建任务入口:设置客户自动处理规则右侧的"存为默认规则"|
  
 
@@ -157,7 +158,7 @@ POST
  
 ###功能说明：
  
- 通过此接口可以暂停指定的任务
+ 通过此接口可以暂停指定的任务,暂停任务后，会释放主叫号码和AI坐席
  
  >返回对象示例：
  
@@ -198,7 +199,7 @@ POST
  
 ###功能说明：
  
- 通过此接口可以停止  指定的任务
+ 通过此接口可以停止指定的任务,停止任务后，会释放主叫号码和AI坐席
  
  >返回对象示例：
  
@@ -239,7 +240,7 @@ POST
   
 ###功能说明：
   
-通过调用此接口可以删除任务信息
+通过调用此接口可以删除任务信息，删除任务后，会释放主叫号码和AI坐席
 >入参JSON示例
 
 ```
@@ -284,7 +285,7 @@ POST
  
 ###功能说明：
  
- 通过此接口可以向指定的任务导入客户信息，用于拨打电话,同一个任务，电话号码不能重复
+ 通过此接口可以向指定的任务导入客户信息，用于拨打电话,同一个任务，电话号码不能重复，重复号码自动去重
  
  
  >入参JSON示例:
@@ -362,16 +363,17 @@ POST
   taskId| int| 是 | 任务Id| 1 |
   name| String| 是 | 客户名称| 张三 |
   phone| String| 是 | 客户电话| 13998987676 |
-  properties| Map<String,String>| 否 | 客户额外信息| 请看json入参 |
+  properties| Map<String,String>| 否 | 客户额外信息| 必须包含所有的话术变量（话术创建页面可查看），百应透传该参数，请看json入参示例 |
   forceTransferCustomer|Integer|是否强制转移客户 1：是 0：否（默认1）| 1|
   
-  tip:
-  forceTransferCustomer字段使用方式（默认强制转移）
-  有多个子账号（团队成员）情况下，客户【a】被子账号A跟进，此时通过api向子账号B创建的任务中导入客户【a】
-  会因为跟进人不是子账号B导致失败，如果forceTransferCustomer设置为1，则会强制将客户【a】导入到子账号B
-  创建的任务中，并且将客户【a】分配给子账号B
-
+  <aside class="success">
+   forceTransferCustomer字段使用方式（默认强制转移）
+   有多个子账号（团队成员）情况下，客户【a】被子账号A跟进，此时通过api向子账号B创建的任务中导入客户【a】
+   会因为跟进人不是子账号B导致失败，如果forceTransferCustomer设置为1，则会强制将客户【a】导入到子账号B
+   创建的任务中，并且将客户【a】分配给子账号B
+  </aside>
  
+
  
 ###响应：
  v1版：
@@ -478,7 +480,7 @@ POST
  taskName| String| 是 | 任务名称| 1 |
  taskType| int| 是 | 任务类型| 1 |
  userPhoneIds| int| 是 | 外呼号码| 1 |
- callType| int| 是 | 外呼方式，0-手机号,1-固话(默认),2-无主叫,6-SIP| 1 |
+ callType| int| 是 | 外呼方式，0-手机号,1-固话(默认),2-无主叫线路| 1 |
  concurrencyQuota| int| 是 | 坐席数| 1 |
  concurrencyPhone| int| 否 | 并发量 | 1|
  startDate| String|否|开始日期|"2018-12-13"|
@@ -488,7 +490,7 @@ POST
  breakStartTime|String|否|对应百应页面创建任务时的不拨打时段的开始时间，到达这个时间点后 任务将会自动暂停|"12:00"|
  breakEndTime|String|否|对应百应页面创建任务时的不拨打时段的结束时间，到达这个时间点后 任务将会再次启动|"14:00"|
  repeatCall|boolean|否|是否开启重拨 默认false 关闭 |
- repeatCallRule|list|否|重拨详细规则|
+ repeatCallRule|list|否|重拨详细规则，请看json入参|
 
 
 ###响应：
@@ -498,68 +500,6 @@ POST
  code|int | 响应码 |
  resultMsg| String | 响应说明 |
  
-##单次电话外呼
-  
-###功能说明：
-  
-通过调用此接口可以进行单次电话外呼
-注意：此接口仅限测试和少量外呼，如需大量外呼请使用外呼任务
-
->入参JSON示例
-
-```
-{
-  "customerId": 1
-  "mobile": 13886871111
-  "companyId": 1
-  "variable": {
-    "userName":"张三",
-    "age":15
-  }
-  "robotDefId": 230,
-  "sceneDefId": 10,
-  "sceneRecordId": 20
-}
-```
->返回对象示例：
-
-```
-{
-    "code": 200,
-    "data": null,
-    "resultMsg": "外呼成功",
-    "errorStackTrace": null
-}
-
-```
-  
-###请求：
- 
- URL：http://api.byrobot.cn/openapi/v1/task/call
- 
-###请求方法：
- 
- POST
- 
- 
-###请求参数:
- 
- 参数名 | 类型 | 是否必须 | 描述 | 示例 
- --------- | ------- |------- | ------ |----------
-  customerId| int| 是 | 客户Id| 1 |  
-  mobile| int| 是 | 客户手机号| 1 |  
-  companyId| int| 是 | 公司Id| 1 |  
-  variables| Map<String,String>| 否 | 1.变量（如果话术内设置变量则需要传入）2.不传值情况下需要保留字段名| 1 |      
-  robotDefId| int| 是 | 机器人话术Id | 1 |  
-  sceneDefId| int| 是 | 机器人话术场景Id | 1 |  
-  sceneRecordId| int| 是 | 机器人话术录音Id | 1 |  
- 
-###响应：
- 
- 参数名 | 类型 | 描述 
- --------- | ------- |------
-  code|int | 响应码 |
-  resultMsg| String | 响应说明 |
 
 ##根据手机号进行单次电话外呼
   
