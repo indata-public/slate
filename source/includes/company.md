@@ -133,7 +133,7 @@ GET
  phone| String | 主叫号码 |
  account|String|主叫号码账号|
  phoneName| String | 主叫号码名称 |
- phoneType| int | 主叫号码类型：手机(0, "手机"),阿里云固话(1, "阿里云固话"),无主叫固话(2, "无主叫固话"),sip线路(6,"sip线路") |
+ phoneType| int | 主叫号码类型：0-手机号,1-固话(默认),2-无主叫线路 |
  available| Boolean | 是否可用（已使用ai坐席大于可用ai坐席数时会返回false） |
  totalConcurrencyQuota| int | 总并发数 |
  usedConcurrencyQuota| int | 已经使用并发数 |
