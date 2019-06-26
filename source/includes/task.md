@@ -39,8 +39,6 @@
 	"callType": 0,
 	"concurrencyQuota": 1,
 	"robotDefId": 1,
-	"sceneDefId": 1,
-	"sceneRecordId": 7,
 	"smsType": 1,
 	"remark": "创建任务",
 	"repeatCall": true,
@@ -91,11 +89,11 @@ POST
  workingEndTime| String| 否 | 可拨打结束时间| 22:00 |
  breakStartTime| String| 否 | 暂时停止开始时间,对应百应页面创建任务时的不拨打时段的开始时间,到达这个时间点后,任务将会自动暂停| 12:00 |
  breakEndTime| String| 否 | 暂时停止结束时间,对应百应页面创建任务时的不拨打时段的结束时间,到达这个时间点后,任务将会再次启动| 13:00 |
- userPhoneIds| int| 是 | 主叫电话号码id列表,详见获取公司的主叫电话列表(getPhones)接口| [1,2] |
+ userPhoneIds| List| 是 | 主叫电话号码id列表,详见获取公司的主叫电话列表(getPhones)接口| [1] |
  sceneDefId| int| 是 | 场景id| 1 |
  robotDefId| int| 是 | 机器人id| 1 |
  sceneRecordId| int| 是 | 机器人话术录音id| 1 |
- callType| int| 是 | 主叫号码类型，0-sim卡,1-固话(默认),2-无主叫| 1 |
+ callType| int| 是 | 外呼方式，0-手机号,1-固话(默认),2-无主叫,6-SIP| 1 |
  concurrencyQuota| int| 否 | ai坐席数,默认1,一个坐席对应一个机器人| 1 |
  remark| String| 否 | 备注| 测试|
  repeatCall|boolean|否|是否开启重拨 默认false 关闭 |
@@ -419,7 +417,7 @@ POST
   //任务类型 详见枚举
   "taskType":1,
   //外呼号码列表，当有多个外呼号码时可以用[,]分隔
-  "userPhoneIds":"255,244",
+  "userPhoneIds":1,
   //外呼类型 详见枚举
   "callType":1,
   //并发数(ai坐席数)
@@ -481,16 +479,16 @@ POST
  taskId| int| 是 | 任务Id| 1 |
  taskName| String| 是 | 任务名称| 1 |
  taskType| int| 是 | 任务类型| 1 |
- userPhoneIds| String| 是 | 外呼号码| "1,2,3" |
- callType| int| 是 | 外呼类型| 1 |
+ userPhoneIds| int| 是 | 外呼号码| 1 |
+ callType| int| 是 | 外呼方式，0-手机号,1-固话(默认),2-无主叫,6-SIP| 1 |
  concurrencyQuota| int| 是 | 坐席数| 1 |
  concurrencyPhone| int| 否 | 并发量 | 1|
  startDate| String|否|开始日期|"2018-12-13"|
  workingStartTime|String|否|任务开始时间|"09:00"|
  workingEndTime|String|否|任务结束时间|"20:00"|
  breakStartClose|boolean|否|是否关闭午休不拨打时间 true:关闭，false:维持原状态，默认false |
- breakStartTime|String|否|任务中断午休开始时间|"12:00"|
- breakEndTime|String|否|任务中断午休结束时间|"14:00"|
+ breakStartTime|String|否|对应百应页面创建任务时的不拨打时段的开始时间，到达这个时间点后 任务将会自动暂停|"12:00"|
+ breakEndTime|String|否|对应百应页面创建任务时的不拨打时段的结束时间，到达这个时间点后 任务将会再次启动|"14:00"|
  repeatCall|boolean|否|是否开启重拨 默认false 关闭 |
  repeatCallRule|list|否|重拨详细规则|
 
