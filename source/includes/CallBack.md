@@ -240,8 +240,8 @@ Content-Type : application/json;charset=utf-8
   decisionId|int|对应决策Id,话术的节点Id|
   speaker|String|说话人 ME：用户  AI:机器人|
   content|String|说话内容|
-  userMean|String|用户说话语义|
-  userMeanDetail|String|用户说话语义详情|
+  userMean|String|用户说话语义,客户说话内容命中的话术节点分支或知识库问题|
+  userMeanDetail|String|用户说话语义详情,客户说话内容命中详情（包括命中的用户说话内容和话术节点分支或知识库分支问题）|
   aiUnknown|int|是否是ai无法应答的问题，1-是，0-否|
   answerStatus|int|回答问题状态：0-分支，1-问题，2-忽略|
   studyStatus|int|学习状态：0-未学习，1-已学习|
