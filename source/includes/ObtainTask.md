@@ -646,6 +646,8 @@ GET
   sceneInstanceId| long | 任务实例id，callInstanceId |
   speaker| String |角色|
   content| String | 内容 |
+  userMean| String |用户说话语义,客户说话内容命中的话术节点分支或知识库问题|
+  userMeanDetail| String |用户说话语义详情,客户说话内容命中详情（包括命中的用户说话内容和话术节点分支或知识库分支问题）|
   aiUnknown| int | 是否是ai无法应答的问题，1-是，0-否 |
   luyinOssUrl| String |通话录音|
   callInstanceId| long | 任务实例id（每个被叫电话为一个实例,通话记录id） |
