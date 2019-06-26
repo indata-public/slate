@@ -398,9 +398,6 @@ Content-Type : application/json;charset=utf-8
   resultName|String|客户意向等级名
   resultValue|String|客户意向等级值
   
-
- 
- 
 ###响应：
  
 `success`
@@ -412,7 +409,142 @@ Content-Type : application/json;charset=utf-8
 ###功能说明：
 当一次通话完成后，百应机器人会自动调用回调程序向用户配置的回调地址，发送本次通话详情。
 呼入回调数据格式与外呼格式保持高度一致，仅个别字段名称有所变更,  http://api.byrobot.cn/doc/v2/#3e45815d37
-   
+ 
+ >请求对象示例:
+  
+   ```
+ {
+     "code": 200,
+     "data": {
+         "dataType": "INBOUND_CALL_INSTANCE_RESULT",
+         "data": {
+             "sceneInstance": {
+                 "inboundInstanceId": 1091,
+                 "companyId": 1,
+                 "callJobId": 98,
+                 "customerId": 22142595,
+                 "customerTelephone": "1010",
+                 "customerName": "未知呼入客户",
+                 "status": 2,
+                 "finishStatus": 0,
+                 "duration": 27,
+                 "chatRound": 3,
+                 "startTime": "2019-01-24 15:27:39",
+                 "endTime": "2019-01-24 15:28:09",
+                 "calleePhone": "057126881788",
+                 "luyinOssUrl": "https://byrobot-test.oss-cn-hangzhou.aliyuncs.com/InboundRobotCommunicate/1091/20190124-152809_1010.wav",
+                 "userLuyinOssUrl": "https://byrobot-test.oss-cn-hangzhou.aliyuncs.com/InboundRobotCommunicate/1091_user.wav",
+                 "properties": "{}",
+                 "readStatus": null,
+                 "robotDefId": 1155,
+                 "sceneDefId": 1165,
+                 "sceneRecordId": 1149,
+                 "transferStatus": null,
+                 "transferInfo": null,
+                 "userLevel": null,
+                 "hangUp": 1,
+                 "callbacked": null,
+                 "propertiesMap": {
+                     "客户名称": "未知呼入客户",
+                     "联系方式": "1010"
+                 }
+             },
+             "taskResult": [
+                 {
+                     "sceneInstanceResultId": 459,
+                     "companyId": 1,
+                     "callJobId": null,
+                     "sceneInstanceId": 1091,
+                     "resultName": "客户意向等级",
+                     "resultValue": "B级(一般)",
+                     "artificialResultValue": "B级(一般)",
+                     "artificialChanged": false,
+                     "resultDesc": "拒绝次数 <= 1 次 并且 命中业务问题 >= 1",
+                     "analyzeType": "DYNAMIC_ANALYZE_USER_LEVEL",
+                     "resultValueAlias": "B",
+                     "resultLabels": null,
+                     "resultValueNew": "B级(可能有意向)"
+                 },
+                 {
+                     "sceneInstanceResultId": 460,
+                     "companyId": 1,
+                     "callJobId": null,
+                     "sceneInstanceId": 1091,
+                     "resultName": "客户关注点",
+                     "resultValue": "位置",
+                     "artificialResultValue": "位置",
+                     "artificialChanged": false,
+                     "resultDesc": null,
+                     "analyzeType": "DYNAMIC_ANALYZE_USER_LEVEL",
+                     "resultValueAlias": null,
+                     "resultLabels": null,
+                     "resultValueNew": null
+                 },
+                 {
+                     "sceneInstanceResultId": 461,
+                     "companyId": 1,
+                     "callJobId": null,
+                     "sceneInstanceId": 1091,
+                     "resultName": "客户标签",
+                     "resultValue": "[7,8,9]",
+                     "artificialResultValue": null,
+                     "artificialChanged": false,
+                     "resultDesc": null,
+                     "analyzeType": "DYNAMIC_ANALYZE_USER_LEVEL",
+                     "resultValueAlias": null,
+                     "resultLabels": [],
+                     "resultValueNew": null
+                 }
+             ],
+             "phoneLog": {
+                 "phoneLogs": [
+                     {
+                         "sceneInstanceLogId": 1693,
+                         "sceneInstanceId": 1091,
+                         "companyId": 1,
+                         "robotDefId": 1155,
+                         "decisionId": 502993,
+                         "speaker": "AI",
+                         "content": "哎，您好，拱墅区 中大银泰城边上有个首付50万左右的精装公寓你考虑吗？",
+                         "userMean": "",
+                         "userMeanDetail": null,
+                         "aiUnknown": false,
+                         "answerStatus": null,
+                         "studyStatus": null,
+                         "startTime": 0,
+                         "endTime": 0,
+                         "knowledgeBaseId": null,
+                         "correctionContent": null
+                     },
+                     {
+                         "sceneInstanceLogId": 1694,
+                         "sceneInstanceId": 1091,
+                         "companyId": 1,
+                         "robotDefId": 1155,
+                         "decisionId": 502993,
+                         "speaker": "ME",
+                         "content": "呃，不考虑",
+                         "userMean": "拒绝",
+                         "userMeanDetail": "[{\"score\":-1,\"answer\":\"拒绝\",\"ask\":\"不考虑\",\"knowledgeBaseId\":33230}]",
+                         "aiUnknown": false,
+                         "answerStatus": 1,
+                         "studyStatus": null,
+                         "startTime": 6830,
+                         "endTime": 7950,
+                         "knowledgeBaseId": null,
+                         "correctionContent": null
+                     }
+                 ],
+                 "luyinOssUrl": "https://byrobot-test.oss-cn-hangzhou.aliyuncs.com/InboundRobotCommunicate/1091/20190124-152809_1010.wav"
+             },
+             "sign": null,
+             "dateTime": "Thu, 24 Jan 2019 07:28:09 GMT"
+         }
+     },
+     "resultMsg": "成功",
+     "errorStackTrace": null
+ }
+   ```  
 
 ###请求方法：
   
@@ -484,186 +616,16 @@ luyinOssUrl|String|通话记录录音
 sign|String|回调签名（需联系开通）
 dateTime|String|GMT格式日期（签名计算-需联系开通）
 
-
- >请求对象示例:
+###响应：
  
-  ```
-{
-    "code": 200,
-    "data": {
-        "dataType": "INBOUND_CALL_INSTANCE_RESULT",
-        "data": {
-            "sceneInstance": {
-                "inboundInstanceId": 1091,
-                "companyId": 1,
-                "callJobId": 98,
-                "customerId": 22142595,
-                "customerTelephone": "1010",
-                "customerName": "未知呼入客户",
-                "status": 2,
-                "finishStatus": 0,
-                "duration": 27,
-                "chatRound": 3,
-                "startTime": "2019-01-24 15:27:39",
-                "endTime": "2019-01-24 15:28:09",
-                "calleePhone": "057126881788",
-                "luyinOssUrl": "https://byrobot-test.oss-cn-hangzhou.aliyuncs.com/InboundRobotCommunicate/1091/20190124-152809_1010.wav",
-                "userLuyinOssUrl": "https://byrobot-test.oss-cn-hangzhou.aliyuncs.com/InboundRobotCommunicate/1091_user.wav",
-                "properties": "{}",
-                "readStatus": null,
-                "robotDefId": 1155,
-                "sceneDefId": 1165,
-                "sceneRecordId": 1149,
-                "transferStatus": null,
-                "transferInfo": null,
-                "userLevel": null,
-                "hangUp": 1,
-                "callbacked": null,
-                "propertiesMap": {
-                    "客户名称": "未知呼入客户",
-                    "联系方式": "1010"
-                }
-            },
-            "taskResult": [
-                {
-                    "sceneInstanceResultId": 459,
-                    "companyId": 1,
-                    "callJobId": null,
-                    "sceneInstanceId": 1091,
-                    "resultName": "客户意向等级",
-                    "resultValue": "B级(一般)",
-                    "artificialResultValue": "B级(一般)",
-                    "artificialChanged": false,
-                    "resultDesc": "拒绝次数 <= 1 次 并且 命中业务问题 >= 1",
-                    "analyzeType": "DYNAMIC_ANALYZE_USER_LEVEL",
-                    "resultValueAlias": "B",
-                    "resultLabels": null,
-                    "resultValueNew": "B级(可能有意向)"
-                },
-                {
-                    "sceneInstanceResultId": 460,
-                    "companyId": 1,
-                    "callJobId": null,
-                    "sceneInstanceId": 1091,
-                    "resultName": "客户关注点",
-                    "resultValue": "位置",
-                    "artificialResultValue": "位置",
-                    "artificialChanged": false,
-                    "resultDesc": null,
-                    "analyzeType": "DYNAMIC_ANALYZE_USER_LEVEL",
-                    "resultValueAlias": null,
-                    "resultLabels": null,
-                    "resultValueNew": null
-                },
-                {
-                    "sceneInstanceResultId": 461,
-                    "companyId": 1,
-                    "callJobId": null,
-                    "sceneInstanceId": 1091,
-                    "resultName": "客户标签",
-                    "resultValue": "[7,8,9]",
-                    "artificialResultValue": null,
-                    "artificialChanged": false,
-                    "resultDesc": null,
-                    "analyzeType": "DYNAMIC_ANALYZE_USER_LEVEL",
-                    "resultValueAlias": null,
-                    "resultLabels": [],
-                    "resultValueNew": null
-                }
-            ],
-            "phoneLog": {
-                "phoneLogs": [
-                    {
-                        "sceneInstanceLogId": 1693,
-                        "sceneInstanceId": 1091,
-                        "companyId": 1,
-                        "robotDefId": 1155,
-                        "decisionId": 502993,
-                        "speaker": "AI",
-                        "content": "哎，您好，拱墅区 中大银泰城边上有个首付50万左右的精装公寓你考虑吗？",
-                        "userMean": "",
-                        "userMeanDetail": null,
-                        "aiUnknown": false,
-                        "answerStatus": null,
-                        "studyStatus": null,
-                        "startTime": 0,
-                        "endTime": 0,
-                        "knowledgeBaseId": null,
-                        "correctionContent": null
-                    },
-                    {
-                        "sceneInstanceLogId": 1694,
-                        "sceneInstanceId": 1091,
-                        "companyId": 1,
-                        "robotDefId": 1155,
-                        "decisionId": 502993,
-                        "speaker": "ME",
-                        "content": "呃，不考虑",
-                        "userMean": "拒绝",
-                        "userMeanDetail": "[{\"score\":-1,\"answer\":\"拒绝\",\"ask\":\"不考虑\",\"knowledgeBaseId\":33230}]",
-                        "aiUnknown": false,
-                        "answerStatus": 1,
-                        "studyStatus": null,
-                        "startTime": 6830,
-                        "endTime": 7950,
-                        "knowledgeBaseId": null,
-                        "correctionContent": null
-                    }
-                ],
-                "luyinOssUrl": "https://byrobot-test.oss-cn-hangzhou.aliyuncs.com/InboundRobotCommunicate/1091/20190124-152809_1010.wav"
-            },
-            "sign": null,
-            "dateTime": "Thu, 24 Jan 2019 07:28:09 GMT"
-        }
-    },
-    "resultMsg": "成功",
-    "errorStackTrace": null
-}
-  ```
-
+`success`
 
 ##查询回调失败记录
 
 ###功能说明：
 通过接口可以查询时间段内调用用户回调接口失败的记录
 
-###请求：
-
-URL：http://api.byrobot.cn/openapi/v1/callBack/queryUnCallBack
-
-###请求方法：
-
-GET
-
-###请求参数:
-
-参数名 | 类型 | 是否必须 | 描述 | 示例 
---------- | ------- |------- | ------ |----------
- companyId| int| 是 | 公司Id| 1 |
- callJobId| int| 否 | 任务ID，如果不传该字段查询该公司下所有回调失败的记录 | 1 |
- dataType| int| 是 | 回调类型， 0：呼出结果回调，1：呼入结果回调 | 0 |
- startDate| Date| 是 | 查询开始时间 | "2017-10-19" |
- endDate| Date| 是 | 查询结束时间 | "2017-10-19" |
- pageNum| int| 否 | 第几页,默认1| 1 |
- pageSize| int| 否 | 页面大小,选填,默认100，取值范围1-500| 10 |
-
-###响应：
-
-参数名 | 类型 | 描述 
---------- | ------- |------
- code|int | 响应码 |
- pageNum| int | 当前分页数 |
- pageSize| int | 当前分页数据条数 |
- total| int | 数据总条数 |
- pages| int | 分页总数 |
- list | list | 查询结果集 |
- callJobId| int | 任务id |
- customerTelephone | String | 客户手机号 |
- callInstanceId| long | 通话记录ID |
- callerTime| time | 拨打时间 |
-
-
- >返回对象示例:
+>返回对象示例:
  
   ```
 {
@@ -712,3 +674,42 @@ GET
 }
  
   ```
+
+###请求：
+
+URL：http://api.byrobot.cn/openapi/v1/callBack/queryUnCallBack
+
+###请求方法：
+
+GET
+
+###请求参数:
+
+参数名 | 类型 | 是否必须 | 描述 | 示例 
+--------- | ------- |------- | ------ |----------
+ companyId| int| 是 | 公司Id| 1 |
+ callJobId| int| 否 | 任务ID，如果不传该字段查询该公司下所有回调失败的记录 | 1 |
+ dataType| int| 是 | 回调类型， 0：呼出结果回调，1：呼入结果回调 | 0 |
+ startDate| Date| 是 | 查询开始时间 | "2017-10-19" |
+ endDate| Date| 是 | 查询结束时间 | "2017-10-19" |
+ pageNum| int| 否 | 第几页,默认1| 1 |
+ pageSize| int| 否 | 页面大小,选填,默认100，取值范围1-500| 10 |
+
+###响应：
+
+参数名 | 类型 | 描述 
+--------- | ------- |------
+ code|int | 响应码 |
+ pageNum| int | 当前分页数 |
+ pageSize| int | 当前分页数据条数 |
+ total| int | 数据总条数 |
+ pages| int | 分页总数 |
+ list | list | 查询结果集 |
+ callJobId| int | 任务id |
+ customerTelephone | String | 客户手机号 |
+ callInstanceId| long | 通话记录ID |
+ callerTime| time | 拨打时间 |
+
+###响应：
+ 
+`success`
