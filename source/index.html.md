@@ -51,7 +51,7 @@ search: true
 
 > 认证密钥样例
 
-```java
+```javascript
   APP_KEY = "WtSMaXXXXXXXXtvy";
   APP_SECRET = "aXSFnnZbHXXXXXXXXXXXXXXXMguz1Q";    
 ```
