@@ -89,10 +89,8 @@ POST
  workingEndTime| String| 否 | 可拨打结束时间| 22:00 |
  breakStartTime| String| 否 | 暂时停止开始时间,对应百应页面创建任务时的不拨打时段的开始时间,到达这个时间点后,任务将会自动暂停| 12:00 |
  breakEndTime| String| 否 | 暂时停止结束时间,对应百应页面创建任务时的不拨打时段的结束时间,到达这个时间点后,任务将会再次启动| 13:00 |
- userPhoneIds| List| 是 | 主叫电话号码id列表,详见获取公司的主叫电话列表(getPhones)接口| [1] |
- sceneDefId| int| 是 | 场景id| 1 |
+ userPhoneIds| List| 是 | 外呼号码| [1] |
  robotDefId| int| 是 | 机器人id| 1 |
- sceneRecordId| int| 是 | 机器人话术录音id| 1 |
  callType| int| 是 | 外呼方式，0-手机号,1-固话(默认),2-无主叫,6-SIP| 1 |
  concurrencyQuota| int| 否 | ai坐席数,默认1,一个坐席对应一个机器人| 1 |
  remark| String| 否 | 备注| 测试|
@@ -518,8 +516,6 @@ POST
     "userName":"张三",
     "age":15
   }
-  "sceneDefId": 255
-  "sceneRecordId": 256
   "robotDefId": 230
 }
 ```
@@ -552,8 +548,6 @@ POST
   mobile| int| 是 | 客户手机号| 1 |  
   companyId| int| 是 | 公司Id| 1 |  
   variables| Map<String,String>| 否 | 1.变量（如果话术内设置变量则需要传入）2.不传值情况下需要保留字段名| 1 |      
-  sceneDefId| int| 是 | 机器人话术场景Id| 1 |  
-  sceneRecordId| int| 是 |机器人话术录音Id | 1 |  
   robotDefId| int| 是 | 机器人话术Id | 1 |  
  
 ###响应：
@@ -581,8 +575,6 @@ POST
     "age":15
   },
   userName:,"客户姓名",
-  "sceneDefId": 255,
-  "sceneRecordId": 256,
   "robotDefId": 230
 }
 ```
@@ -614,8 +606,6 @@ POST
   mobile| String| 是 | 客户手机号| 1 |  
   companyId| int| 是 | 公司Id| 1 |  
   variables| Map<String,String>| 否 |  1.变量（如果话术内设置变量则需要传入）2.不传值情况下需要保留字段名| 1 |      
-  sceneDefId| int| 是 | 机器人话术场景Id| 1 |  
-  sceneRecordId| int| 是 |机器人话术录音Id | 1 |  
   robotDefId| int| 是 | 机器人话术Id | 1 |  
   userName|String|否|客户姓名|1|
  
