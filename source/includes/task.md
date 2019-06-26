@@ -8,7 +8,7 @@
 
 ###注意点
 ####电话任务外呼时间范围 9：00-20：00
-创建任务,支持使用多个无主叫固话,只需设置总坐席数,由系统自动分配每个线路的坐席数量。
+创建任务,只需设置总坐席数,由系统自动分配每个线路的坐席数量。
 #####注意：
 1. ai坐席数的总数可在crm界面企业账户中看到
 2. 创建人默认为公司的主账号
@@ -84,21 +84,21 @@ POST
  companyId| int| 是 | 公司Id| 1 |
  taskName| String| 是 |任务名称| 测试API任务 |
  taskType| int| 是 | 任务类型, 1-定时,2-手动| 1 |
- startDate| String| 是 | 任务开始日期| "2017-10-19"  |
+ startDate| String| 是 | 任务开始日期| "2017-10-19"  |˙
  workingStartTime| String| 否 | 可拨打开始时间| 08:00 |
  workingEndTime| String| 否 | 可拨打结束时间| 22:00 |
  breakStartTime| String| 否 | 暂时停止开始时间,对应百应页面创建任务时的不拨打时段的开始时间,到达这个时间点后,任务将会自动暂停| 12:00 |
  breakEndTime| String| 否 | 暂时停止结束时间,对应百应页面创建任务时的不拨打时段的结束时间,到达这个时间点后,任务将会再次启动| 13:00 |
  userPhoneIds| List| 是 | 外呼号码| [1] |
  robotDefId| int| 是 | 机器人id| 1 |
- callType| int| 是 | 外呼方式，0-手机号,1-固话(默认),2-无主叫,6-SIP| 1 |
+ callType| int| 是 | 外呼方式，0-手机号,1-固话(默认),2-无主叫线路| 1 |
+ smsType| int |否| 是否发送挂机短信：0-否，1-是 |
  concurrencyQuota| int| 否 | ai坐席数,默认1,一个坐席对应一个机器人| 1 |
  remark| String| 否 | 备注| 测试|
  repeatCall|boolean|否|是否开启重拨 默认false 关闭 |
  repeatCallRule|list|否|重拨详细规则|
  phoneStatus|int|否|通话状态枚举|
- times|int|否|重拨次数|
- smsType| int | 是否发送挂机短信：0-否，1-是 |
+ times|int|否|重拨次数(1-5)|
  interval|int|否|间隔时间(0-120min)|
  defaultIntentionRule|boolean|否|是否使用默认客户分配规则,默认false,见页面创建任务入口:设置客户自动处理规则右侧的"存为默认规则"|
  
@@ -363,8 +363,8 @@ POST
   taskId| int| 是 | 任务Id| 1 |
   name| String| 是 | 客户名称| 张三 |
   phone| String| 是 | 客户电话| 13998987676 |
-  properties| Map<String,String>| 否 | 客户额外信息| 必须包含所有的话术变量（话术创建页面可查看），百应透传该参数，请看json入参示例 |
-  forceTransferCustomer|Integer|是否强制转移客户 1：是 0：否（默认1）| 1|
+  properties| Map<String,String>| 否 | 客户自定义额外信息| 必须包含所有的话术变量（话术创建页面可查看），百应透传该参数，请看json入参示例 |
+  forceTransferCustomer|Integer|否|是否强制转移客户 1：是 0：否（默认1）| 1|
   
   <aside class="success">
    forceTransferCustomer字段使用方式（默认强制转移）
@@ -507,7 +507,9 @@ POST
   
 通过调用此接口可以通过手机号直接进行单次电话外呼，外呼结果会通过回调返回，并且将通话记录增加到公司id对应的crm账号下
 
+<aside class="notice">
 注意：此接口仅限测试和少量外呼，如需大量外呼请使用外呼任务
+</aside>
 >入参JSON示例
 
 ```
