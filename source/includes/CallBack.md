@@ -10,12 +10,13 @@
  请确保回调服务器IP已加入白名单中，否则无法完成回调。 
  </aside>
 
-```
- 通话记录回调dataType:CALL_INSTANCE_RESULT
- 
- 任务完成详情回调dataType:JOB_INFO_RESULT
- 
-```
+ 回调类型dateType | 描述  
+ --------- | -------  
+ 通话记录回调| CALL_INSTANCE_RESULT
+ 任务完成详情回调|JOB_INFO_RESULT
+ 手动修改意向等级 | CALL_INSTANCE_RESULT
+ 呼入回调|INBOUND_CALL_INSTANCE_RESULT
+
 
 ### 回调时间
 
@@ -68,7 +69,7 @@
 				"callerPhone": "测试线路",
 				"luyinOssUrl": "https://byrobot-prod.oss-cn-hangzhou.aliyuncs.com/RobotPhoneCommunicate/11/xxx.wav",
 				"userLuyinOssUrl": "https://byrobot-prod.oss-cn-hangzhou.aliyuncs.com/RobotPhoneCommunicate/11.wav",
-				"properties": "{\"csStaffId\":12,\"csStaffMobile\":\"15957182700\",\"csStaffName\":\"123\",\"duration\":20,\"failReason\":\"失败了就是失败了\",\"finishTime\":1546506273268,\"seatGroupId\":1,\"seatGroupName\":\"测试失败\",\"startTime\":1546506263268,\"succTime\":1546506283268,\"success\":false,\"transferMobile\":false,\"useEavesdrop\":false}",
+				"properties": "{\"duration\":20,\"failReason\":\"失败了就是失败了\",\"finishTime\":1546506273268,\"seatGroupId\":1,\"seatGroupName\":\"测试失败\",\"startTime\":1546506263268,\"succTime\":1546506283268,\"success\":false,\"transferMobile\":false,\"useEavesdrop\":false}",
 				"handlePerson": "测试线路",
 				"callType": 1,
 				"callIndex": 0,
@@ -79,13 +80,13 @@
 				"sceneRecordId": 192,
 				"industry": "1540384412_151_1",
 				"trackResult": "C级(很少)",
-				"bugType": null,
 				"hangUp": 1,
 				"secondaryCallTime": "1970-01-01 09:00:00",
 				"secondaryCallTimes": 0,
 				"cost": 0,
 				"callbacked": 0,
-				"csStaffId": null
+				"gmtCreate": "2019-01-12 16:09:44",
+        "gmtModified": "2019-01-12 16:09:44"
 			},
 			"taskResult": [{
 				"sceneInstanceResultId": 1117274388,
@@ -97,10 +98,11 @@
 				"artificialResultValue": "C级(很少)",
 				"artificialChanged": null,
 				"resultDesc": "命中业务问题 <= 0次 并且 肯定次数 <= 0次",
-				"analyzeType": "DYNAMIC_ANALYZE_USER_LEVEL",
 				"resultValueAlias": "C",
 				"resultLabels": null,
-				"resultValueNew": "C级(明确拒绝)"
+				"resultValueNew": "C级(明确拒绝)",
+				"gmtCreate": "2019-01-12 16:09:44",
+        "gmtModified": "2019-01-12 16:09:44"
 			}, {
 				"sceneInstanceResultId": 922147427,
 				"companyId": 4880,
@@ -110,7 +112,6 @@
 				"artificialResultValue": null,
 				"artificialChanged": null,
 				"resultDesc": null,
-				"analyzeType": "DYNAMIC_ANALYZE_USER_LEVEL",
 				"resultValueAlias": "",
 				"resultLabels": [{
 					"key": 200,
@@ -135,7 +136,9 @@
 					"startTime": 0,
 					"endTime": 0,
 					"knowledgeBaseId": null,
-					"correctionContent": null
+					"correctionContent": null,
+					"gmtCreate": "2019-01-12 16:09:44",
+          "gmtModified": "2019-01-12 16:09:44"
 				}, {
 					"sceneInstanceLogId": 1156249713,
 					"sceneInstanceId": 1540384412,
@@ -152,7 +155,9 @@
 					"startTime": 8350,
 					"endTime": 10570,
 					"knowledgeBaseId": null,
-					"correctionContent": null
+					"correctionContent": null,
+					"gmtCreate": "2019-01-12 16:09:44",
+          "gmtModified": "2019-01-12 16:09:44"
 				}],
 				"luyinOssUrl": "https://byrobot-prod.oss-cn-hangzhou.aliyuncs.com/RobotPhoneCommunicate/1540384412/20190112-161011_13733105333.wav"
 			},
@@ -186,7 +191,7 @@ Content-Type : application/json;charset=utf-8
   customerId| int |客户Id|
   customerTelephone|String|客户手机号|
   customerName|String|客户名称|
-  status| int | 电话实例状态 2：已完成 |
+  status| int | 通话状态, 0: 未开始，1: 进行中，2: 已完成，3: 二次拨打调度中 |
   finishStatus| int | 通话实例已完成状态枚举|
   duration| int |通话时长|
   chatRound| int | 通话轮次 |
@@ -197,7 +202,7 @@ Content-Type : application/json;charset=utf-8
   userLuyinOssUrl| String | 通话录音（只包含客户） |
   properties| String |通话记录携带的参数(json字符串)，包含话术变量和自定义参数，用户可以传入自己的变量，百应回调会传回给用户|
   handlePerson| String  | 话术名 |
-  callType| int | 主叫号码类型 |
+  callType| int | 外呼方式，0-手机号,1-固话(默认),2-无主叫线路 |
   callIndex| int | 通话实例索引 |
   readStatus| int | 是否已读，产品中的通话记录已读未读状态 0：未读 1：已读 |
   jobName| String | 电话任务名称 |
@@ -206,15 +211,14 @@ Content-Type : application/json;charset=utf-8
   sceneRecordId| int | 话术场景录音Id |
   industry| String | 所属行业 | 
   trackResult| String | bug追踪结果 | 
-  bugType| String | 缺陷类型 | 
   hangUp| int | 挂机人 0：AI 1：用户 | 
   secondaryCallTime| Date |二次拨打时间| 
   secondaryCallTimes| int | 二次拨打次数 为0后不进行外呼 |
   cost| int|通话费用，单位（分）|
   callbacked|int|是否回调完成 0：未回调 1：已回调|
-  csStaffId|int|人工坐席Id|
   gmtCreate|Date|创建时间|
   gmtModified|Date|修改时间|
+  taskResult | List | 任务结果分析 |
   sceneInstanceResultId|long|通话记录结果Id|
   companyId|int|公司Id|
   sceneInstanceId|long|通话记录Id(对应callInstanceId)|
@@ -223,12 +227,11 @@ Content-Type : application/json;charset=utf-8
   artificialResultValue|String|通话结果人工标注值（一般指人工标注意向等级）|
   artificialChanged|int|是否进行过人工标注修改 0:没有 1:有|
   resultDesc|String|结果描述|
-  analyzeType|String|场景对应的结构化数据分析类型|
   resultValueAlias|String|分析结果别名(resultName为【客户意向等级】时标注值为意向级别 A,B,C,D,E,F)|
   resultLabels|List<IntegerStringBO>|IntegerStringBO对象中存储一个int类型参数，一个String类型参数，resultName为【客户标签】时存储客户标签|
   resultValueNew|String|客户意向等级的表述（文案与crm对应）|
-  gmtCreate|Date|创建时间|
-  gmtModified|Date|修改时间|
+  phoneLog | String | 对话内容总称|
+  phoneLogs | List | 对话详情|
   sceneInstanceLogId|Long|通话记录日志Id|
   sceneInstanceId|Long|通话记录Id（对应callInstanceId）|
   companyId|int|公司Id|
@@ -351,7 +354,7 @@ Content-Type : application/json;charset=utf-8
  
 ###功能说明：
  
- 当在crm端手动修改客户意向等级后，百应机器人会自动调用回调程序向用户配置的回调地址，发送本次通话详情。
+ 当在crm端手动修改客户意向等级后，百应会自动调用回调程序向用户配置的回调地址，发送本次通话详情。
    
  
  >请求对象示例:
@@ -387,6 +390,7 @@ Content-Type : application/json;charset=utf-8
  
  参数名 | 类型  | 描述  
  --------- | ------- | ------ 
+  dataType| String | 回调类型 |
   sceneInstanceId| long | 任务实例id |
   taskResult| String | 任务结果分析 |
   resultName|String|客户意向等级名
@@ -454,7 +458,6 @@ Content-Type : application/json;charset=utf-8
                      "artificialResultValue": "B级(一般)",
                      "artificialChanged": false,
                      "resultDesc": "拒绝次数 <= 1 次 并且 命中业务问题 >= 1",
-                     "analyzeType": "DYNAMIC_ANALYZE_USER_LEVEL",
                      "resultValueAlias": "B",
                      "resultLabels": null,
                      "resultValueNew": "B级(可能有意向)"
@@ -469,7 +472,6 @@ Content-Type : application/json;charset=utf-8
                      "artificialResultValue": "位置",
                      "artificialChanged": false,
                      "resultDesc": null,
-                     "analyzeType": "DYNAMIC_ANALYZE_USER_LEVEL",
                      "resultValueAlias": null,
                      "resultLabels": null,
                      "resultValueNew": null
@@ -484,7 +486,6 @@ Content-Type : application/json;charset=utf-8
                      "artificialResultValue": null,
                      "artificialChanged": false,
                      "resultDesc": null,
-                     "analyzeType": "DYNAMIC_ANALYZE_USER_LEVEL",
                      "resultValueAlias": null,
                      "resultLabels": [],
                      "resultValueNew": null
@@ -567,6 +568,7 @@ calleePhone|String|被叫号码
 luyinOssUrl|String|通话录音（包含Ai和客户）
 userLuyinOssUrl|String|通话录音（只包含客户）
 properties| String |通话记录携带的参数(json字符串)，包含话术变量和自定义参数，用户可以传入自己的变量，百应回调会传回给用户
+readStatus| int | 是否已读，产品中的通话记录已读未读状态 0：未读 1：已读 |
 robotDefId|int|话术机器人Id
 sceneDefId|int|话术场景Id
 sceneRecordId|int|话术场景录音Id
@@ -582,6 +584,7 @@ hangUp|int|挂机人 0：AI 1：用户
   --------- | ------- |------
 sceneInstanceResultId|long|通话记录结果Id
 sceneInstanceId|long|通话记录Id(对应inboundInstanceId)
+callJobId| int | 任务ID
 resultName|String|通话记录结果类型名
 resultValue|String|通话记录结果值
 artificialResultValue|String|通话结果人工标注值（一般指人工标注意向等级）
@@ -589,13 +592,16 @@ artificialChanged|boolean|是否进行过人工标注修改
 resultDesc|String|结果描述
 resultValueAlias|String|分析结果别名(resultName为【客户意向等级】时标注值为意向级别 A,B,C,D,E,F)
 resultLabels|List|IntegerStringBO对象中存储一个int类型参数，一个String类型参数，resultName为【客户标签】时存储客户标签
-
+resultValueNew|String|客户意向说明版本V2，此文字版本跟产品上保持一致
 
  4.phoneLog（对话详情）
  
  参数名 | 类型 | 描述 
 --------- | ------- |------
 sceneInstanceLogId|long|通话记录日志Id
+sceneInstanceId|Long|通话记录Id（对应callInstanceId）|
+companyId|int|公司ID
+robotDefId|int|话术机器人Id
 decisionId|int|对应决策Id
 speaker|String|说话人 ME：用户 AI:机器人
 content|String|说话内容
