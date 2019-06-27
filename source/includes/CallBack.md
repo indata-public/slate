@@ -185,8 +185,6 @@ Content-Type : application/json;charset=utf-8
  参数名 | 类型  | 描述  
  --------- | ------- | ------ 
   code| String | 回调类型 |
-  |||
-  sceneInstance | List | 通话信息|
   callInstanceId| long | 通话记录Id |
   companyId| int |公司ID|
   callUserId| int | 主叫用户ID |
@@ -333,7 +331,7 @@ Content-Type : application/json;charset=utf-8
   workingEndTime| String | 可拨打结束时间 |
   breakStartTime| int |对应百应页面创建任务时的不拨打时段的开始时间，到达这个时间点后 任务将会自动暂停|
   breakEndTime| int | 对应百应页面创建任务时的不拨打时段的结束时间，到达这个时间点后 任务将会再次启动 |
-  status| String | 状态, 0:未开始,1:进行中,2:已完成,3:调度中,4:手动暂停,5:自动暂停,6:已终止,7:排队中,8:AI到期,9:账户欠费 |
+  status| String | 任务状态枚举 |
   callType| int | 主叫号码类型:0-手机号,1-固话,2-无主叫 |
   robotDefId| int |关联的机器人id|
   sceneDefId| int | 场景id |
@@ -563,7 +561,7 @@ customerId|long|客户Id
 customerTelephone|String|客户手机号
 customerName|String|客户名称
 status|int|电话实例状态 0：未开始 1：进行中 2：已完成
-finishStatus|int|通话状态 0：已接通，1：拒绝 2：无法接通 3：主叫号码不可用 4：空号 5：关机 6：占线 7：停机 8：未接 9：主叫欠费 10：呼损 11：黑名单
+finishStatus|int|通话实例已完成状态枚举
 duration|int|通话时长
 chatRound|int|通话轮次
 startTime|Date|通话开始时间

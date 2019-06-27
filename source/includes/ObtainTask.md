@@ -256,7 +256,7 @@ GET
  workingEndTime| String | 可拨打结束时间 |
  breakStartTime| String | 暂时停止开始时间 |
  breakEndTime| String | 暂时停止结束时间 |
- status| int | 任务状态, 0:未开始,1:进行中,2:已完成,3:调度中,4:手动暂停,5:自动暂停,6:已终止,7:排队中,8:AI到期,9:账户欠费,10：短信欠费 |
+ status| int | 任务状态枚举 |
  remark| String  | 任务注释 |
  totalCount| int | 任务拨打的号码总数 |
  doneCount| int | 任务已完成拨打的号码总数 |
@@ -543,7 +543,7 @@ GET
   callInstanceId| long | 任务实例id（每个被叫电话为一个实例,通话记录Id） |
   customerName| int | 客户名称 |
   customerTelephone| int |被叫客户电话|
-  status| String | 任务状态, 0: 未开始，1: 进行中，2: 已完成，3: 二次拨打调度中 |
+  status| String | 通话状态, 0: 未开始，1: 进行中，2: 已完成，3: 二次拨打调度中 |
   startTime| String | 开始时间 |
   callerPhone| String | 主叫号码 |
   corpName| String | 公司名 |
@@ -691,7 +691,7 @@ GET
   customerTelephone| String | 客户手机 |
   customerName| String | 客户名称 |
   finishStatus| String | 通话实例已完成状态枚举 |
-  status| int | 通话状态，2：已完成 |
+  status| int |通话状态, 0: 未开始，1: 进行中，2: 已完成，3: 二次拨打调度中 |
   duration| int  | 通话时长 |
   chatRound| int | 通话轮次,AI说话次数 |
   startTime| String | 开始拨打时间 |
