@@ -274,6 +274,31 @@ GET
  extraStat| List | 任务分析结果统计信息 |
  resultMsg| String | 响应说明 |
  
+ durationStat（通话时长的统计信息）
+  
+ 参数名 | 类型 | 描述 
+ --------- | ------- |------
+ name|String|通话时长统计类型 （小于10秒，10-50秒，1分钟-1分59秒，大于等于2分钟）|
+ value|String|统计数量|
+ 
+ chatRoundStat（通话轮次的统计信息）
+   
+ 参数名 | 类型 | 描述 
+ --------- | ------- |------
+ name|String|通话轮次统计类型（0-2次，3-4次，5-6次，7-9次）|
+ value|String|统计数量|
+  
+ callPhones（通话轮次的统计信息）
+     
+ 参数名 | 类型 | 描述 
+ --------- | ------- |------
+ jobPhoneId|long | 外呼任务和主叫号码绑定表主键Id|
+ userPhoneId|long | 外呼号码Id(对应获取主叫号码列表接口返回的userPhoneId)|
+ callJobId|long | 任务Id|
+ phone|String | 外呼号码|
+ phoneName|String | 外呼号码名|
+
+ 
 ##获取已经完成任务电话号码接口
  
 ###功能说明：
@@ -422,6 +447,13 @@ GET
   jobName| List | 任务名称 | 
   resultList| List | 通话分析结果信息 |
   resultMsg| String | 响应说明 |
+  
+  resultList（通话轮次的统计信息）
+       
+  参数名 | 类型 | 描述 
+  --------- | ------- |------
+  name|String|客户意向等级，客户标签等|
+  value|String|A级(有明确意向) 等|
   
   
 ##获取任务未开始的电话列表
