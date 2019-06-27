@@ -256,7 +256,7 @@ GET
  workingEndTime| String | 可拨打结束时间 |
  breakStartTime| String | 暂时停止开始时间 |
  breakEndTime| String | 暂时停止结束时间 |
- status| int | 任务状态, 0:未开始,1:进行中,2:已完成,3:调度中,4:手动暂停,5:自动暂停,6:已终止,7:排队中,8:AI到期,9:账户欠费,10：短信欠费 |
+ status| int | 任务状态枚举 |
  remark| String  | 任务注释 |
  totalCount| int | 任务拨打的号码总数 |
  doneCount| int | 任务已完成拨打的号码总数 |
@@ -273,6 +273,31 @@ GET
  callPhones| List | 主叫电话号码列表，格式和getPhones返回结果相同 |
  extraStat| List | 任务分析结果统计信息 |
  resultMsg| String | 响应说明 |
+ 
+ durationStat（通话时长的统计信息）
+  
+ 参数名 | 类型 | 描述 
+ --------- | ------- |------
+ name|String|通话时长统计类型 （小于10秒，10-50秒，1分钟-1分59秒，大于等于2分钟）|
+ value|String|统计数量|
+ 
+ chatRoundStat（通话轮次的统计信息）
+   
+ 参数名 | 类型 | 描述 
+ --------- | ------- |------
+ name|String|通话轮次统计类型（0-2次，3-4次，5-6次，7-9次）|
+ value|String|统计数量|
+  
+ callPhones（通话轮次的统计信息）
+     
+ 参数名 | 类型 | 描述 
+ --------- | ------- |------
+ jobPhoneId|long | 外呼任务和主叫号码绑定表主键Id|
+ userPhoneId|long | 外呼号码Id(对应获取主叫号码列表接口返回的userPhoneId)|
+ callJobId|long | 任务Id|
+ phone|String | 外呼号码|
+ phoneName|String | 外呼号码名|
+
  
 ##获取已经完成任务电话号码接口
  
@@ -423,6 +448,13 @@ GET
   resultList| List | 通话分析结果信息 |
   resultMsg| String | 响应说明 |
   
+  resultList（通话轮次的统计信息）
+       
+  参数名 | 类型 | 描述 
+  --------- | ------- |------
+  name|String|客户意向等级，客户标签等|
+  value|String|A级(有明确意向) 等|
+  
   
 ##获取任务未开始的电话列表
  
@@ -511,7 +543,7 @@ GET
   callInstanceId| long | 任务实例id（每个被叫电话为一个实例,通话记录Id） |
   customerName| int | 客户名称 |
   customerTelephone| int |被叫客户电话|
-  status| String | 任务状态, 0: 未开始，1: 进行中，2: 已完成，3: 二次拨打调度中 |
+  status| String | 通话状态, 0: 未开始，1: 进行中，2: 已完成，3: 二次拨打调度中 |
   startTime| String | 开始时间 |
   callerPhone| String | 主叫号码 |
   corpName| String | 公司名 |
@@ -657,7 +689,7 @@ GET
   customerTelephone| String | 客户手机 |
   customerName| String | 客户名称 |
   finishStatus| String | 通话实例已完成状态枚举 |
-  status| int | 通话状态，2：已完成 |
+  status| int |通话状态, 0: 未开始，1: 进行中，2: 已完成，3: 二次拨打调度中 |
   duration| int  | 通话时长 |
   chatRound| int | 通话轮次,AI说话次数 |
   startTime| String | 开始拨打时间 |
@@ -681,7 +713,6 @@ GET
   resultName | String | 分析结果名(客户意向等级,客户标签) |
   resultValue | String | 分析结果,A级(有明确意向) |
   resultDesc | String | 分析结果描述 |
-
   resultMsg| String | 响应说明 |
 
 
