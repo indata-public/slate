@@ -293,7 +293,7 @@ GET
  参数名 | 类型 | 描述 
  --------- | ------- |------
  jobPhoneId|long | 外呼任务和主叫号码绑定表主键Id|
- userPhoneId|long | 外呼号码Id(对应获取主叫号码列表接口返回的userPhoneId)|
+ userPhoneId|long | 主叫号码(线路Id，对应获取主叫号码列表接口返回的userPhoneId)|
  callJobId|long | 任务Id|
  phone|String | 外呼号码|
  phoneName|String | 外呼号码名|
@@ -701,7 +701,7 @@ GET
   userLuyinOssUrl| String | 通话录音（只包含客户） |
   properties | String | 通话记录携带的参数,通过api导入的时候传入properties字段传入的都会从这个字段回传 |
   handlePerson | String | 处理人(一般是话术的话术名) |
-  callType| int| 外呼方式，0-手机号,1-固话(默认),2-无主叫线路 |
+  callType| int| 外呼方式，对应主叫号码(线路)类型枚举 |
   readStatus| int | 是否已读，产品中的通话记录已读未读状态 0：未读 1：已读 |
   robotDefId| String | 机器人id |
   sceneDefId| String | 场景ID | 
