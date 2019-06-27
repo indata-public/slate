@@ -414,7 +414,7 @@ GET
   durationRight| int| 否 |通话时长右值| 100 |
   chatRoundLeft| int| 否 |通话轮次左值| 21 |
   chatRoundRight| int| 否 |通话时长右值| 21 |
-  finishStatus| int| 否 |通话实例已完成状态枚举| 1 |
+  finishStatus| int| 否 |已完成通话状态枚举| 1 |
   pageNum| int| 否 |第几页(默认为1)| 1 |
   pageSize| int| 否 |显示数量/页（默认为10），取值1-50| 10 |
   resultQueryList| List| 否 |支持按分析结果作为条件| 10 |
@@ -435,7 +435,7 @@ GET
   customerTelephone| String | 被叫客户电话号码 |
   customerName| String | 被叫客户名称 |
   status| String | 通话实例状态枚举 |
-  finishStatus| String | 通话实例已完成状态枚举|
+  finishStatus| String | 已完成通话状态枚举|
   duration| int  | 通话时长 |
   chatRound| int | 通话轮次 |
   startTime| String | 开始拨打时间 |
@@ -690,7 +690,7 @@ GET
   customerId| int | 客户id,当前通话记录对应的客户Id |
   customerTelephone| String | 客户手机 |
   customerName| String | 客户名称 |
-  finishStatus| String | 通话实例已完成状态枚举 |
+  finishStatus| String | 已完成通话状态枚举 |
   status| int |通话实例状态枚举 |
   duration| int  | 通话时长 |
   chatRound| int | 通话轮次,AI说话次数 |

@@ -192,7 +192,7 @@ Content-Type : application/json;charset=utf-8
   customerTelephone|String|客户手机号|
   customerName|String|客户名称|
   status| int | 通话实例状态枚举 |
-  finishStatus| int | 通话实例已完成状态枚举|
+  finishStatus| int | 已完成通话状态枚举|
   duration| int |通话时长|
   chatRound| int | 通话轮次 |
   startTime| Date | 通话开始时间
@@ -559,7 +559,7 @@ customerId|long|客户Id
 customerTelephone|String|客户手机号
 customerName|String|客户名称
 status|int|电话实例状态 0：未开始 1：进行中 2：已完成
-finishStatus|int|通话实例已完成状态枚举
+finishStatus|int|已完成通话状态枚举
 duration|int|通话时长
 chatRound|int|通话轮次
 startTime|Date|通话开始时间
