@@ -4,8 +4,10 @@
 
 通话记录回调与任务完成回调使用不同回调地址，请提前配置。
 
+### 回调服务器IP 
 <aside class="notice">
- 请您在对接接口前，务必配置好回调地址,否则回调将无法成功。 
+ 回调服务器IP ： 120.55.46.3
+ 请确保回调服务器IP已加入白名单中，否则无法完成回调。 
  </aside>
 
 ```
@@ -14,9 +16,6 @@
  任务完成详情回调dataType:JOB_INFO_RESULT
  
 ```
-### 回调服务器IP 
-回调服务器IP ： 120.55.46.3
-请确保回调服务器IP已加入白名单中，否则无法完成回调。
 
 ### 回调时间
 
@@ -189,7 +188,7 @@ Content-Type : application/json;charset=utf-8
   customerTelephone|String|客户手机号|
   customerName|String|客户名称|
   status| int | 电话实例状态 2：已完成 |
-  finishStatus| int | 通话状态 0：已接通，1：拒绝 2：无法接通 3：主叫号码不可用 4：空号 5：关机 6：占线 7：停机 8：未接 9：主叫欠费 10：呼损 11：黑名单|
+  finishStatus| int | 通话实例已完成状态枚举|
   duration| int |通话时长|
   chatRound| int | 通话轮次 |
   startTime| Date | 通话开始时间
@@ -197,7 +196,7 @@ Content-Type : application/json;charset=utf-8
   callerPhone| String | 主叫号码 |
   luyinOssUrl| String |通话录音（包含Ai和客户）|
   userLuyinOssUrl| String | 通话录音（只包含客户） |
-  properties| String |通话记录携带的参数(json字符串)，包含话术变量和自定义参数，用户可以传入自己的变量，我们回调会传回给用户|
+  properties| String |通话记录携带的参数(json字符串)，包含话术变量和自定义参数，用户可以传入自己的变量，百应回调会传回给用户|
   handlePerson| String  | 话术名 |
   callType| int | 主叫号码类型 |
   callIndex| int | 通话实例索引 |
@@ -217,7 +216,6 @@ Content-Type : application/json;charset=utf-8
   csStaffId|int|人工坐席Id|
   gmtCreate|Date|创建时间|
   gmtModified|Date|修改时间|
-   |||
   sceneInstanceResultId|long|通话记录结果Id|
   companyId|int|公司Id|
   sceneInstanceId|long|通话记录Id(对应callInstanceId)|
@@ -232,7 +230,6 @@ Content-Type : application/json;charset=utf-8
   resultValueNew|String|客户意向等级的表述（文案与crm对应）|
   gmtCreate|Date|创建时间|
   gmtModified|Date|修改时间|
-  |||
   sceneInstanceLogId|Long|通话记录日志Id|
   sceneInstanceId|Long|通话记录Id（对应callInstanceId）|
   companyId|int|公司Id|
@@ -251,9 +248,7 @@ Content-Type : application/json;charset=utf-8
   gmtModified|Date|修改时间|
   knowledgeBaseId|int|知识点ID|
   correctionContent|String|通话记录纠错内容|
-  |||
   luyinOssUrl|String|通话记录录音|
-  |||
   jobFinished|boolean|任务是否已完成|
   sign|String|回调签名（需联系开通）|
   dateTime|String|GMT格式日期（签名计算-需联系开通）|
@@ -408,7 +403,7 @@ Content-Type : application/json;charset=utf-8
 
 ###功能说明：
 当一次通话完成后，百应机器人会自动调用回调程序向用户配置的回调地址，发送本次通话详情。
-呼入回调数据格式与外呼格式保持高度一致，仅个别字段名称有所变更,  http://api.byrobot.cn/doc/v2/#3e45815d37
+呼入回调数据格式与外呼格式保持高度一致，仅个别字段名称有所变更
  
  >请求对象示例:
   
@@ -572,6 +567,7 @@ endTime|Date|通话结束时间
 calleePhone|String|被叫号码
 luyinOssUrl|String|通话录音（包含Ai和客户）
 userLuyinOssUrl|String|通话录音（只包含客户）
+properties| String |通话记录携带的参数(json字符串)，包含话术变量和自定义参数，用户可以传入自己的变量，百应回调会传回给用户
 robotDefId|int|话术机器人Id
 sceneDefId|int|话术场景Id
 sceneRecordId|int|话术场景录音Id
