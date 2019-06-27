@@ -85,7 +85,9 @@
 				"secondaryCallTimes": 0,
 				"cost": 0,
 				"callbacked": 0,
-				"csStaffId": null
+				"csStaffId": null,
+				"gmtCreate": "2019-01-12 16:09:44",
+        "gmtModified": "2019-01-12 16:09:44"
 			},
 			"taskResult": [{
 				"sceneInstanceResultId": 1117274388,
@@ -97,10 +99,11 @@
 				"artificialResultValue": "C级(很少)",
 				"artificialChanged": null,
 				"resultDesc": "命中业务问题 <= 0次 并且 肯定次数 <= 0次",
-				"analyzeType": "DYNAMIC_ANALYZE_USER_LEVEL",
 				"resultValueAlias": "C",
 				"resultLabels": null,
-				"resultValueNew": "C级(明确拒绝)"
+				"resultValueNew": "C级(明确拒绝)",
+				"gmtCreate": "2019-01-12 16:09:44",
+        "gmtModified": "2019-01-12 16:09:44"
 			}, {
 				"sceneInstanceResultId": 922147427,
 				"companyId": 4880,
@@ -110,7 +113,6 @@
 				"artificialResultValue": null,
 				"artificialChanged": null,
 				"resultDesc": null,
-				"analyzeType": "DYNAMIC_ANALYZE_USER_LEVEL",
 				"resultValueAlias": "",
 				"resultLabels": [{
 					"key": 200,
@@ -135,7 +137,9 @@
 					"startTime": 0,
 					"endTime": 0,
 					"knowledgeBaseId": null,
-					"correctionContent": null
+					"correctionContent": null,
+					"gmtCreate": "2019-01-12 16:09:44",
+          "gmtModified": "2019-01-12 16:09:44"
 				}, {
 					"sceneInstanceLogId": 1156249713,
 					"sceneInstanceId": 1540384412,
@@ -152,7 +156,9 @@
 					"startTime": 8350,
 					"endTime": 10570,
 					"knowledgeBaseId": null,
-					"correctionContent": null
+					"correctionContent": null,
+					"gmtCreate": "2019-01-12 16:09:44",
+          "gmtModified": "2019-01-12 16:09:44"
 				}],
 				"luyinOssUrl": "https://byrobot-prod.oss-cn-hangzhou.aliyuncs.com/RobotPhoneCommunicate/1540384412/20190112-161011_13733105333.wav"
 			},
@@ -180,6 +186,7 @@ Content-Type : application/json;charset=utf-8
  --------- | ------- | ------ 
   code| String | 回调类型 |
   |||
+  sceneInstance | List | 通话信息|
   callInstanceId| long | 通话记录Id |
   companyId| int |公司ID|
   callUserId| int | 主叫用户ID |
@@ -198,7 +205,7 @@ Content-Type : application/json;charset=utf-8
   userLuyinOssUrl| String | 通话录音（只包含客户） |
   properties| String |通话记录携带的参数(json字符串)，包含话术变量和自定义参数，用户可以传入自己的变量，百应回调会传回给用户|
   handlePerson| String  | 话术名 |
-  callType| int | 主叫号码类型 |
+  callType| int | 外呼方式，0-手机号,1-固话(默认),2-无主叫线路 |
   callIndex| int | 通话实例索引 |
   readStatus| int | 是否已读，产品中的通话记录已读未读状态 0：未读 1：已读 |
   jobName| String | 电话任务名称 |
@@ -216,6 +223,7 @@ Content-Type : application/json;charset=utf-8
   csStaffId|int|人工坐席Id|
   gmtCreate|Date|创建时间|
   gmtModified|Date|修改时间|
+  taskResult | List | 任务结果分析 |
   sceneInstanceResultId|long|通话记录结果Id|
   companyId|int|公司Id|
   sceneInstanceId|long|通话记录Id(对应callInstanceId)|
@@ -224,12 +232,11 @@ Content-Type : application/json;charset=utf-8
   artificialResultValue|String|通话结果人工标注值（一般指人工标注意向等级）|
   artificialChanged|int|是否进行过人工标注修改 0:没有 1:有|
   resultDesc|String|结果描述|
-  analyzeType|String|场景对应的结构化数据分析类型|
   resultValueAlias|String|分析结果别名(resultName为【客户意向等级】时标注值为意向级别 A,B,C,D,E,F)|
   resultLabels|List<IntegerStringBO>|IntegerStringBO对象中存储一个int类型参数，一个String类型参数，resultName为【客户标签】时存储客户标签|
   resultValueNew|String|客户意向等级的表述（文案与crm对应）|
-  gmtCreate|Date|创建时间|
-  gmtModified|Date|修改时间|
+  phoneLog | String | 对话内容总称|
+  phoneLogs | List | 对话详情|
   sceneInstanceLogId|Long|通话记录日志Id|
   sceneInstanceId|Long|通话记录Id（对应callInstanceId）|
   companyId|int|公司Id|
@@ -455,7 +462,6 @@ Content-Type : application/json;charset=utf-8
                      "artificialResultValue": "B级(一般)",
                      "artificialChanged": false,
                      "resultDesc": "拒绝次数 <= 1 次 并且 命中业务问题 >= 1",
-                     "analyzeType": "DYNAMIC_ANALYZE_USER_LEVEL",
                      "resultValueAlias": "B",
                      "resultLabels": null,
                      "resultValueNew": "B级(可能有意向)"
@@ -470,7 +476,6 @@ Content-Type : application/json;charset=utf-8
                      "artificialResultValue": "位置",
                      "artificialChanged": false,
                      "resultDesc": null,
-                     "analyzeType": "DYNAMIC_ANALYZE_USER_LEVEL",
                      "resultValueAlias": null,
                      "resultLabels": null,
                      "resultValueNew": null
@@ -485,7 +490,6 @@ Content-Type : application/json;charset=utf-8
                      "artificialResultValue": null,
                      "artificialChanged": false,
                      "resultDesc": null,
-                     "analyzeType": "DYNAMIC_ANALYZE_USER_LEVEL",
                      "resultValueAlias": null,
                      "resultLabels": [],
                      "resultValueNew": null

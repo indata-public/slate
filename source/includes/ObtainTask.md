@@ -674,6 +674,7 @@ GET
  参数名 | 类型 | 描述 
  --------- | ------- |------
   code|int | 响应码 |
+  phoneLog | String | 对话内容总称|
   phoneLogs| List | 对话内容 |
   sceneInstanceId| long | 任务实例id，callInstanceId |
   speaker| String |角色|
@@ -682,7 +683,8 @@ GET
   userMeanDetail| String |用户说话语义详情,客户说话内容命中详情（包括命中的用户说话内容和话术节点分支或知识库分支问题）|
   aiUnknown| int | 是否是ai无法应答的问题，1-是，0-否 |
   luyinOssUrl| String |通话录音|
-  callInstanceId| long | 任务实例id（每个被叫电话为一个实例,通话记录id） |
+  sceneInstance | List | 通话信息|
+  callInstanceId| long | 通话记录Id |
   companyId| int | 公司id |
   callJobId| int |任务id|
   customerId| int | 客户id,当前通话记录对应的客户Id |
@@ -699,8 +701,8 @@ GET
   userLuyinOssUrl| String | 通话录音（只包含客户） |
   properties | String | 通话记录携带的参数,通过api导入的时候传入properties字段传入的都会从这个字段回传 |
   handlePerson | String | 处理人(一般是话术的话术名) |
-  callType| int | 拨打类型 0: 免费试用 1: 任务 2: 用户单独拨打 |
-  readStatus| int | 是否已读 0: 未读 1: 已读 |
+  callType| int| 外呼方式，0-手机号,1-固话(默认),2-无主叫线路 |
+  readStatus| int | 是否已读，产品中的通话记录已读未读状态 0：未读 1：已读 |
   robotDefId| String | 机器人id |
   sceneDefId| String | 场景ID | 
   sceneRecordId| int | 场景录音id | 
@@ -713,8 +715,8 @@ GET
   resultName | String | 分析结果名(客户意向等级,客户标签) |
   resultValue | String | 分析结果,A级(有明确意向) |
   resultDesc | String | 分析结果描述 |
-
   resultMsg| String | 响应说明 |
+  errorStackTrace| String | 错误信息 |
 
 
 
