@@ -315,14 +315,14 @@ GET
 
 
 
-
-
 ###响应：
 
 参数名 | 类型 | 描述 
 --------- | ------- |------
  code|int | 响应码 |
- data|Object | companyAllCallSeat表示公司所有坐席数量<br>companyUsingCallSeat全公司已使用坐席数量 |
+ data|Object | 返回结果， 详见“ResultModel响应对象模型”说明
+ companyAllCallSeat|int|表示公司所有坐席数量
+ companyUsingCallSeat|int|全公司已使用坐席数量
  resultMsg| String | 响应信息，详见“ResultModel响应对象模型”说明 |
  errorStackTrace| String |跟踪信息，详见“ResultModel响应对象模型”说明 |
  requestId| String |跟踪信息id，详见“ResultModel响应对象模型”说明 |

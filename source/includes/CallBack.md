@@ -202,7 +202,7 @@ Content-Type : application/json;charset=utf-8
   userLuyinOssUrl| String | 通话录音（只包含客户） |
   properties| String |通话记录携带的参数(json字符串)，包含话术变量和自定义参数，用户可以传入自己的变量，百应回调会传回给用户|
   handlePerson| String  | 话术名 |
-  callType| int | 外呼方式，0-手机号,1-固话(默认),2-无主叫线路 |
+  callType| int | 外呼方式，对应主叫号码(线路)类型枚举 |
   callIndex| int | 通话实例索引 |
   readStatus| int | 是否已读，产品中的通话记录已读未读状态 0：未读 1：已读 |
   jobName| String | 电话任务名称 |

@@ -89,18 +89,18 @@ POST
  workingEndTime| String| 否 | 可拨打结束时间| 22:00 |
  breakStartTime| String| 否 | 暂时停止开始时间,对应百应页面创建任务时的不拨打时段的开始时间,到达这个时间点后,任务将会自动暂停| 12:00 |
  breakEndTime| String| 否 | 暂时停止结束时间,对应百应页面创建任务时的不拨打时段的结束时间,到达这个时间点后,任务将会再次启动| 13:00 |
- userPhoneIds| List| 是 | 外呼号码| [1] |
+ userPhoneIds| List| 是 | 主叫号码(线路Id）| [1] |
  robotDefId| int| 是 | 机器人id| 1 |
- callType| int| 是 | 外呼方式，0-手机号,1-固话(默认),2-无主叫线路| 1 |
+ callType| int| 是 | 外呼方式，对应主叫号码(线路)类型枚举| 1 |
  smsType| int |否| 是否发送挂机短信：0-否，1-是 |
  concurrencyQuota| int| 否 | ai坐席数,默认1,一个坐席对应一个机器人| 1 |
  remark| String| 否 | 备注| 测试|
  repeatCall|boolean|否|是否开启重拨 默认false 关闭 |
- repeatCallRule|list|否|重拨详细规则|
+ repeatCallRule|list|否|重拨详细规则|重拨详细规则，请看json入参
  phoneStatus|int|否|通话状态枚举|
  times|int|否|重拨次数(1-5)|
  interval|int|否|间隔时间(0-120min)|
- defaultIntentionRule|boolean|否|是否使用默认客户分配规则,默认false,见页面创建任务入口:设置客户自动处理规则右侧的"存为默认规则"|
+ defaultIntentionRule|boolean|否|是否使用默认客户分配规则,默认false,见页面创建任务入口:设置客户自动处理规则右侧的"存为默认规则"|false
  
 
 
@@ -479,8 +479,8 @@ POST
  taskId| int| 是 | 任务Id| 1 |
  taskName| String| 是 | 任务名称| 1 |
  taskType| int| 是 | 任务类型| 1 |
- userPhoneIds| int| 是 | 外呼号码| 1 |
- callType| int| 是 | 外呼方式，0-手机号,1-固话(默认),2-无主叫线路| 1 |
+ userPhoneIds| int| 是 | 主叫号码(线路Id）| 1 |
+ callType| int| 是 | 外呼方式，对应主叫号码(线路)类型枚举| 1 |
  concurrencyQuota| int| 是 | 坐席数| 1 |
  concurrencyPhone| int| 否 | 并发量 | 1|
  startDate| String|否|开始日期|"2018-12-13"|
