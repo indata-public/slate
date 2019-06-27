@@ -14,7 +14,7 @@
  --------- | -------  
  通话记录回调| CALL_INSTANCE_RESULT
  任务完成详情回调|JOB_INFO_RESULT
- 手动修改意向等级 | CALL_INSTANCE_RESULT
+ 手动修改意向等级回调 | CALL_INSTANCE_RESULT
  呼入回调|INBOUND_CALL_INSTANCE_RESULT
 
 
@@ -208,7 +208,7 @@ Content-Type : application/json;charset=utf-8
   jobName| String | 电话任务名称 |
   robotDef| int |话术机器人Id|
   sceneDefId| int |场景Id|
-  sceneRecordId| int | 景录音Id |
+  sceneRecordId| int | 场景录音id |
   industry| String | 所属行业 | 
   trackResult| String | bug追踪结果 | 
   hangUp| int | 挂机人 0：AI 1：用户 | 
@@ -326,8 +326,8 @@ Content-Type : application/json;charset=utf-8
   endDate| String |任务结束时间|
   workingStartTime| String | 可拨打起始时间 |
   workingEndTime| String | 可拨打结束时间 |
-  breakStartTime| int |对应百应页面创建任务时的不拨打时段的开始时间，到达这个时间点后 任务将会自动暂停|
-  breakEndTime| int | 对应百应页面创建任务时的不拨打时段的结束时间，到达这个时间点后 任务将会再次启动 |
+  breakStartTime| int |暂时停止开始时间,对应百应页面创建任务时的不拨打时段的开始时间,到达这个时间点后,任务将会自动暂停|
+  breakEndTime| int | 暂时停止结束时间,对应百应页面创建任务时的不拨打时段的结束时间，到达这个时间点后 任务将会再次启动 |
   status| String | 任务状态枚举 |
   callType| int | 主叫号码类型:0-手机号,1-固话,2-无主叫 |
   robotDefId| int |机器人id|
