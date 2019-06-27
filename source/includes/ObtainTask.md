@@ -254,8 +254,8 @@ GET
  startDate| String | 任务开始时间 |
  workingStartTime| String | 可拨打开始时间 |
  workingEndTime| String | 可拨打结束时间 |
- breakStartTime| String | 暂时停止开始时间 |
- breakEndTime| String | 暂时停止结束时间 |
+ breakStartTime| String | 暂时停止开始时间,对应百应页面创建任务时的不拨打时段的开始时间,到达这个时间点后,任务将会自动暂停 |
+ breakEndTime| String | 暂时停止结束时间,对应百应页面创建任务时的不拨打时段的结束时间，到达这个时间点后 任务将会再次启动 |
  status| int | 任务状态枚举 |
  remark| String  | 任务注释 |
  totalCount| int | 任务拨打的号码总数 |
@@ -293,7 +293,7 @@ GET
  参数名 | 类型 | 描述 
  --------- | ------- |------
  jobPhoneId|long | 外呼任务和主叫号码绑定表主键Id|
- userPhoneId|long | 主叫号码(线路Id，对应获取主叫号码列表接口返回的userPhoneId)|
+ userPhoneId|long | 主叫号码Id(线路Id，对应获取主叫号码列表接口返回的userPhoneId)|
  callJobId|long | 任务Id|
  phone|String | 外呼号码|
  phoneName|String | 外呼号码名|
@@ -667,7 +667,7 @@ GET
  
  参数名 | 类型 | 是否必须 | 描述 | 示例 
  --------- | ------- |------- | ------ |----------
-  callInstanceId| long| 是 | 通话记录Id,通话记录id| 1 |  
+  callInstanceId| long| 是 | 通话记录Id| 1 |  
  
 ###响应：
  
@@ -687,7 +687,7 @@ GET
   callInstanceId| long | 通话记录Id |
   companyId| int | 公司id |
   callJobId| int |任务id|
-  customerId| int | 客户id,当前通话记录对应的客户Id |
+  customerId| int | 客户id,当前通话记录对应的客户 |
   customerTelephone| String | 客户手机 |
   customerName| String | 客户名称 |
   finishStatus| String | 已完成通话状态枚举 |
@@ -699,7 +699,7 @@ GET
   callerPhone| String | 主叫电话 |
   luyinOssUrl| String | 通话录音（包含Ai和客户） |
   userLuyinOssUrl| String | 通话录音（只包含客户） |
-  properties | String | 通话记录携带的参数,通过api导入的时候传入properties字段传入的都会从这个字段回传 |
+  properties | String | 通话记录携带的参数(json字符串)，包含话术变量和自定义参数，用户可以传入自己的变量，百应回调会传回给用户 |
   handlePerson | String | 处理人(一般是话术的话术名) |
   callType| int| 外呼方式，对应主叫号码(线路)类型枚举 |
   readStatus| int | 是否已读，产品中的通话记录已读未读状态 0：未读 1：已读 |

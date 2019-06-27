@@ -89,7 +89,7 @@ POST
  workingEndTime| String| 否 | 可拨打结束时间| 22:00 |
  breakStartTime| String| 否 | 暂时停止开始时间,对应百应页面创建任务时的不拨打时段的开始时间,到达这个时间点后,任务将会自动暂停| 12:00 |
  breakEndTime| String| 否 | 暂时停止结束时间,对应百应页面创建任务时的不拨打时段的结束时间,到达这个时间点后,任务将会再次启动| 13:00 |
- userPhoneIds| List| 是 | 主叫号码(线路Id）| [1] |
+ userPhoneIds| List| 是 | 主叫号码Id(线路Id）| [1] |
  robotDefId| int| 是 | 机器人id| 1 |
  callType| int| 是 | 外呼方式，对应主叫号码(线路)类型枚举| 1 |
  smsType| int |否| 是否发送挂机短信：0-否，1-是 |
@@ -363,7 +363,7 @@ POST
   taskId| int| 是 | 任务Id| 1 |
   name| String| 是 | 客户名称| 张三 |
   phone| String| 是 | 客户电话| 13998987676 |
-  properties| Map<String,String>| 否 | 客户自定义额外信息| 必须包含所有的话术变量（话术创建页面可查看），百应透传该参数，请看json入参示例 |
+  properties| Map<String,String>| 否 | 客户自定义额外信息| 必须包含所有的话术变量（话术创建页面可查看），百应回传该参数，请看json入参示例 |
   forceTransferCustomer|Integer|否|是否强制转移客户 1：是 0：否（默认1）| 1|
   
   <aside class="success">
@@ -479,16 +479,16 @@ POST
  taskId| int| 是 | 任务Id| 1 |
  taskName| String| 是 | 任务名称| 1 |
  taskType| int| 是 | 任务类型| 1 |
- userPhoneIds| int| 是 | 主叫号码(线路Id）| 1 |
+ userPhoneIds| int| 是 | 主叫号码Id(线路Id）| 1 |
  callType| int| 是 | 外呼方式，对应主叫号码(线路)类型枚举| 1 |
  concurrencyQuota| int| 是 | 坐席数| 1 |
  concurrencyPhone| int| 否 | 并发量 | 1|
  startDate| String|否|开始日期|"2018-12-13"|
  workingStartTime|String|否|任务开始时间|"09:00"|
  workingEndTime|String|否|任务结束时间|"20:00"|
- breakStartClose|boolean|否|是否关闭午休不拨打时间 true:关闭，false:维持原状态，默认false |
- breakStartTime|String|否|对应百应页面创建任务时的不拨打时段的开始时间，到达这个时间点后 任务将会自动暂停|"12:00"|
- breakEndTime|String|否|对应百应页面创建任务时的不拨打时段的结束时间，到达这个时间点后 任务将会再次启动|"14:00"|
+ breakStartClose|boolean|否|是否关闭不拨打时间 true:关闭，false:维持原状态，默认false |
+ breakStartTime|String|否|暂时停止开始时间,对应百应页面创建任务时的不拨打时段的开始时间,到达这个时间点后,任务将会自动暂停|"12:00"|
+ breakEndTime|String|否|暂时停止结束时间,对应百应页面创建任务时的不拨打时段的结束时间，到达这个时间点后 任务将会再次启动|"14:00"|
  repeatCall|boolean|否|是否开启重拨 默认false 关闭 |
  repeatCallRule|list|否|重拨详细规则，请看json入参|
 
