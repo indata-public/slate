@@ -191,7 +191,7 @@ Content-Type : application/json;charset=utf-8
   customerId| int |客户Id|
   customerTelephone|String|客户手机号|
   customerName|String|客户名称|
-  status| int | 通话状态, 0: 未开始，1: 进行中，2: 已完成，3: 二次拨打调度中 |
+  status| int | 通话实例状态枚举 |
   finishStatus| int | 通话实例已完成状态枚举|
   duration| int |通话时长|
   chatRound| int | 通话轮次 |
@@ -207,8 +207,8 @@ Content-Type : application/json;charset=utf-8
   readStatus| int | 是否已读，产品中的通话记录已读未读状态 0：未读 1：已读 |
   jobName| String | 电话任务名称 |
   robotDef| int |话术机器人Id|
-  sceneDefId| int |话术场景Id|
-  sceneRecordId| int | 话术场景录音Id |
+  sceneDefId| int |场景Id|
+  sceneRecordId| int | 景录音Id |
   industry| String | 所属行业 | 
   trackResult| String | bug追踪结果 | 
   hangUp| int | 挂机人 0：AI 1：用户 | 
@@ -235,7 +235,7 @@ Content-Type : application/json;charset=utf-8
   sceneInstanceLogId|Long|通话记录日志Id|
   sceneInstanceId|Long|通话记录Id（对应callInstanceId）|
   companyId|int|公司Id|
-  robotDefId|int|话术机器人Id|
+  robotDefId|int|机器人Id|
   decisionId|int|对应决策Id,话术的节点Id|
   speaker|String|说话人 ME：用户  AI:机器人|
   content|String|说话内容|
@@ -330,9 +330,9 @@ Content-Type : application/json;charset=utf-8
   breakEndTime| int | 对应百应页面创建任务时的不拨打时段的结束时间，到达这个时间点后 任务将会再次启动 |
   status| String | 任务状态枚举 |
   callType| int | 主叫号码类型:0-手机号,1-固话,2-无主叫 |
-  robotDefId| int |关联的机器人id|
+  robotDefId| int |机器人id|
   sceneDefId| int | 场景id |
-  sceneRecordId| int |关联的录音id|
+  sceneRecordId| int |场景录音id|
   remark| String  | 备注 |
   smsType| int | 是否发送挂机短信：0-否，1-是 |
   smsCondition| String | 发送挂机短信条件，json格式 |
@@ -569,9 +569,9 @@ luyinOssUrl|String|通话录音（包含Ai和客户）
 userLuyinOssUrl|String|通话录音（只包含客户）
 properties| String |通话记录携带的参数(json字符串)，包含话术变量和自定义参数，用户可以传入自己的变量，百应回调会传回给用户
 readStatus| int | 是否已读，产品中的通话记录已读未读状态 0：未读 1：已读 |
-robotDefId|int|话术机器人Id
-sceneDefId|int|话术场景Id
-sceneRecordId|int|话术场景录音Id
+robotDefId|int|机器人Id
+sceneDefId|int|场景Id
+sceneRecordId|int|场景录音id
 transferStatus|int|转人工状态:0-无转接,1-成功,2-失败
 transferInfo|String|转人工详情
 callbacked|int|是否回调
@@ -592,7 +592,7 @@ artificialChanged|boolean|是否进行过人工标注修改
 resultDesc|String|结果描述
 resultValueAlias|String|分析结果别名(resultName为【客户意向等级】时标注值为意向级别 A,B,C,D,E,F)
 resultLabels|List|IntegerStringBO对象中存储一个int类型参数，一个String类型参数，resultName为【客户标签】时存储客户标签
-resultValueNew|String|客户意向说明版本V2，此文字版本跟产品上保持一致
+resultValueNew|String|客户意向等级的表述（文案与crm对应）
 
  4.phoneLog（对话详情）
  
@@ -601,7 +601,7 @@ resultValueNew|String|客户意向说明版本V2，此文字版本跟产品上�
 sceneInstanceLogId|long|通话记录日志Id
 sceneInstanceId|Long|通话记录Id（对应callInstanceId）|
 companyId|int|公司ID
-robotDefId|int|话术机器人Id
+robotDefId|int|机器人Id
 decisionId|int|对应决策Id
 speaker|String|说话人 ME：用户 AI:机器人
 content|String|说话内容
@@ -615,7 +615,7 @@ endTime|Date|说话的结束时间,本句话在录音中的结束时间
 correctionContent|String|通话记录纠错内容，通话记录中的人工纠错功能的纠错内容
 luyinOssUrl|String|通话记录录音
 sign|String|回调签名（需联系开通）
-dateTime|String|GMT格式日期（签名计算-需联系开通）
+dateTime|String|GMT格式日期
 
 ###响应：
  

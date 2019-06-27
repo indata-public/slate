@@ -80,7 +80,7 @@ GET
  taskName| String| 否 |任务名称| 测试API任务 |
  createDate| String| 否 |创建时间 | "2017-10-19" |
  status| int| 否 | 任务状态枚举| 1 |
- needAll| boolean| 否 |  true:返回所有Job信息包含已打标删除的Job信息，false：只返回未打标删除的Job信息，默认false|false|
+ needAll| boolean| 否 |  true:返回所有Job信息，false：只返回未标记删除的Job信息，默认false|false|
  pageNum| int| 否 | 第几页,默认1| 1 |
  pageSize| int| 否 | 页面大小,选填,默认10,最大100,建议不要太大| 10 |
 
@@ -434,7 +434,7 @@ GET
   callJobId| int |任务id|
   customerTelephone| String | 被叫客户电话号码 |
   customerName| String | 被叫客户名称 |
-  status| String | 任务状态, 0: 未开始，1: 进行中，2: 已完成，3: 二次拨打调度中 |
+  status| String | 通话实例状态枚举 |
   finishStatus| String | 通话实例已完成状态枚举|
   duration| int  | 通话时长 |
   chatRound| int | 通话轮次 |
@@ -540,10 +540,10 @@ GET
   pageSize| int | 每页页面条数 |
   total| int | 数据总条数 |
   pages| int | 页面总数 |
-  callInstanceId| long | 任务实例id（每个被叫电话为一个实例,通话记录Id） |
+  callInstanceId| long | 通话记录Id（每个被叫电话为一个通话实例）|
   customerName| int | 客户名称 |
   customerTelephone| int |被叫客户电话|
-  status| String | 通话状态, 0: 未开始，1: 进行中，2: 已完成，3: 二次拨打调度中 |
+  status| String | 通话实例状态枚举 |
   startTime| String | 开始时间 |
   callerPhone| String | 主叫号码 |
   corpName| String | 公司名 |
@@ -667,7 +667,7 @@ GET
  
  参数名 | 类型 | 是否必须 | 描述 | 示例 
  --------- | ------- |------- | ------ |----------
-  callInstanceId| long| 是 | 任务实例id,通话记录id| 1 |  
+  callInstanceId| long| 是 | 通话记录Id,通话记录id| 1 |  
  
 ###响应：
  
@@ -676,7 +676,7 @@ GET
   code|int | 响应码 |
   phoneLog | String | 对话内容总称|
   phoneLogs| List | 对话内容 |
-  sceneInstanceId| long | 任务实例id，callInstanceId |
+  sceneInstanceId| long | 通话记录Id，callInstanceId |
   speaker| String |角色|
   content| String | 内容 |
   userMean| String |用户说话语义,客户说话内容命中的话术节点分支或知识库问题|
@@ -691,7 +691,7 @@ GET
   customerTelephone| String | 客户手机 |
   customerName| String | 客户名称 |
   finishStatus| String | 通话实例已完成状态枚举 |
-  status| int |通话状态, 0: 未开始，1: 进行中，2: 已完成，3: 二次拨打调度中 |
+  status| int |通话实例状态枚举 |
   duration| int  | 通话时长 |
   chatRound| int | 通话轮次,AI说话次数 |
   startTime| String | 开始拨打时间 |

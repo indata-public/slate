@@ -46,17 +46,18 @@ GET
 
 参数名 | 类型 | 描述 
 --------- | ------- |------
- code|int | 响应码 |
+ code|int | 响应码，详见“ResultModel响应对象模型”说明 |
+ data|list(String) |返回结果，详见“ResultModel响应对象模型”说明|
  companyName|String | 公司名称 |
  companyId| int | 公司Id |
- resultMsg| String | 响应说明 |
-
+ resultMsg| String |响应提示，详见“ResultModel响应对象模型”说明 |
+ errorStackTrace| String |详见“ResultModel响应对象模型”说明 |
 
 ##获取公司的主叫电话列表接口
 
 ###功能说明：
 
-通过接口可以获取指定公司的所有主叫电话的列表
+通过接口可以获取指定公司的所有线路的列表
 注意：
 1.主叫号码列表的PhoneType字段标识外呼线路类型--需要对应新建任务接口的callType字段
 2.文档中给出的是常用枚举类型，若特殊用户自用时出现其他枚举类型，只需要遵循注意点1即可
@@ -83,7 +84,6 @@ GET
 		"validityBegin": "2018-07-24 00:00:00",
 		"validityEnd": "2019-07-27 00:00:00",
 		"sceneType": null,
-		"lineAmount": 1.040,
 	}, {
 		"userPhoneId": 2,
 		"callerAccountId": null,
@@ -99,7 +99,6 @@ GET
 		"validityBegin": "2018-07-24 00:00:00",
 		"validityEnd": "2019-07-27 00:00:00",
 		"sceneType": null,
-		"lineAmount": 1.030,
 	}],
 	"resultMsg": "获取成功",
 	"errorStackTrace": null
@@ -128,32 +127,30 @@ GET
 
 参数名 | 类型 | 描述 
 --------- | ------- |------
- code|int | 响应码 |
- userPhoneId|int | 主叫号码Id |
+ userPhoneId|int | 主叫号码(线路Id） |
  phone| String | 主叫号码 |
- account|String|主叫号码账号|
- phoneName| String | 主叫号码名称 |
- phoneType| int | 主叫号码类型：0-手机号,1-固话(默认),2-无主叫线路 |
+ phoneName| String | 主叫号码（线路）名称 |
+ phoneType| int | 主叫号码类型枚举 |
  available| Boolean | 是否可用（已使用ai坐席大于可用ai坐席数时会返回false） |
- totalConcurrencyQuota| int | 总并发数 |
+ totalConcurrencyQuota| int | null表示总并发无限制，phoneType为手机号时有总并发限制，其他无限制 |
  usedConcurrencyQuota| int | 已经使用并发数 |
  billPeriod|int|计费周期|
  validityBegin|Date|可用开始时间|
  validityEnd|Date|可用结束时间|
  sceneType|int|应用场景 1:呼入,2:呼出,3:呼入呼出|
- lineAmount|BigDecimal|线路账户余额|
- resultMsg| String | 响应说明 |
+ resultMsg| String |提示信息，详见“ResultModel响应对象模型”说明 |
+ errorStackTrace| String |跟踪信息，详见“ResultModel响应对象模型”说明 |
 
 ##获取公司的机器人话术列表接口
 
 ###功能说明：
 
-通过接口可以获取指定公司的所有配置完成的机器人话术 
+通过接口可以获取指定公司的所有配置完成上线状态的机器人话术 
 注意：
 1.本接口主要获取三个重要字段 (用于新建任务) 
-    1）robotDefId:话术机器人ID
-    2）sceneDefId:话术场景ID
-    3）sceneRecordId:话术场景录音Id
+    1）robotDefId:机器人id
+    2）sceneDefId:场景id
+    3）sceneRecordId:场景录音id
 2.三个参数一一对应，如果对应错误或误传可能导致外呼失败或者外呼话术不正确问题，请注意！
 
 >返回对象示例：
@@ -207,23 +204,22 @@ GET
  robotStatus| int| 否 | 0：所有话术，1：已上线话术，默认0| 1 |
  
 
-
-
 ###响应：
 
 参数名 | 类型 | 描述 
 --------- | ------- |------
- code|int | 响应码 |
- robotDefId|int | 话术机器人Id |
- robotName| String  |  话术机器人名称 |
- sceneDefId| int | 话术场景Id |
- sceneRecordId| int | 话术场景录音id |
- sceneRecordName| String | 话术场景录音名称 |
+ code|int | 响应码，详见“ResultModel响应对象模型”说明 |
+ data|list(String) |返回结果， 详见“ResultModel响应对象模型”说明 |
+ robotDefId|int | 机器人Id |
+ robotName| String  |  机器人名称 |
+ sceneDefId| int | 场景Id |
+ sceneRecordId| int | 场景录音id |
+ sceneRecordName| String | 录音名称 |
  industryOneName|String|一级行业名|
  industryTwoName|String|二级行业名|
  gmtModify|Date|修改时间|
- resultMsg| String | 响应说明 |
-
+ resultMsg| String |错误信息，详见“ResultModel响应对象模型”说明 |
+ errorStackTrace| String |跟踪信息，详见“ResultModel响应对象模型”说明 |
 
 ##添加单个黑名单到公司默认黑名单组接口
 
@@ -269,10 +265,10 @@ POST
 
 参数名 | 类型 | 描述 
 --------- | ------- |------
- code|int | 响应码 |
+ code|int | 响应码，详见“ResultModel响应对象模型”说明  |
  data|int | 黑名单id |
- resultMsg| String | 响应说明 |
- 
+ resultMsg| String |响应信息，详见“ResultModel响应对象模型”说明|
+ errorStackTrace| String |跟踪信息，详见“ResultModel响应对象模型”说明 |
  
  
  
@@ -327,5 +323,6 @@ GET
 --------- | ------- |------
  code|int | 响应码 |
  data|Object | companyAllCallSeat表示公司所有坐席数量<br>companyUsingCallSeat全公司已使用坐席数量 |
- resultMsg| String | 响应说明 |
-
+ resultMsg| String | 响应信息，详见“ResultModel响应对象模型”说明 |
+ errorStackTrace| String |跟踪信息，详见“ResultModel响应对象模型”说明 |
+ requestId| String |跟踪信息id，详见“ResultModel响应对象模型”说明 |

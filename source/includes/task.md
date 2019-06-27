@@ -554,9 +554,9 @@ POST
   mobile| String| 是 | 客户手机号| 1 |  
   companyId| int| 是 | 公司Id| 1 |  
   variables| Map<String,String>| 否 |  1.变量（如果话术内设置变量则需要传入）2.不传值情况下需要保留字段名| 1 |      
-  robotDefId| int| 是 | 机器人话术Id | 1 |
-  sceneDefId| int| 是 | 机器人话术场景Id | 1 |  
-  sceneRecordId| int| 是 | 机器人话术录音Id | 1 |    
+  robotDefId| int| 是 | 机器人Id | 1 |
+  sceneDefId| int| 是 | 场景Id | 1 |  
+  sceneRecordId| int| 是 | 场景录音id | 1 |    
   userName|String|否|客户姓名|1|
  
 ###响应：
@@ -605,7 +605,7 @@ POST
  参数名 | 类型 | 是否必须 | 描述 | 示例 
  --------- | ------- |------- | ------ |----------
   companyId| int| 是 | 公司Id| 1 |  
-  sceneDefId| int | 是 | 机器人话术场景Id|1|
+  sceneDefId| int | 是 | 场景Id|1|
  
 ###响应：
  
