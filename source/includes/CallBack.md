@@ -403,7 +403,7 @@ Content-Type : application/json;charset=utf-8
 
 ###功能说明：
 当一次通话完成后，百应机器人会自动调用回调程序向用户配置的回调地址，发送本次通话详情。
-呼入回调数据格式与外呼格式保持高度一致，仅个别字段名称有所变更,  http://api.byrobot.cn/doc/v2/#3e45815d37
+呼入回调数据格式与外呼格式保持高度一致，仅个别字段名称有所变更
  
  >请求对象示例:
   
@@ -567,6 +567,7 @@ endTime|Date|通话结束时间
 calleePhone|String|被叫号码
 luyinOssUrl|String|通话录音（包含Ai和客户）
 userLuyinOssUrl|String|通话录音（只包含客户）
+properties| String |通话记录携带的参数(json字符串)，包含话术变量和自定义参数，用户可以传入自己的变量，百应回调会传回给用户
 robotDefId|int|话术机器人Id
 sceneDefId|int|话术场景Id
 sceneRecordId|int|话术场景录音Id
