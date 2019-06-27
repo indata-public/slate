@@ -715,8 +715,6 @@ GET
   resultName | String | 分析结果名(客户意向等级,客户标签) |
   resultValue | String | 分析结果,A级(有明确意向) |
   resultDesc | String | 分析结果描述 |
-  resultMsg| String | 响应说明 |
-  errorStackTrace| String | 错误信息 |
 
 
 
