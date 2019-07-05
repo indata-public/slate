@@ -206,7 +206,7 @@ Content-Type : application/json;charset=utf-8
   callIndex| int | 通话实例索引 |
   readStatus| int | 是否已读，产品中的通话记录已读未读状态 0：未读 1：已读 |
   jobName| String | 电话任务名称 |
-  robotDef| int |机器人Id|
+  robotDefId| int |机器人Id|
   sceneDefId| int |场景Id|
   sceneRecordId| int | 场景录音id |
   industry| String | 所属行业 | 

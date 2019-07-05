@@ -84,7 +84,7 @@ POST
  companyId| int| 是 | 公司Id| 1 |
  taskName| String| 是 |任务名称| 测试API任务 |
  taskType| int| 是 | 任务类型, 1-定时,2-手动| 1 |
- startDate| String| 是 | 任务开始日期| "2017-10-19"  |˙
+ startDate| String| 否 | 任务开始日期（定时任务必填）| "2017-10-19"  |˙
  workingStartTime| String| 否 | 可拨打开始时间| 08:00 |
  workingEndTime| String| 否 | 可拨打结束时间| 22:00 |
  breakStartTime| String| 否 | 暂时停止开始时间,对应百应页面创建任务时的不拨打时段的开始时间,到达这个时间点后,任务将会自动暂停| 12:00 |
