@@ -175,9 +175,13 @@
 
 ###请求方法：
  
+####公有云：
 HttpMethod : post  
 Content-Type : application/json;charset=utf-8
- 
+
+####私有云：
+HttpMethod : post
+Content-Type : text/plain
  
 ###请求参数:
  
@@ -309,10 +313,14 @@ Content-Type : application/json;charset=utf-8
 
 ###请求方法：
  
+####公有云：
 HttpMethod : post  
 Content-Type : application/json;charset=utf-8
- 
- 
+
+####私有云：
+HttpMethod : post
+Content-Type : text/plain
+
 ###请求参数:
  
  参数名 | 类型  | 描述  
@@ -382,9 +390,13 @@ Content-Type : application/json;charset=utf-8
 
 ###请求方法：
  
+####公有云：
 HttpMethod : post  
 Content-Type : application/json;charset=utf-8
- 
+
+####私有云：
+HttpMethod : post
+Content-Type : text/plain
  
 ###请求参数:
  
@@ -543,9 +555,13 @@ Content-Type : application/json;charset=utf-8
 
 ###请求方法：
   
-HttpMethod : post
+####公有云：
+HttpMethod : post  
 Content-Type : application/json;charset=utf-8
-  
+
+####私有云：
+HttpMethod : post
+Content-Type : text/plain
 ### 请求参数:
 1.dataType: "INBOUND_CALL_INSTANCE_RESULT" (固定，标识是呼入回调),
 2.sceneInstance： (通话记录相关元数据) 
