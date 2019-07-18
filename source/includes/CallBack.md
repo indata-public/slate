@@ -314,11 +314,11 @@ Content-Type : text/plain;charset=utf-8
 ###请求方法：
  
 ####公有云：
-HttpMethod : post 
+HttpMethod : post    
 Content-Type : application/json;charset=utf-8
 
 ####私有云：
-HttpMethod : post  
+HttpMethod : post    
 Content-Type : text/plain;charset=utf-8
 
 ###请求参数:
