@@ -326,7 +326,7 @@ Content-Type : text/plain;charset=utf-8
  参数名 | 类型  | 描述  
  --------- | ------- | ------ 
   dataType| String | 回调数据类型 |
-  callJobId| List | 外呼任务Id |
+  callJobId| long | 外呼任务Id |
   companyId| int | 公司id |
   jobName| String |任务名称|
   jobType| int | 任务类型：1-定时，2-手动 |
@@ -344,7 +344,7 @@ Content-Type : text/plain;charset=utf-8
   remark| String  | 备注 |
   smsType| int | 是否发送挂机短信：0-否，1-是 |
   smsCondition| String | 发送挂机短信条件，json格式 |
-  smsTemplateId| String | 发送挂机短信的模板 |
+  smsTemplateId| long | 发送挂机短信的模板 |
   userId| int | 创建人id |
   userName| String | 创建人名称 |
 
