@@ -316,10 +316,6 @@ POST
  remark| string | 否 | 备注 | 备注信息 |
  companyId| int | 是 | 公司Id | 1 |
 
-
-
-
-
 ###响应：
 
 参数名 | 类型 | 描述 
@@ -332,6 +328,465 @@ POST
  
  
  
+ ##查询公司的黑名单分组列表接口
+ 
+ ###功能说明：
+ 
+ 通过接口可以查询公司的黑名单分组列表
+ 
+ >返回对象示例：
+ 
+ ```
+ {
+     "code":200,
+     "data":[
+         {
+             "blacklistInfoGroupId":-1,
+             "name":"默认分组",
+             "publicFlag":true,
+             "remark":""
+         },
+         {
+             "blacklistInfoGroupId":357,
+             "name":"黑名单1",
+             "publicFlag":false,
+             "remark":"test"
+         },
+         {
+             "blacklistInfoGroupId":356,
+             "name":"黑名单2",
+             "publicFlag":false,
+             "remark":"test"
+         },
+         {
+             "blacklistInfoGroupId":350,
+             "name":"黑名单3",
+             "publicFlag":false,
+             "remark":null
+         }
+     ],
+     "resultMsg":"查询成功",
+     "errorStackTrace":null,
+     "requestId":null
+ }
+ 
+ ```
+ 
+ ###请求：
+ 
+ URL：http://api.byrobot.cn/openapi/v1/company/blacklist/group/list
+ 
+ ###请求方式：
+ 
+ GET
+ 
+ ###请求参数:
+ 
+ 参数名 | 类型 | 是否必须 | 描述 | 示例 
+ --------- | ------- |------- | ------ |------
+  companyId| int | 是 | 公司Id | 1 |
+ 
+ ###响应：
+ 
+ 参数名 | 类型 | 描述 
+ --------- | ------- |------
+  code|int | 响应码，详见“ResultModel响应对象模型”说明  |
+  data|list<object> | 返回数据 |
+  blacklistInfoGroupId| int |黑名单分组id，-1为默认分组|
+  name| String |黑名单分组名称 |
+  publicFlag| boolean |是否公开 |
+  remark| string |备注 |
+ 
+ 
  
  
 
+
+
+
+
+
+##查询公司的黑名单号码列表
+
+###功能说明：
+
+通过接口可以分页查询公司的某个黑名单分组下的黑名单号码列表
+
+>返回对象示例：
+
+```
+{
+    "code":200,
+    "data":{
+        "pageNum":1,
+        "pageSize":20,
+        "size":20,
+        "orderBy":null,
+        "startRow":1,
+        "endRow":20,
+        "total":100,
+        "pages":5,
+        "list":[
+            {
+                "blacklistInfoId":321693,
+                "name":"test99",
+                "mobile":"13100000099",
+                "remark":null,
+                "gmtCreate":"2019-08-14 11:07:34"
+            },
+            {
+                "blacklistInfoId":321692,
+                "name":"test98",
+                "mobile":"13100000098",
+                "remark":null,
+                "gmtCreate":"2019-08-14 11:07:34"
+            }
+        ]
+    },
+    "resultMsg":"查询成功",
+    "errorStackTrace":null,
+    "requestId":null
+}
+
+```
+
+###请求：
+
+URL：http://api.byrobot.cn/openapi/v1/company/blacklist/info/page
+
+###请求方式：
+
+GET
+
+###请求参数:
+
+参数名 | 类型 | 是否必须 | 描述 | 示例 
+--------- | ------- |------- | ------ |------
+ companyId| int | 是 | 公司Id | 1 |
+ blacklistInfoGroupId| int | 是 | 黑名单分组Id | 1 |
+ pageNum| int | 否 | 分页页号，默认1 | 1 |
+ pageSize| int | 否 | 每页大小，默认20 | 20 |
+
+###响应：
+
+参数名 | 类型 | 描述 
+--------- | ------- |------
+ code|int | 响应码，详见“ResultModel响应对象模型”说明  |
+ data| object | 返回数据 |
+ pageNum| int | 当前页 |
+ pageSize| int | 当前页大小 |
+ size| int | 当前数据大小 |
+ startRow| int | 起始行 |
+ endRow| int | 结束行 |
+ total| int | 数据总数量 |
+ pages| int | 数据总页数 |
+ list| list<object> | 黑名单号码信息 |
+ blacklistInfoId| long | 黑名单号码id |
+ name| string |黑名单号码名称 |
+ mobile| string |黑名单号码|
+ remark| string |备注|
+ gmtCreate| string |创建时间|
+ 
+
+## 创建黑名单分组接口
+
+###功能说明：
+
+通过接口可以创建一个黑名单分组
+
+###请求：
+
+URL：http://api.byrobot.cn/openapi/v1/company/blacklist/group/add
+
+###请求方式：
+
+POST
+
+>请求象示例：
+
+```
+{
+    "companyId":1,
+    "name":"test1",
+    "remark":"test123"
+}
+
+```
+
+###请求参数:
+
+参数名 | 类型 | 是否必须 | 描述 | 示例 
+--------- | ------- |------- | ------ |------
+ companyId| int | 是 | 公司Id | 1 |
+ name| int | 是 | 黑名单分组名称 | 1 |
+ remark| string | 否 | 备注 | test |
+
+>返对象示例：
+
+```
+
+{
+    "code":200,
+    "data":123456,
+    "resultMsg":"新增成功",
+    "errorStackTrace":null,
+    "requestId":null
+}
+
+```
+
+###响应参数：
+
+参数名 | 类型 | 描述 
+--------- | ------- |------
+ code|int | 响应码，详见“ResultModel响应对象模型”说明  |
+ data| long | 创建成功的黑名单分组id |
+
+
+
+
+
+## 批量添加黑名单号码到黑名单分组接口
+
+###功能说明：
+
+通过接口可以批量添加黑名单号码到某个黑名单分组接口
+
+###请求：
+
+URL：http://api.byrobot.cn/openapi/v1/company/addBlackList/batch
+
+###请求方式：
+
+POST
+
+>请求象示例：
+
+```
+{
+    "blacklist":[
+        {
+            "mobile":"18900000000",
+            "name":"test0",
+            "remark":"remark0"
+        },
+        {
+            "mobile":"18900000001",
+            "name":"test1",
+            "remark":"remark1"
+        },
+        {
+            "mobile":"18900000002",
+            "name":"test2",
+            "remark":"remark2"
+        }
+    ],
+    "blacklistInfoGroupId":361,
+    "companyId":1
+}
+
+```
+
+###请求参数:
+
+参数名 | 类型 | 是否必须 | 描述 | 示例 
+--------- | ------- |------- | ------ |------
+ companyId| int | 是 | 公司id | 1 |
+ blacklistInfoGroupId| long | 是 | 黑名单分组id | 1 |
+ blacklist| list<object> | 是 | 黑名单信息集合| 1 |
+ mobile| string | 是 | 黑名单号码 | 18900000001 |
+ name| string | 是 | 黑名单名 | test |
+ remark| string | 否 | 备注 | test |
+
+>返对象示例：
+
+```
+
+{
+    "code":200,
+    "data":{
+        "requsetNum":3,
+        "successNum":3
+    },
+    "resultMsg":"新增成功",
+    "errorStackTrace":null,
+    "requestId":null
+}
+
+```
+
+###响应参数：
+
+参数名 | 类型 | 描述 
+--------- | ------- |------
+ code|int | 响应码，详见“ResultModel响应对象模型”说明  |
+ data| object | 返回数据 |
+ requsetNum| int | 请求数量 |
+ successNum| int | 成功数量 |
+ 
+ 
+
+
+
+## 编辑黑名单分组
+
+###功能说明：
+
+通过接口可以编辑黑名单分组
+
+###请求：
+
+URL：http://api.byrobot.cn/openapi/v1/company/blacklist/group/edit
+
+###请求方式：
+
+POST
+
+>请求象示例：
+
+```
+{
+    "companyId":1,
+    "blacklistInfoGroupId":361,
+    "name":"test_edit",
+    "remark":"remark_edit"
+}
+
+```
+
+###请求参数:
+
+参数名 | 类型 | 是否必须 | 描述 | 示例 
+--------- | ------- |------- | ------ |------
+ companyId| int | 是 | 公司id | 1 |
+ blacklistInfoGroupId| long | 是 | 黑名单分组id | 1 |
+ name| string | 是 | 黑名单名 | test |
+ remark| string | 否 | 备注 | test |
+
+>返对象示例：
+
+```
+{
+    "code":200,
+    "data":true,
+    "resultMsg":"修改成功",
+    "errorStackTrace":null,
+    "requestId":null
+}
+
+```
+
+###响应参数：
+
+参数名 | 类型 | 描述 
+--------- | ------- |------
+ code|int | 响应码，详见“ResultModel响应对象模型”说明  |
+ data| boolean | 返回数据 |
+ 
+ 
+ 
+ ## 删除一个黑名单号码
+ 
+ ###功能说明：
+ 
+ 通过接口可以删除一个黑名单号码
+ 
+ ###请求：
+ 
+ URL：http://api.byrobot.cn/openapi/v1/company/blacklist/info/delete
+ 
+ ###请求方式：
+ 
+ POST
+ 
+ >请求象示例：
+ 
+ ```
+ {
+     "blacklistInfoGroupId":361,
+     "companyId":1,
+     "mobile":"18900000000"
+ }
+ 
+ ```
+ 
+ ###请求参数:
+ 
+ 参数名 | 类型 | 是否必须 | 描述 | 示例 
+ --------- | ------- |------- | ------ |------
+  companyId| int | 是 | 公司id | 1 |
+  blacklistInfoGroupId| long | 是 | 黑名单分组id | 1 |
+  mobile| string | 是 | 黑名单号码 | 18900000000 |
+ 
+ >返对象示例：
+ 
+ ```
+ {
+     "code":200,
+     "data":true,
+     "resultMsg":"删除成功",
+     "errorStackTrace":null,
+     "requestId":null
+ }
+ 
+ ```
+ 
+ ###响应参数：
+ 
+ 参数名 | 类型 | 描述 
+ --------- | ------- |------
+  code|int | 响应码，详见“ResultModel响应对象模型”说明  |
+  data| boolean | 返回数据 |
+  
+  
+
+## 删除黑名单分组接口
+
+###功能说明：
+
+通过接口可以删除一个黑名单分组(还有号码则报错)
+
+###请求：
+
+URL：http://api.byrobot.cn/openapi/v1/company/blacklist/group/delete
+
+###请求方式：
+
+POST
+
+>请求象示例：
+
+```
+{
+    "blacklistInfoGroupId":361,
+    "companyId":1
+}
+
+```
+
+###请求参数:
+
+参数名 | 类型 | 是否必须 | 描述 | 示例 
+--------- | ------- |------- | ------ |------
+ companyId| int | 是 | 公司id | 1 |
+ blacklistInfoGroupId| long | 是 | 黑名单分组id | 1 |
+
+>返对象示例：
+
+```
+{
+    "code":200,
+    "data":true,
+    "resultMsg":"删除成功",
+    "errorStackTrace":null,
+    "requestId":null
+}
+
+```
+
+###响应参数：
+
+参数名 | 类型 | 描述 
+--------- | ------- |------
+ code|int | 响应码，详见“ResultModel响应对象模型”说明  |
+ data| boolean | 返回数据 |
