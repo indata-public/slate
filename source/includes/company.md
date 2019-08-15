@@ -391,7 +391,7 @@ POST
  参数名 | 类型 | 描述 
  --------- | ------- |------
   code|int | 响应码，详见“ResultModel响应对象模型”说明  |
-  data|list<object> | 返回数据 |
+  data|list | 返回数据 |
   blacklistInfoGroupId| int |黑名单分组id，-1为默认分组|
   name| String |黑名单分组名称 |
   publicFlag| boolean |是否公开 |
@@ -480,7 +480,7 @@ GET
  endRow| int | 结束行 |
  total| int | 数据总数量 |
  pages| int | 数据总页数 |
- list| list<object> | 黑名单号码信息 |
+ list| list | 黑名单号码信息 |
  blacklistInfoId| long | 黑名单号码id |
  name| string |黑名单号码名称 |
  mobile| string |黑名单号码|
@@ -593,7 +593,7 @@ POST
 --------- | ------- |------- | ------ |------
  companyId| int | 是 | 公司id | 1 |
  blacklistInfoGroupId| long | 是 | 黑名单分组id | 1 |
- blacklist| list<object> | 是 | 黑名单信息集合| 1 |
+ blacklist| list | 是 | 黑名单信息集合| 1 |
  mobile| string | 是 | 黑名单号码 | 18900000001 |
  name| string | 是 | 黑名单名 | test |
  remark| string | 否 | 备注 | test |
