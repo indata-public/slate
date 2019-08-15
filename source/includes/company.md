@@ -420,12 +420,7 @@ POST
     "data":{
         "pageNum":1,
         "pageSize":20,
-        "size":20,
-        "orderBy":null,
-        "startRow":1,
-        "endRow":20,
         "total":100,
-        "pages":5,
         "list":[
             {
                 "blacklistInfoId":321693,
@@ -475,12 +470,8 @@ GET
  data| object | 返回数据 |
  pageNum| int | 当前页 |
  pageSize| int | 当前页大小 |
- size| int | 当前数据大小 |
- startRow| int | 起始行 |
- endRow| int | 结束行 |
  total| int | 数据总数量 |
- pages| int | 数据总页数 |
- list| list | 黑名单号码信息 |
+ list| list | 黑名单号码信息列表 |
  blacklistInfoId| long | 黑名单号码id |
  name| string |黑名单号码名称 |
  mobile| string |黑名单号码|
