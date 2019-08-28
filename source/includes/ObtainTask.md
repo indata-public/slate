@@ -442,7 +442,7 @@ GET
   endTime| String | 结束拨打时间 |
   callerPhone| String | 主叫电话 |
   luyinOssUrl| int | 通话录音（包含用户录音和Ai语音） |
-  secondaryCallTime| String | 通话时长的统计信息 | 
+  secondaryCallTime| String | 二次拨打时间 | 
   secondaryCallTimes| int | 重试拨打次数 | 
   jobName| List | 任务名称 | 
   resultList| List | 通话分析结果信息 |
