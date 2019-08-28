@@ -101,6 +101,7 @@ POST
  times|int|否|重拨次数(1-5)|
  interval|int|否|间隔时间(0-120min)|
  defaultIntentionRule|boolean|否|是否使用默认客户分配规则,传入true，不传默认false|true
+ openElasticity|boolean|是否开启弹性,默认false|false|
  
 
 
@@ -495,6 +496,7 @@ POST
  breakEndTime|String|否|暂时停止结束时间,对应百应页面创建任务时的不拨打时段的结束时间，到达这个时间点后 任务将会再次启动|"14:00"|
  repeatCall|boolean|否|是否开启重拨 默认false 关闭 |
  repeatCallRule|list|否|重拨详细规则，请看json入参|
+ openElasticity|boolean|是否开启弹性,默认false|false|
 
 
 ###响应：
