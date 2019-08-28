@@ -257,7 +257,7 @@ code   | desc
 10| 呼损
 11| 黑名单
 
-## ResultModel响应对象模型
+## ResultModel对象模型
 
 字段 | 描述
 ---------- | -------
