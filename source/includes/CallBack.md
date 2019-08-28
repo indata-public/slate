@@ -175,9 +175,13 @@
 
 ###请求方法：
  
+####公有云：
 HttpMethod : post  
 Content-Type : application/json;charset=utf-8
- 
+
+####私有云：
+HttpMethod : post  
+Content-Type : text/plain;charset=utf-8
  
 ###请求参数:
  
@@ -206,7 +210,7 @@ Content-Type : application/json;charset=utf-8
   callIndex| int | 通话实例索引 |
   readStatus| int | 是否已读，产品中的通话记录已读未读状态 0：未读 1：已读 |
   jobName| String | 电话任务名称 |
-  robotDef| int |话术机器人Id|
+  robotDefId| int |机器人Id|
   sceneDefId| int |场景Id|
   sceneRecordId| int | 场景录音id |
   industry| String | 所属行业 | 
@@ -241,7 +245,7 @@ Content-Type : application/json;charset=utf-8
   content|String|说话内容|
   userMean|String|用户说话语义,客户说话内容命中的话术节点分支或知识库问题|
   userMeanDetail|String|用户说话语义详情,客户说话内容命中详情（包括命中的用户说话内容和话术节点分支或知识库分支问题）|
-  aiUnknown|int|是否是ai无法应答的问题，1-是，0-否|
+  aiUnknown|boolean|是否是ai无法应答的问题，true-是，false-否|
   answerStatus|int|回答问题状态：0-分支，1-问题，2-忽略|
   studyStatus|int|学习状态：0-未学习，1-已学习|
   startTime|Date|说话的开始时间|
@@ -309,16 +313,20 @@ Content-Type : application/json;charset=utf-8
 
 ###请求方法：
  
-HttpMethod : post  
+####公有云：
+HttpMethod : post    
 Content-Type : application/json;charset=utf-8
- 
- 
+
+####私有云：
+HttpMethod : post    
+Content-Type : text/plain;charset=utf-8
+
 ###请求参数:
  
  参数名 | 类型  | 描述  
  --------- | ------- | ------ 
   dataType| String | 回调数据类型 |
-  callJobId| List | 外呼任务Id |
+  callJobId| long | 外呼任务Id |
   companyId| int | 公司id |
   jobName| String |任务名称|
   jobType| int | 任务类型：1-定时，2-手动 |
@@ -336,7 +344,7 @@ Content-Type : application/json;charset=utf-8
   remark| String  | 备注 |
   smsType| int | 是否发送挂机短信：0-否，1-是 |
   smsCondition| String | 发送挂机短信条件，json格式 |
-  smsTemplateId| String | 发送挂机短信的模板 |
+  smsTemplateId| long | 发送挂机短信的模板 |
   userId| int | 创建人id |
   userName| String | 创建人名称 |
 
@@ -382,9 +390,13 @@ Content-Type : application/json;charset=utf-8
 
 ###请求方法：
  
-HttpMethod : post  
+####公有云：
+HttpMethod : post   
 Content-Type : application/json;charset=utf-8
- 
+
+####私有云：
+HttpMethod : post   
+Content-Type : text/plain;charset=utf-8
  
 ###请求参数:
  
@@ -543,9 +555,13 @@ Content-Type : application/json;charset=utf-8
 
 ###请求方法：
   
-HttpMethod : post
+####公有云：
+HttpMethod : post   
 Content-Type : application/json;charset=utf-8
-  
+
+####私有云：
+HttpMethod : post  
+Content-Type : text/plain;charset=utf-8
 ### 请求参数:
 1.dataType: "INBOUND_CALL_INSTANCE_RESULT" (固定，标识是呼入回调),
 2.sceneInstance： (通话记录相关元数据) 
