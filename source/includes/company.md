@@ -256,7 +256,7 @@ GET
             {
                 "smsTemplateId":2,
                 "companyId":2,
-                "name":"还呗-龙举106-测试",
+                "name":"测试",
                 "smsTemplateSignId":2087,
                 "type":4,
                 "content":"测试模版",
