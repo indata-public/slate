@@ -27,34 +27,44 @@
 
 ```
 {
-	"companyId": 1,
-	"taskName": "测试任务",
-	"taskType": 2,
-	"startDate": "2017-10-19",
-	"workingStartTime": "08:00",
-	"workingEndTime": "22:00",
-	"breakStartTime": "12:00",
-	"breakEndTime": "13:00",
-	"userPhoneIds": [1],
-	"callType": 0,
-	"concurrencyQuota": 1,
-	"robotDefId": 1,
-	"smsType": 1,
-	"remark": "创建任务",
-	"repeatCall": true,
-	"defaultIntentionRule": true,
-	"repeatCallRule": [{
-			"phoneStatus": 9,
-			"times": 1,
-			"interval": 5
-		},
-		{
-			"phoneStatus": 10,
-			"times": 1,
-			"interval": 5
-		}
-	]
+    "companyId":1,
+    "taskName":"测试任务",
+    "taskType":2,
+    "startDate":"2017-10-19",
+    "workingStartTime":"08:00",
+    "workingEndTime":"22:00",
+    "breakStartTime":"12:00",
+    "breakEndTime":"13:00",
+    "userPhoneIds":[
+        1
+    ],
+    "callType":0,
+    "concurrencyQuota":1,
+    "robotDefId":1,
+    "smsType":1,
+    "smsSendLevel":[
+        "A级(有明确意向)",
+        "B级(可能有意向)"
+    ],
+    "smsTemplateId":4198,
+    "remark":"创建任务",
+    "repeatCall":true,
+    "defaultIntentionRule":true,
+    "repeatCallRule":[
+        {
+            "phoneStatus":9,
+            "times":1,
+            "interval":5
+        },
+        {
+            "phoneStatus":10,
+            "times":1,
+            "interval":5
+        }
+    ]
 }
+
+
 ```
 
 >返回对象示例：
