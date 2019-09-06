@@ -307,7 +307,7 @@ GET
  status|int|审核状态:1-审核中，2-审核通过，3-审核不通过|
  failReason|String|审核结果备注|
  smsTemplateSignName|String|模板签名名称|
- gmtCreate|Date|修改时间|
+ gmtCreate|Date|创建时间|
  gmtModified|Date|修改时间|
  resultMsg| String |错误信息，详见“ResultModel响应对象模型”说明 |
  errorStackTrace| String|跟踪信息，详见“ResultModel响应对象模型”说明|
