@@ -298,15 +298,15 @@ GET
 --------- | ------- |------
  code|int | 响应码，详见“ResultModel响应对象模型”说明 |
  data|list |返回结果， 详见“ResultModel响应对象模型”说明 |
- smsTemplateId|int | 机器人Id |
- companyId| int  |  机器人名称 |
- name| String | 场景Id |
- smsTemplateSignId| int | 场景录音id |
- type| int | 录音名称 |
- content|String|一级行业名|
- status|int|二级行业名|
- failReason|String|修改时间|
- smsTemplateSignName|String|修改时间|
+ smsTemplateId|int | 短信模版id |
+ companyId| int  |  公司名称 |
+ name| String | 短信模版名称 |
+ smsTemplateSignId| int | 模板签名id |
+ type| int | 短信类型：1-通知类，2-营销类 , 3-验证码 4-金融类 |
+ content|String|短信模板内容|
+ status|int|审核状态:1-审核中，2-审核通过，3-审核不通过|
+ failReason|String|审核结果备注|
+ smsTemplateSignName|String|模板签名名称|
  gmtCreate|Date|修改时间|
  gmtModified|Date|修改时间|
  resultMsg| String |错误信息，详见“ResultModel响应对象模型”说明 |
