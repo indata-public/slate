@@ -76,7 +76,7 @@ GET
 
 参数名 | 类型 | 是否必须 | 描述 | 示例 
 --------- | ------- |------- | ------ |----------
- companyId| int| 是 | 公司Id| 1 |
+ companyId| int| 是 | 公司Id| 3811|
  taskName| String| 否 |任务名称| 测试API任务 |
  createDate| String| 否 |创建时间 | "2017-10-19" |
  status| int| 否 | 任务状态枚举| 1 |
@@ -239,8 +239,8 @@ GET
 
 参数名 | 类型 | 是否必须 | 描述 | 示例 
 --------- | ------- |------- | ------ |----------
- companyId| int| 是 | 公司Id| 1 |
- taskId| int| 否 |任务Id| 21 |
+ companyId| int| 是 | 公司Id| 3811 |
+ taskId| int| 是 |任务Id| 13487 |
  
 
 ###响应：
@@ -348,7 +348,7 @@ GET
                  "customerName": "测试02",  
                  "status": 2, 
                  "finishStatus": 0,
-                 "duration": "27秒", 
+                 "duration": "27", 
                  "chatRound": 0, 
                  "startTime": "2017-10-25 11:32:54", 
                  "endTime": "2017-10-25 11:33:22", 
@@ -372,7 +372,7 @@ GET
                  "customerName": "不弃",
                  "status": 2,
                  "finishStatus": 0,
-                 "duration": "11秒",
+                 "duration": "11",
                  "chatRound": 0,
                  "startTime": "2017-10-25 11:17:06",
                  "endTime": "2017-10-25 11:17:18",
@@ -442,8 +442,8 @@ GET
   endTime| String | 结束拨打时间 |
   callerPhone| String | 主叫电话 |
   luyinOssUrl| int | 通话录音（包含用户录音和Ai语音） |
-  secondaryCallTime| List | 通话时长的统计信息 | 
-  secondaryCallTimes| List | 重试拨打次数 | 
+  secondaryCallTime| String | 二次拨打时间 | 
+  secondaryCallTimes| int | 重试拨打次数 | 
   jobName| List | 任务名称 | 
   resultList| List | 通话分析结果信息 |
   resultMsg| String | 响应说明 |

@@ -13,12 +13,12 @@
     "code": 200,
     "data": [
         {
-            "companyName": "阿里巴巴", 
-            "companyId": 1 
+            "companyName": "百应1", 
+            "companyId": 3813
         },
         {
-            "companyName": "网易", 
-            "companyId": 2
+            "companyName": "百应2", 
+            "companyId": 2333
         }
     ],
     "resultMsg": "获取成功",
@@ -46,12 +46,12 @@ GET
 
 参数名 | 类型 | 描述 
 --------- | ------- |------
- code|int | 响应码，详见“ResultModel响应对象模型”说明 |
- data|list(String) |返回结果，详见“ResultModel响应对象模型”说明|
+ code|int | 响应码，详见“ResultModel对象模型”https://api.byrobot.cn/doc/v2/#6af18eb20f |
+ data|list(String) |返回结果，详见“ResultModel对象模型”|
  companyName|String | 公司名称 |
  companyId| int | 公司Id |
- resultMsg| String |响应提示，详见“ResultModel响应对象模型”说明 |
- errorStackTrace| String |详见“ResultModel响应对象模型”说明 |
+ resultMsg| String |响应提示，详见“ResultModel响应对象模型” |
+ errorStackTrace| String |详见“ResultModel响应对象模型” |
 
 ##获取公司的主叫电话列表接口
 
@@ -120,7 +120,7 @@ GET
 
 参数名 | 类型 | 是否必须 | 描述 | 示例 
 --------- | ------- |------- | ------ |------
- companyId| int| 是 | 公司Id| 1 |
+ companyId| int| 是 | 公司Id| 3811 |
 
 
 
@@ -128,19 +128,20 @@ GET
 
 参数名 | 类型 | 描述 
 --------- | ------- |------
- userPhoneId|int | 主叫号码Id(线路Id） |
+ userPhoneId|int | 主叫号码Id |
  phone| String | 主叫号码 |
- phoneName| String | 主叫号码（线路）名称 |
- phoneType| int | 主叫号码类型枚举 |
- available| Boolean | 是否可用（已使用ai坐席大于可用ai坐席数时会返回false） |
+ phoneName| String | 主叫号码名称|
+ phoneType| int | 主叫号码类型,0:手机号;1:固话;2:无主叫线路 |
+ available| Boolean | 无效字段，可忽略 |
+ useAvailable| Boolean | 主叫号码是否可用,true可用，false不可用 |
  totalConcurrencyQuota| int | null表示总并发无限制，phoneType为手机号时有总并发限制，其他无限制 |
  usedConcurrencyQuota| int | 已经使用并发数 |
  billPeriod|int|计费周期|
  validityBegin|Date|可用开始时间|
  validityEnd|Date|可用结束时间|
  sceneType|int|应用场景 1:呼入,2:呼出,3:呼入呼出|
- resultMsg| String |提示信息，详见“ResultModel响应对象模型”说明 |
- errorStackTrace| String |跟踪信息，详见“ResultModel响应对象模型”说明 |
+ resultMsg| String |提示信息，详见“ResultModel对象模型”，https://api.byrobot.cn/doc/v2/#6af18eb20f |
+ errorStackTrace| String |跟踪信息，详见“ResultModel对象模型” |
 
 ##获取公司的机器人话术列表接口
 
@@ -149,11 +150,7 @@ GET
 通过接口可以获取指定公司的所有配置完成上线状态的机器人话术 
 注意：
 
-1. 本接口主要获取三个重要字段 
-    - robotDefId:机器人id
-    - sceneDefId:场景id
-    - sceneRecordId:场景录音id
-2. 三个参数一一对应，如果对应错误或误传可能导致外呼失败或者外呼话术不正确问题，请注意！
+1. 本接口可获取 robotDefId:机器人id 等字段，在调用创建任务接口时会使用到
 
 >返回对象示例：
 
@@ -202,7 +199,7 @@ GET
 
 参数名 | 类型 | 是否必须 | 描述 | 示例 
 --------- | ------- |------- | ------ |------
- companyId| int| 是 | 公司Id| 1 |
+ companyId| int| 是 | 公司Id| 3811 |
  robotStatus| int| 否 | 0：所有话术，1：已上线话术，2：查询发布过的话术(包括已上线和上线后重新修改的话术)，默认0| 1 |
  
 
@@ -210,9 +207,9 @@ GET
 
 参数名 | 类型 | 描述 
 --------- | ------- |------
- code|int | 响应码，详见“ResultModel响应对象模型”说明 |
- data|list(String) |返回结果， 详见“ResultModel响应对象模型”说明 |
- robotDefId|int | 机器人Id |
+ code|int | 响应码，详见“ResultModel对象模型”，https://api.byrobot.cn/doc/v2/#6af18eb20f |
+ data|list(String) |返回结果， 详见“ResultModel对象模型” |
+ robotDefId|int | 机器人Id，创建任务时会用到该ID |
  robotName| String  |  机器人名称 |
  sceneDefId| int | 场景Id |
  sceneRecordId| int | 场景录音id |
@@ -404,16 +401,16 @@ POST
  name| string | 否 | 客户姓名 | 测试用户 |
  mobile| string | 是 | 手机号 | 159xxxxxxxx |
  remark| string | 否 | 备注 | 备注信息 |
- companyId| int | 是 | 公司Id | 1 |
+ companyId| int | 是 | 公司Id | 3811 |
 
 ###响应：
 
 参数名 | 类型 | 描述 
 --------- | ------- |------
- code|int | 响应码，详见“ResultModel响应对象模型”说明  |
+ code|int | 响应码，详见“ResultModel响应模型”，https://api.byrobot.cn/doc/v2/#6af18eb20f  |
  data|int | 黑名单id |
- resultMsg| String |响应信息，详见“ResultModel响应对象模型”说明|
- errorStackTrace| String |跟踪信息，详见“ResultModel响应对象模型”说明 |
+ resultMsg| String |响应信息，详见“ResultModel对模型”|
+ errorStackTrace| String |跟踪信息，详见“ResultModel对象模型” |
  
  
  

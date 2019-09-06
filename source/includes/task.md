@@ -81,7 +81,7 @@ POST
 
 参数名 | 类型 | 是否必须 | 描述 | 示例 
 --------- | ------- |------- | ------ |----------
- companyId| int| 是 | 公司Id| 1 |
+ companyId| int| 是 | 公司Id| 3811 |
  taskName| String| 是 |任务名称| 测试API任务 |
  taskType| int| 是 | 任务类型, 1-定时,2-手动| 1 |
  startDate| String| 否 | 任务开始日期（定时任务必填）| "2017-10-19"  |˙
@@ -89,9 +89,9 @@ POST
  workingEndTime| String| 否 | 可拨打结束时间| 22:00 |
  breakStartTime| String| 否 | 暂时停止开始时间,对应百应页面创建任务时的不拨打时段的开始时间,到达这个时间点后,任务将会自动暂停| 12:00 |
  breakEndTime| String| 否 | 暂时停止结束时间,对应百应页面创建任务时的不拨打时段的结束时间,到达这个时间点后,任务将会再次启动| 13:00 |
- userPhoneIds| List| 是 | 主叫号码Id(线路Id）| [1] |
- robotDefId| int| 是 | 机器人id| 1 |
- callType| int| 是 | 外呼方式，对应主叫号码(线路)类型枚举| 1 |
+ userPhoneIds| List| 是 | 主叫号码Id,获取主叫电话列表接口可获取到| [20123] |
+ robotDefId| int| 是 | 机器人id，获取机器人话术列表接口可获取| 83754 |
+ callType| int| 是 | 外呼方式，对应主叫号码(线路)类型：2、1、0| 2|
  smsType| int |否| 是否发送挂机短信：0-否，1-是 |
  smsSendLevel| List<String> | 否 | 发送短信的意向等级，固定值：A级(有明确意向)、B级(可能有意向)、C级(明确拒绝)、D级(用户忙)、E级(拨打失败)、F级(无效客户)
  smsTemplateId| int | 否 | 短信模版id，只能使用不含变量的短信模版
@@ -99,10 +99,11 @@ POST
  remark| String| 否 | 备注| 测试|
  repeatCall|boolean|否|是否开启重拨 默认false 关闭 |
  repeatCallRule|list|否|重拨详细规则|重拨详细规则，请看json入参
- phoneStatus|int|否|通话状态枚举|
+ phoneStatus|int|否|通话状态枚举,参考本文 3. 开启重拨需要的枚举|
  times|int|否|重拨次数(1-5)|
  interval|int|否|间隔时间(0-120min)|
- defaultIntentionRule|boolean|否|是否使用默认客户分配规则,默认false,见页面创建任务入口:设置客户自动处理规则右侧的"存为默认规则"|false
+ defaultIntentionRule|boolean|否|是否使用默认客户分配规则,传入true，不传默认false|true
+ openElasticity|boolean|是否开启弹性,默认false|false|
  
 
 
@@ -146,7 +147,7 @@ POST
 
 参数名 | 类型 | 是否必须 | 描述 | 示例 
 --------- | ------- |------- | ------ |----------
- taskId| int| 是 | 任务Id| 1 |
+ taskId| int| 是 | 任务Id| 13487 |
 
 
 ###响应：
@@ -187,7 +188,7 @@ POST
  
  参数名 | 类型 | 是否必须 | 描述 | 示例 
  --------- | ------- |------- | ------ |----------
-  taskId| int| 是 | 任务Id| 1 |
+  taskId| int| 是 | 任务Id| 13487|
  
  
 ###响应：
@@ -228,7 +229,7 @@ POST
  
  参数名 | 类型 | 是否必须 | 描述 | 示例 
  --------- | ------- |------- | ------ |----------
-  taskId| int| 是 | 任务Id| 1 |
+  taskId| int| 是 | 任务Id| 13487 |
  
  
 ###响应：
@@ -247,7 +248,7 @@ POST
 
 ```
 {
-  "taskId": "1"
+  "taskId": "13487"
 }
 ```
 >返回对象示例：
@@ -275,7 +276,7 @@ POST
  
  参数名 | 类型 | 是否必须 | 描述 | 示例 
  --------- | ------- |------- | ------ |----------
-  taskId| String| 是 | 删除任务| 1 |  
+  taskId| String| 是 | 删除任务| 13487 |  
 ###响应：
  
  参数名 | 类型 | 描述 |
@@ -302,15 +303,13 @@ POST
 		{
 			"name":"测试0",
 			"phone":"18311110000",
-			"properties":{  //客户额外信息，如果话术中包含变量，则需要在properties中加上对应字段，map的key和话术中的变量保持一致。如果话术没有变量，则不要properties
-				"real_name":"real"
+			"properties":{"还款金额":"888","user_id":"33542"
 			}
 		},
-		{
-			"name":"测试1",
-			"phone":"18311112222",
-			"properties":{  //客户额外信息，如果话术中包含变量，则需要在properties中加上对应字段，map的key和话术中的变量保持一致。如果话术没有变量，则不要properties
-				"real_name":"real"
+			{
+			"name":"测试0",
+			"phone":"18311110000",
+			"properties":{"还款金额":"888","user_id":"33542"
 			}
 		}
 	]
@@ -362,15 +361,20 @@ POST
  
  参数名 | 类型 | 是否必须 | 描述 | 示例 
  --------- | ------- |------- | ------ |----------
-  companyId| int| 是 | 公司id| 1 |
-  taskId| int| 是 | 任务Id| 1 |
+  companyId| int| 是 | 公司id| 3212 |
+  taskId| int| 是 | 任务Id| 13487 |
   name| String| 是 | 客户名称| 张三 |
   phone| String| 是 | 客户电话| 13998987676 |
-  properties| Map<String,String>| 否 | 客户自定义额外信息| 必须包含所有的话术变量（话术创建页面可查看），百应回传该参数，请看json入参示例 |
+  properties| Map<String,String>| 否 |话术变量;自定义信息|{"还款金额":"888","user_id":"33542"}|
   forceTransferCustomer|Integer|否|是否强制转移客户 1：是 0：否（默认1）| 1|
   
   <aside class="success">
-   forceTransferCustomer字段使用方式（默认强制转移）
+   1、properties 当机器人话术含变量时（除 客户名称、联系方式 这两个默认变量外）,如$还款金额，需要通过该字段入参 ; 同时该字段也支持传入自定义参数如user_id
+   |{"还款金额":"888","user_id":"33542"}|
+   
+   话术变量可通过“查询话术变量 task/getSceneVariables” 接口 查到
+
+   2、forceTransferCustomer字段使用方式（默认强制转移）
    有多个子账号（团队成员）情况下，客户【a】被子账号A跟进，此时通过api向子账号B创建的任务中导入客户【a】
    会因为跟进人不是子账号B导致失败，如果forceTransferCustomer设置为1，则会强制将客户【a】导入到子账号B
    创建的任务中，并且将客户【a】分配给子账号B
@@ -425,7 +429,7 @@ POST
   "callType":1,
   //并发数(ai坐席数)
   "concurrencyQuota":2,
-  //多并发数(专业版及以上,最大100)
+  //多并发数(专业版及以上,最大100，并发数不能超过坐席的2倍)
   "concurrencyPhone":4,
   //外呼开始日期
   "startDate":"2018-12-12",
@@ -478,12 +482,12 @@ POST
 
 参数名 | 类型 | 是否必须 | 描述 | 示例 
 --------- | ------- |------- | ------ |------
- companyId| int| 是 | 公司Id| 1 |
- taskId| int| 是 | 任务Id| 1 |
- taskName| String| 是 | 任务名称| 1 |
+ companyId| int| 是 | 公司Id| 3212 |
+ taskId| int| 是 | 任务Id| 13487 |
+ taskName| String| 是 | 任务名称| test |
  taskType| int| 是 | 任务类型| 1 |
- userPhoneIds| int| 是 | 主叫号码Id(线路Id）| 1 |
- callType| int| 是 | 外呼方式，对应主叫号码(线路)类型枚举| 1 |
+ userPhoneIds| int| 是 | 主叫号码Id| 1 |
+ callType| int| 是 | 外呼方式，对应主叫号码类型枚举| 1 |
  concurrencyQuota| int| 是 | 坐席数| 1 |
  smsType| int |否| 是否发送挂机短信：0-否，1-是 |
  smsSendLevel| List<String> | 否 | 发送短信的意向等级，固定值：A级(有明确意向)、B级(可能有意向)、C级(明确拒绝)、D级(用户忙)、E级(拨打失败)、F级(无效客户)
@@ -497,6 +501,7 @@ POST
  breakEndTime|String|否|暂时停止结束时间,对应百应页面创建任务时的不拨打时段的结束时间，到达这个时间点后 任务将会再次启动|"14:00"|
  repeatCall|boolean|否|是否开启重拨 默认false 关闭 |
  repeatCallRule|list|否|重拨详细规则，请看json入参|
+ openElasticity|boolean|是否开启弹性,默认false|false|
 
 
 ###响应：
@@ -557,12 +562,12 @@ POST
  
  参数名 | 类型 | 是否必须 | 描述 | 示例 
  --------- | ------- |------- | ------ |----------
-  mobile| String| 是 | 客户手机号| 1 |  
-  companyId| int| 是 | 公司Id| 1 |  
+  mobile| String| 是 | 客户手机号| 13567889900 |  
+  companyId| int| 是 | 公司Id| 3212 |  
   variables| Map<String,String>| 否 |  1.变量（如果话术内设置变量则需要传入）2.不传值情况下需要保留字段名| 1 |      
-  robotDefId| int| 是 | 机器人Id | 1 |
-  sceneDefId| int| 是 | 场景Id | 1 |  
-  sceneRecordId| int| 是 | 场景录音id | 1 |    
+  robotDefId| int| 是 | 机器人Id | 34143 |
+  sceneDefId| int| 是 | 场景Id | 13442 |  
+  sceneRecordId| int| 是 | 场景录音id | 12222|    
   userName|String|否|客户姓名|1|
  
 ###响应：
@@ -610,8 +615,8 @@ POST
  
  参数名 | 类型 | 是否必须 | 描述 | 示例 
  --------- | ------- |------- | ------ |----------
-  companyId| int| 是 | 公司Id| 1 |  
-  sceneDefId| int | 是 | 场景Id|1|
+  companyId| int| 是 | 公司Id| 3421 |  
+  sceneDefId| int | 是 | 场景Id|22341|
  
 ###响应：
  
