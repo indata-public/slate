@@ -302,9 +302,9 @@ GET
  companyId| int  |  公司id |
  name| String | 短信模版名称 |
  smsTemplateSignId| int | 模板签名id |
- type| int | 短信类型：1-通知类，2-营销类, 3-验证码, 4-金融类 |
+ type| int | 短信类型：1-通知类, 2-营销类, 3-验证码, 4-金融类 |
  content|String|短信模板内容|
- status|int|审核状态:1-审核中，2-审核通过，3-审核不通过|
+ status|int|审核状态:1-审核中, 2-审核通过, 3-审核不通过|
  failReason|String|审核结果备注|
  smsTemplateSignName|String|模板签名名称|
  gmtCreate|Date|创建时间|
