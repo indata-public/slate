@@ -203,7 +203,7 @@ GET
 参数名 | 类型 | 是否必须 | 描述 | 示例 
 --------- | ------- |------- | ------ |------
  companyId| int| 是 | 公司Id| 1 |
- robotStatus| int| 否 | 0：所有话术，1：已上线话术，默认0| 1 |
+ robotStatus| int| 否 | 0：所有话术，1：已上线话术，2：查询发布过的话术(包括已上线和上线后重新修改的话术)，默认0| 1 |
  
 
 ###响应：
@@ -223,7 +223,97 @@ GET
  resultMsg| String |错误信息，详见“ResultModel响应对象模型”说明 |
  errorStackTrace| String |跟踪信息，详见“ResultModel响应对象模型”说明 |
  
+##获取公司的短信模版
+
+###功能说明：
+
+通过接口可以获取指定公司的短信模版 
+
+>返回对象示例：
+
+```
+{
+    "data":{
+        "pageNum":1,
+        "pageSize":20,
+        "size":20,
+        "orderBy":null,
+        "startRow":0,
+        "endRow":19,
+        "total":51,
+        "pages":3,
+        "list":[
+            {
+                "smsTemplateId":1,
+                "companyId":1,
+                "name":"测试- 22",
+                "smsTemplateSignId":2004,
+                "type":1,
+                "content":"【浙江百应】亲爱的用户，您的包裹已经顺利清关",
+                "status":2,
+                "failReason":"百应人工审核通过",
+                "smsTemplateSignName":"浙江百应",
+                "gmtCreate":"2019-07-22 11:27:00",
+                "gmtModified":"2019-07-23 15:11:47"
+            },
+            {
+                "smsTemplateId":2,
+                "companyId":2,
+                "name":"还呗-龙举106-测试",
+                "smsTemplateSignId":2087,
+                "type":4,
+                "content":"测试模版",
+                "status":2,
+                "failReason":"百应人工审核通过",
+                "smsTemplateSignName":"测试",
+                "gmtCreate":"2019-07-23 10:37:04",
+                "gmtModified":"2019-07-23 10:37:23"
+            }
+        ]
+    },
+    "code":200,
+    "msg":"查询成功",
+    "success":true
+}
+
+```
+
+###请求：
+
+URL：http://api.byrobot.cn/openapi/v1/sms/template/list
+
+###请求方法：
+
+GET
+
+
+###请求参数:
+
+参数名 | 类型 | 是否必须 | 描述 | 示例 
+--------- | ------- |------- | ------ |------
+ companyId| int| 是 | 公司Id| 1 |
+ status| int| 否 | 1-审核中 2-审核通过 3-审核未通过，不传表示查询所有| 1 |
  
+
+###响应：
+
+参数名 | 类型 | 描述 
+--------- | ------- |------
+ code|int | 响应码，详见“ResultModel响应对象模型”说明 |
+ data|list |返回结果， 详见“ResultModel响应对象模型”说明 |
+ smsTemplateId|int | 机器人Id |
+ companyId| int  |  机器人名称 |
+ name| String | 场景Id |
+ smsTemplateSignId| int | 场景录音id |
+ type| int | 录音名称 |
+ content|String|一级行业名|
+ status|int|二级行业名|
+ failReason|String|修改时间|
+ smsTemplateSignName|String|修改时间|
+ gmtCreate|Date|修改时间|
+ gmtModified|Date|修改时间|
+ resultMsg| String |错误信息，详见“ResultModel响应对象模型”说明 |
+ errorStackTrace| String|跟踪信息，详见“ResultModel响应对象模型”说明|
  
  ##获取公司AI坐席概况接口
  

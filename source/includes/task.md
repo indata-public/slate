@@ -93,6 +93,8 @@ POST
  robotDefId| int| 是 | 机器人id| 1 |
  callType| int| 是 | 外呼方式，对应主叫号码(线路)类型枚举| 1 |
  smsType| int |否| 是否发送挂机短信：0-否，1-是 |
+ smsSendLevel| List<String> | 否 | 发送短信的意向等级，固定值：A级(有明确意向)、B级(可能有意向)、C级(明确拒绝)、D级(用户忙)、E级(拨打失败)、F级(无效客户)
+ smsTemplateId| int | 否 | 短信模版id，只能使用不含变量的短信模版
  concurrencyQuota| int| 否 | ai坐席数,默认1,一个坐席对应一个机器人| 1 |
  remark| String| 否 | 备注| 测试|
  repeatCall|boolean|否|是否开启重拨 默认false 关闭 |
@@ -483,6 +485,9 @@ POST
  userPhoneIds| int| 是 | 主叫号码Id(线路Id）| 1 |
  callType| int| 是 | 外呼方式，对应主叫号码(线路)类型枚举| 1 |
  concurrencyQuota| int| 是 | 坐席数| 1 |
+ smsType| int |否| 是否发送挂机短信：0-否，1-是 |
+ smsSendLevel| List<String> | 否 | 发送短信的意向等级，固定值：A级(有明确意向)、B级(可能有意向)、C级(明确拒绝)、D级(用户忙)、E级(拨打失败)、F级(无效客户)
+ smsTemplateId| int | 否 | 短信模版id 
  concurrencyPhone| int| 否 | 并发量 | 1|
  startDate| String|否|开始日期|"2018-12-13"|
  workingStartTime|String|否|任务开始时间|"09:00"|
