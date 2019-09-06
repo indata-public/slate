@@ -296,8 +296,8 @@ GET
 
 参数名 | 类型 | 描述 
 --------- | ------- |------
- code|int | 响应码，详见“ResultModel响应对象模型”说明 |
- data|list |返回结果， 详见“ResultModel响应对象模型”说明 |
+ code|int | 响应码，详见“ResultModel对象模型”，https://api.byrobot.cn/doc/v2/#6af18eb20f |
+ data|list(String) |返回结果， 详见“ResultModel对象模型” |
  smsTemplateId|int | 短信模版id |
  companyId| int  |  公司id |
  name| String | 短信模版名称 |
