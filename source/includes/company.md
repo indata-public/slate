@@ -299,7 +299,7 @@ GET
  code|int | 响应码，详见“ResultModel响应对象模型”说明 |
  data|list |返回结果， 详见“ResultModel响应对象模型”说明 |
  smsTemplateId|int | 短信模版id |
- companyId| int  |  公司名称 |
+ companyId| int  |  公司id |
  name| String | 短信模版名称 |
  smsTemplateSignId| int | 模板签名id |
  type| int | 短信类型：1-通知类，2-营销类 , 3-验证码 4-金融类 |
