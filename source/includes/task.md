@@ -106,6 +106,7 @@ POST
  smsSendLevel| List<String> | 否 | 发送短信的意向等级，固定值：A级(有明确意向)、B级(可能有意向)、C级(明确拒绝)、D级(用户忙)、E级(拨打失败)、F级(无效客户)
  smsTemplateId| int | 否 | 短信模版id，只能使用不含变量的短信模版
  concurrencyQuota| int| 否 | ai坐席数,默认1,一个坐席对应一个机器人| 1 |
+ phoneNum| int| 否 | 多并发数 | 1 |
  remark| String| 否 | 备注| 测试|
  repeatCall|boolean|否|是否开启重拨 默认false 关闭 |
  repeatCallRule|list|否|重拨详细规则|重拨详细规则，请看json入参
