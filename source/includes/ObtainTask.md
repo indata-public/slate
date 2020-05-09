@@ -687,7 +687,7 @@ GET
   callInstanceId| long | 通话记录Id |
   companyId| int | 公司id |
   callJobId| int |任务id|
-  customerId| int | 客户id,当前通话记录对应的客户 |
+  customerId| long | 客户id,当前通话记录对应的客户 |
   customerTelephone| String | 客户手机 |
   customerName| String | 客户名称 |
   finishStatus| String | 已完成通话状态枚举 |

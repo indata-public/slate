@@ -192,7 +192,7 @@ Content-Type : text/plain;charset=utf-8
   companyId| int |公司ID|
   callUserId| int | 主叫用户ID |
   callJobId| int | 任务Id |
-  customerId| int |客户Id|
+  customerId| long |客户Id|
   customerTelephone|String|客户手机号|
   customerName|String|客户名称|
   status| int | 通话实例状态枚举 |
