@@ -377,18 +377,12 @@ POST
   name| String| 是 | 客户名称| 张三 |
   phone| String| 是 | 客户电话| 13998987676 |
   properties| Map<String,String>| 否 |话术变量;自定义信息|{"还款金额":"888","user_id":"33542"}|
-  forceTransferCustomer|Integer|否|是否强制转移客户 1：是 0：否（默认1）| 1|
   
   <aside class="success">
    1、properties 当机器人话术含变量时（除 客户名称、联系方式 这两个默认变量外）,如$还款金额，需要通过该字段入参 ; 同时该字段也支持传入自定义参数如user_id
    |{"还款金额":"888","user_id":"33542"}|
    
    话术变量可通过“查询话术变量 task/getSceneVariables” 接口 查到
-
-   2、forceTransferCustomer字段使用方式（默认强制转移）
-   有多个子账号（团队成员）情况下，客户【a】被子账号A跟进，此时通过api向子账号B创建的任务中导入客户【a】
-   会因为跟进人不是子账号B导致失败，如果forceTransferCustomer设置为1，则会强制将客户【a】导入到子账号B
-   创建的任务中，并且将客户【a】分配给子账号B
   </aside>
  
 
